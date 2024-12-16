@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+option go_package = "github.com/YukiOnishi1129/checkpicks-protocol-buffers/checkpicks-rpc-go/grpc/common";
+
+package checkpicks.common.v1;
+
+message PageInfo {
+  string end_cursor = 1;
+  bool has_next_page = 2;
+}
