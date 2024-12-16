@@ -1,0 +1,24 @@
+{
+  "name": "checkpicks-rpc-ts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "generate:rpc": "grpc_tools_node_protoc --js_out=import_style=commonjs,binary:./src/grpc --grpc_out=grpc_js:./src/grpc --ts_out=grpc_js:./src/grpc -I ../proto ../proto/**/*.proto"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/google-protobuf": "^3.15.12",
+    "grpc_tools_node_protoc_ts": "^5.3.3",
+    "grpc-tools": "^1.12.4",
+    "protoc-gen-ts": "^0.8.7"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.12.4",
+    "@grpc/proto-loader": "^0.7.13",
+    "google-protobuf": "^3.21.4",
+    "ts-proto": "^2.6.0"
+  }
+}

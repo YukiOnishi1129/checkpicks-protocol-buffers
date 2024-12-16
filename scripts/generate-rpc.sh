@@ -22,3 +22,16 @@ protoc \
   --go_out=paths=source_relative:${PROTO_OUT_DIR_GO_RPC} \
   --go-grpc_out=paths=source_relative,require_unimplemented_servers=false:${PROTO_OUT_DIR_GO_RPC} \
   ${API_PROTO_FILES};
+
+
+  # Generate checkpicks rpc ts
+## Directory to write generated code (.d.ts files)
+OUT_DIR_GRPC_TS="${ROOT_DIR}/checkpicks-rpc-ts/src/grpc"
+
+## Clean all existing generated files
+rm -r "${OUT_DIR_GRPC_TS}"
+mkdir "${OUT_DIR_GRPC_TS}"
+
+
+cd "${ROOT_DIR}/checkpicks-rpc-ts"
+npm run generate:rpc > /dev/null 2>&1 || exit 1
