@@ -7,6 +7,8 @@ package checkpicks.content.v1;
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
+import "common/common.proto";
+
 
 service ContentService {
   rpc GetArticles(GetArticlesRequest) returns (GetArticlesResponse);
@@ -30,7 +32,7 @@ message GetArticlesRequest {
 
 message GetArticlesResponse {
   repeated ArticleEdge articlesEdge = 1;
-  PageInfo page_info = 2;
+  checkpicks.common.v1.PageInfo page_info = 2;
 }
 
 message CreateArticleResponse {
@@ -59,7 +61,7 @@ message GetArticleOGPRequest{
 
 message GetFeedsResponse {
   repeated FeedEdge feed_edge = 1;
-  PageInfo page_info = 2;
+  checkpicks.common.v1.PageInfo page_info = 2;
 }
 
 message GetFeedsRequest {
@@ -78,12 +80,6 @@ message GetFeedResponse {
 message GetFeedRequest {
   string feed_id = 1;
   string user_id = 2;
-}
-
-
-message PageInfo {
-  string end_cursor = 1;
-  bool has_next_page = 2;
 }
 
 message Feed {

@@ -8,6 +8,7 @@ import * as jspb from "google-protobuf";
 import * as google_protobuf_empty_pb from "google-protobuf/google/protobuf/empty_pb";
 import * as google_protobuf_timestamp_pb from "google-protobuf/google/protobuf/timestamp_pb";
 import * as google_protobuf_wrappers_pb from "google-protobuf/google/protobuf/wrappers_pb";
+import * as common_common_pb from "../common/common_pb";
 
 export class GetBookmarksResponse extends jspb.Message { 
     clearBookmarkedgeList(): void;
@@ -17,8 +18,8 @@ export class GetBookmarksResponse extends jspb.Message {
 
     hasPageInfo(): boolean;
     clearPageInfo(): void;
-    getPageInfo(): PageInfo | undefined;
-    setPageInfo(value?: PageInfo): GetBookmarksResponse;
+    getPageInfo(): common_common_pb.PageInfo | undefined;
+    setPageInfo(value?: common_common_pb.PageInfo): GetBookmarksResponse;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): GetBookmarksResponse.AsObject;
@@ -33,30 +34,7 @@ export class GetBookmarksResponse extends jspb.Message {
 export namespace GetBookmarksResponse {
     export type AsObject = {
         bookmarkedgeList: Array<BookmarkEdge.AsObject>,
-        pageInfo?: PageInfo.AsObject,
-    }
-}
-
-export class PageInfo extends jspb.Message { 
-    getEndCursor(): string;
-    setEndCursor(value: string): PageInfo;
-    getHasNextPage(): boolean;
-    setHasNextPage(value: boolean): PageInfo;
-
-    serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): PageInfo.AsObject;
-    static toObject(includeInstance: boolean, msg: PageInfo): PageInfo.AsObject;
-    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: PageInfo, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): PageInfo;
-    static deserializeBinaryFromReader(message: PageInfo, reader: jspb.BinaryReader): PageInfo;
-}
-
-export namespace PageInfo {
-    export type AsObject = {
-        endCursor: string,
-        hasNextPage: boolean,
+        pageInfo?: common_common_pb.PageInfo.AsObject,
     }
 }
 

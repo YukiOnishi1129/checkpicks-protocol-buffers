@@ -6,6 +6,7 @@ var bookmark_bookmark_pb = require('../bookmark/bookmark_pb.js');
 var google_protobuf_empty_pb = require('google-protobuf/google/protobuf/empty_pb.js');
 var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/timestamp_pb.js');
 var google_protobuf_wrappers_pb = require('google-protobuf/google/protobuf/wrappers_pb.js');
+var common_common_pb = require('../common/common_pb.js');
 
 function serialize_checkpicks_bookmark_v1_CreateBookmarkForUploadArticleRequest(arg) {
   if (!(arg instanceof bookmark_bookmark_pb.CreateBookmarkForUploadArticleRequest)) {

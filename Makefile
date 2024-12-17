@@ -2,5 +2,5 @@ empty:
 	echo "empty"
 
 ## generate rpc
-gen-rpc:
+generate-rpc:
 	$(shell ./scripts/generate-rpc.sh)

@@ -8,6 +8,7 @@ import * as jspb from "google-protobuf";
 import * as google_protobuf_empty_pb from "google-protobuf/google/protobuf/empty_pb";
 import * as google_protobuf_timestamp_pb from "google-protobuf/google/protobuf/timestamp_pb";
 import * as google_protobuf_wrappers_pb from "google-protobuf/google/protobuf/wrappers_pb";
+import * as common_common_pb from "../common/common_pb";
 
 export class GetFavoriteArticleFoldersRequest extends jspb.Message { 
     getUserId(): string;
@@ -79,8 +80,8 @@ export class GetFavoriteArticleFoldersResponse extends jspb.Message {
 
     hasPageInfo(): boolean;
     clearPageInfo(): void;
-    getPageInfo(): PageInfo | undefined;
-    setPageInfo(value?: PageInfo): GetFavoriteArticleFoldersResponse;
+    getPageInfo(): common_common_pb.PageInfo | undefined;
+    setPageInfo(value?: common_common_pb.PageInfo): GetFavoriteArticleFoldersResponse;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): GetFavoriteArticleFoldersResponse.AsObject;
@@ -95,7 +96,7 @@ export class GetFavoriteArticleFoldersResponse extends jspb.Message {
 export namespace GetFavoriteArticleFoldersResponse {
     export type AsObject = {
         favoriteArticleFoldersEdgeList: Array<FavoriteArticleFolderEdge.AsObject>,
-        pageInfo?: PageInfo.AsObject,
+        pageInfo?: common_common_pb.PageInfo.AsObject,
     }
 }
 
@@ -145,8 +146,8 @@ export class GetFavoriteAllFolderArticlesResponse extends jspb.Message {
 
     hasPageInfo(): boolean;
     clearPageInfo(): void;
-    getPageInfo(): PageInfo | undefined;
-    setPageInfo(value?: PageInfo): GetFavoriteAllFolderArticlesResponse;
+    getPageInfo(): common_common_pb.PageInfo | undefined;
+    setPageInfo(value?: common_common_pb.PageInfo): GetFavoriteAllFolderArticlesResponse;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): GetFavoriteAllFolderArticlesResponse.AsObject;
@@ -161,7 +162,7 @@ export class GetFavoriteAllFolderArticlesResponse extends jspb.Message {
 export namespace GetFavoriteAllFolderArticlesResponse {
     export type AsObject = {
         favoriteAllFolderArticleEdgeList: Array<FavoriteAllFolderArticleEdge.AsObject>,
-        pageInfo?: PageInfo.AsObject,
+        pageInfo?: common_common_pb.PageInfo.AsObject,
     }
 }
 
@@ -378,8 +379,8 @@ export class GetFavoriteArticlesResponse extends jspb.Message {
 
     hasPageInfo(): boolean;
     clearPageInfo(): void;
-    getPageInfo(): PageInfo | undefined;
-    setPageInfo(value?: PageInfo): GetFavoriteArticlesResponse;
+    getPageInfo(): common_common_pb.PageInfo | undefined;
+    setPageInfo(value?: common_common_pb.PageInfo): GetFavoriteArticlesResponse;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): GetFavoriteArticlesResponse.AsObject;
@@ -394,7 +395,7 @@ export class GetFavoriteArticlesResponse extends jspb.Message {
 export namespace GetFavoriteArticlesResponse {
     export type AsObject = {
         favoriteArticlesEdgeList: Array<FavoriteArticleEdge.AsObject>,
-        pageInfo?: PageInfo.AsObject,
+        pageInfo?: common_common_pb.PageInfo.AsObject,
     }
 }
 
@@ -862,28 +863,5 @@ export namespace FavoriteArticleFolder {
         createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
         updatedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
         favoriteArticlesList: Array<FavoriteArticle.AsObject>,
-    }
-}
-
-export class PageInfo extends jspb.Message { 
-    getEndCursor(): string;
-    setEndCursor(value: string): PageInfo;
-    getHasNextPage(): boolean;
-    setHasNextPage(value: boolean): PageInfo;
-
-    serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): PageInfo.AsObject;
-    static toObject(includeInstance: boolean, msg: PageInfo): PageInfo.AsObject;
-    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: PageInfo, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): PageInfo;
-    static deserializeBinaryFromReader(message: PageInfo, reader: jspb.BinaryReader): PageInfo;
-}
-
-export namespace PageInfo {
-    export type AsObject = {
-        endCursor: string,
-        hasNextPage: boolean,
     }
 }

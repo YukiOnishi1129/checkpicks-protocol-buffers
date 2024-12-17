@@ -6,6 +6,7 @@ var favorite_favorite_pb = require('../favorite/favorite_pb.js');
 var google_protobuf_empty_pb = require('google-protobuf/google/protobuf/empty_pb.js');
 var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/timestamp_pb.js');
 var google_protobuf_wrappers_pb = require('google-protobuf/google/protobuf/wrappers_pb.js');
+var common_common_pb = require('../common/common_pb.js');
 
 function serialize_checkpicks_favorite_v1_CreateFavoriteArticleFolderRequest(arg) {
   if (!(arg instanceof favorite_favorite_pb.CreateFavoriteArticleFolderRequest)) {

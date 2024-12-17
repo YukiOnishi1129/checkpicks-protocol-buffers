@@ -4,7 +4,7 @@
 // - protoc             v3.20.3
 // source: bookmark/bookmark.proto
 
-package bookmark
+package grpcbookmark
 
 import (
 	context "context"

@@ -8,6 +8,8 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
+import "common/common.proto";
+
 service FavoriteService {
     rpc GetFavoriteArticleFolders(GetFavoriteArticleFoldersRequest) returns (GetFavoriteArticleFoldersResponse);
     rpc GetFavoriteArticleFoldersByArticleId(GetFavoriteArticleFoldersByArticleIdRequest) returns (GetFavoriteArticleFoldersResponse);
@@ -37,7 +39,7 @@ message GetFavoriteArticleFoldersRequest {
 
 message GetFavoriteArticleFoldersResponse {
     repeated FavoriteArticleFolderEdge favorite_article_folders_edge = 1;
-    PageInfo page_info = 2;
+    checkpicks.common.v1.PageInfo page_info = 2;
 }
 
 message GetFavoriteAllFolderArticlesRequest {
@@ -49,7 +51,7 @@ message GetFavoriteAllFolderArticlesRequest {
 
 message GetFavoriteAllFolderArticlesResponse {
     repeated FavoriteAllFolderArticleEdge favorite_all_folder_article_edge = 1;
-    PageInfo page_info = 2;
+    checkpicks.common.v1.PageInfo page_info = 2;
 }
 
 message GetFavoriteArticleFolderResponse {
@@ -95,7 +97,7 @@ message DeleteFavoriteArticleFolderRequest {
 
 message GetFavoriteArticlesResponse {
     repeated FavoriteArticleEdge favorite_articles_edge = 1;
-    PageInfo page_info = 2;
+    checkpicks.common.v1.PageInfo page_info = 2;
 }
 
 message GetFavoriteArticlesRequest {
@@ -202,8 +204,3 @@ message FavoriteArticleFolder {
     google.protobuf.Timestamp updated_at = 6;
     repeated FavoriteArticle favorite_articles = 7;
 }
-
-message PageInfo {
-    string end_cursor = 1;
-    bool has_next_page = 2;
-  }

@@ -1,12 +1,14 @@
 syntax = "proto3";
 
-option go_package = "github.com/YukiOnishi1129/checkpicks-protocol-buffers/checkpicks-rpc-go/grpc/bookmark";
+option go_package = "github.com/YukiOnishi1129/checkpicks-protocol-buffers/checkpicks-rpc-go/grpcbookmark";
 
 package checkpicks.bookmark.v1;
 
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
+
+import "common/common.proto";
 
 
 service BookmarkService {
@@ -19,13 +21,8 @@ service BookmarkService {
 
 message GetBookmarksResponse {
     repeated BookmarkEdge bookmarkEdge = 1;
-    PageInfo page_info = 2;
+    checkpicks.common.v1.PageInfo page_info = 2;
 }
-
-message PageInfo {
-    string end_cursor = 1;
-    bool has_next_page = 2;
-  }
 
 message GetBookmarksRequest {
     string user_id = 1;

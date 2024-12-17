@@ -5,6 +5,7 @@ var grpc = require('@grpc/grpc-js');
 var content_content_pb = require('../content/content_pb.js');
 var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/timestamp_pb.js');
 var google_protobuf_wrappers_pb = require('google-protobuf/google/protobuf/wrappers_pb.js');
+var common_common_pb = require('../common/common_pb.js');
 
 function serialize_checkpicks_content_v1_CreateArticleResponse(arg) {
   if (!(arg instanceof content_content_pb.CreateArticleResponse)) {
