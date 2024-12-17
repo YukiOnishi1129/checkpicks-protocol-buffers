@@ -1,14 +1,14 @@
 {
-  "name": "checkpicks-rpc-ts",
+  "name": "@checkpicks-rpc-ts",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "generate:rpc": "grpc_tools_node_protoc --js_out=import_style=commonjs,binary:./src/grpc --grpc_out=grpc_js:./src/grpc --ts_out=grpc_js:./src/grpc -I ../proto ../proto/**/*.proto"
   },
   "keywords": [],
-  "author": "",
+  "author": "YukiOnishi1129 (https://github.com/YukiOnishi1129)",
   "license": "ISC",
-  "description": "",
+  "description": "grpc for checkpicks microservices",
   "devDependencies": {
     "@types/google-protobuf": "^3.15.12",
     "grpc_tools_node_protoc_ts": "^5.3.3",
