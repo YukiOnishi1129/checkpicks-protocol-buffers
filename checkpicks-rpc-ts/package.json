@@ -10,7 +10,7 @@
     "checkpicks"
   ],
   "author": "YukiOnishi1129 (https://github.com/YukiOnishi1129)",
-  "license": "ISC",
+  "license": "MIT",
   "description": "grpc for checkpicks microservices",
   "devDependencies": {
     "@types/google-protobuf": "^3.15.12",
