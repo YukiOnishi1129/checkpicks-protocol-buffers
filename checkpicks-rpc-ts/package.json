@@ -1,5 +1,5 @@
 {
-  "name": "@yukionishi1129/checkpicks-rpc-ts",
+  "name": "@checkpicks/checkpicks-rpc-ts",
   "version": "1.0.0",
   "scripts": {
     "generate:rpc": "grpc_tools_node_protoc --js_out=import_style=commonjs,binary:./src/grpc --grpc_out=grpc_js:./src/grpc --ts_out=grpc_js:./src/grpc -I ../proto ../proto/**/*.proto"
