@@ -1,0 +1,20 @@
+{
+    "folders": [
+        {
+            "name": "Proto",
+            "path": "./proto"
+        },
+        {
+            "name": "Go",
+            "path": "./checkpicks-rpc-go"
+        },
+        {
+            "name": "TypeScript",
+            "path": "./checkpicks-rpc-ts/"
+        },
+        {
+            "name": "Root",
+            "path": "./"
+        }
+    ],
+}

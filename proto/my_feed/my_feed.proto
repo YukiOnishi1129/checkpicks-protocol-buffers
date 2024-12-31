@@ -13,6 +13,7 @@ import "content/content.proto";
 
 service MyFeedService {
   rpc GetMyFeedFolders(GetMyFeedFoldersRequest) returns (GetMyFeedFoldersResponse);
+  rpc GetMyFeedFolder(GetMyFeedFolderRequest) returns (GetMyFeedFolderResponse);
   rpc CreateMyFeedFolder(CreateMyFeedFolderRequest) returns (CreateMyFeedFolderResponse);
   rpc UpdateMyFeedFolder(UpdateMyFeedFolderRequest) returns (UpdateMyFeedFolderResponse);
   rpc DeleteMyFeedFolder(DeleteMyFeedFolderRequest) returns (google.protobuf.Empty);
@@ -31,6 +32,15 @@ message GetMyFeedFoldersRequest {
     google.protobuf.StringValue keyword = 2;
     string cursor = 3;
     int64 limit = 4;
+}
+
+message GetMyFeedFolderResponse {
+    MyFeedFolder my_feed_folder = 1;
+}
+
+message GetMyFeedFolderRequest {
+    string user_id = 1;
+    string my_feed_folder_id = 2;
 }
 
 message CreateMyFeedFolderResponse {

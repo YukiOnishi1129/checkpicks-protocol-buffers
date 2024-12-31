@@ -71,6 +71,52 @@ export namespace GetMyFeedFoldersRequest {
     }
 }
 
+export class GetMyFeedFolderResponse extends jspb.Message { 
+
+    hasMyFeedFolder(): boolean;
+    clearMyFeedFolder(): void;
+    getMyFeedFolder(): MyFeedFolder | undefined;
+    setMyFeedFolder(value?: MyFeedFolder): GetMyFeedFolderResponse;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): GetMyFeedFolderResponse.AsObject;
+    static toObject(includeInstance: boolean, msg: GetMyFeedFolderResponse): GetMyFeedFolderResponse.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: GetMyFeedFolderResponse, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): GetMyFeedFolderResponse;
+    static deserializeBinaryFromReader(message: GetMyFeedFolderResponse, reader: jspb.BinaryReader): GetMyFeedFolderResponse;
+}
+
+export namespace GetMyFeedFolderResponse {
+    export type AsObject = {
+        myFeedFolder?: MyFeedFolder.AsObject,
+    }
+}
+
+export class GetMyFeedFolderRequest extends jspb.Message { 
+    getUserId(): string;
+    setUserId(value: string): GetMyFeedFolderRequest;
+    getMyFeedFolderId(): string;
+    setMyFeedFolderId(value: string): GetMyFeedFolderRequest;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): GetMyFeedFolderRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: GetMyFeedFolderRequest): GetMyFeedFolderRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: GetMyFeedFolderRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): GetMyFeedFolderRequest;
+    static deserializeBinaryFromReader(message: GetMyFeedFolderRequest, reader: jspb.BinaryReader): GetMyFeedFolderRequest;
+}
+
+export namespace GetMyFeedFolderRequest {
+    export type AsObject = {
+        userId: string,
+        myFeedFolderId: string,
+    }
+}
+
 export class CreateMyFeedFolderResponse extends jspb.Message { 
 
     hasMyFeedFolder(): boolean;
