@@ -51,6 +51,7 @@ message CreateMyFeedFolderRequest {
     string user_id = 1;
     string title = 2;
     google.protobuf.StringValue description = 3;
+    repeated string feed_id_list = 4;
 }
 
 message UpdateMyFeedFolderResponse {
@@ -63,6 +64,7 @@ message UpdateMyFeedFolderRequest {
     string my_feed_folder_id = 3;
     string title = 4;
     google.protobuf.StringValue description = 5;
+    repeated string feed_id_list = 6;
 }
 
 message UpsertMyFeedListResponse {

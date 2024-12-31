@@ -162,7 +162,7 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.checkpicks.my_feed.v1.CreateMyFeedFolderRequest = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.checkpicks.my_feed.v1.CreateMyFeedFolderRequest.repeatedFields_, null);
 };
 goog.inherits(proto.checkpicks.my_feed.v1.CreateMyFeedFolderRequest, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -204,7 +204,7 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.repeatedFields_, null);
 };
 goog.inherits(proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -1276,6 +1276,13 @@ proto.checkpicks.my_feed.v1.CreateMyFeedFolderResponse.prototype.hasMyFeedFolder
 
 
 
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.checkpicks.my_feed.v1.CreateMyFeedFolderRequest.repeatedFields_ = [4];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -1309,7 +1316,8 @@ proto.checkpicks.my_feed.v1.CreateMyFeedFolderRequest.toObject = function(includ
   var f, obj = {
     userId: jspb.Message.getFieldWithDefault(msg, 1, ""),
     title: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    description: (f = msg.getDescription()) && google_protobuf_wrappers_pb.StringValue.toObject(includeInstance, f)
+    description: (f = msg.getDescription()) && google_protobuf_wrappers_pb.StringValue.toObject(includeInstance, f),
+    feedIdListList: (f = jspb.Message.getRepeatedField(msg, 4)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -1358,6 +1366,10 @@ proto.checkpicks.my_feed.v1.CreateMyFeedFolderRequest.deserializeBinaryFromReade
       var value = new google_protobuf_wrappers_pb.StringValue;
       reader.readMessage(value,google_protobuf_wrappers_pb.StringValue.deserializeBinaryFromReader);
       msg.setDescription(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.addFeedIdList(value);
       break;
     default:
       reader.skipField();
@@ -1408,6 +1420,13 @@ proto.checkpicks.my_feed.v1.CreateMyFeedFolderRequest.serializeBinaryToWriter = 
       3,
       f,
       google_protobuf_wrappers_pb.StringValue.serializeBinaryToWriter
+    );
+  }
+  f = message.getFeedIdListList();
+  if (f.length > 0) {
+    writer.writeRepeatedString(
+      4,
+      f
     );
   }
 };
@@ -1483,6 +1502,43 @@ proto.checkpicks.my_feed.v1.CreateMyFeedFolderRequest.prototype.clearDescription
  */
 proto.checkpicks.my_feed.v1.CreateMyFeedFolderRequest.prototype.hasDescription = function() {
   return jspb.Message.getField(this, 3) != null;
+};
+
+
+/**
+ * repeated string feed_id_list = 4;
+ * @return {!Array<string>}
+ */
+proto.checkpicks.my_feed.v1.CreateMyFeedFolderRequest.prototype.getFeedIdListList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 4));
+};
+
+
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.checkpicks.my_feed.v1.CreateMyFeedFolderRequest} returns this
+ */
+proto.checkpicks.my_feed.v1.CreateMyFeedFolderRequest.prototype.setFeedIdListList = function(value) {
+  return jspb.Message.setField(this, 4, value || []);
+};
+
+
+/**
+ * @param {string} value
+ * @param {number=} opt_index
+ * @return {!proto.checkpicks.my_feed.v1.CreateMyFeedFolderRequest} returns this
+ */
+proto.checkpicks.my_feed.v1.CreateMyFeedFolderRequest.prototype.addFeedIdList = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 4, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.checkpicks.my_feed.v1.CreateMyFeedFolderRequest} returns this
+ */
+proto.checkpicks.my_feed.v1.CreateMyFeedFolderRequest.prototype.clearFeedIdListList = function() {
+  return this.setFeedIdListList([]);
 };
 
 
@@ -1638,6 +1694,13 @@ proto.checkpicks.my_feed.v1.UpdateMyFeedFolderResponse.prototype.hasMyFeedFolder
 
 
 
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.repeatedFields_ = [6];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -1673,7 +1736,8 @@ proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.toObject = function(includ
     userId: jspb.Message.getFieldWithDefault(msg, 2, ""),
     myFeedFolderId: jspb.Message.getFieldWithDefault(msg, 3, ""),
     title: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    description: (f = msg.getDescription()) && google_protobuf_wrappers_pb.StringValue.toObject(includeInstance, f)
+    description: (f = msg.getDescription()) && google_protobuf_wrappers_pb.StringValue.toObject(includeInstance, f),
+    feedIdListList: (f = jspb.Message.getRepeatedField(msg, 6)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -1730,6 +1794,10 @@ proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.deserializeBinaryFromReade
       var value = new google_protobuf_wrappers_pb.StringValue;
       reader.readMessage(value,google_protobuf_wrappers_pb.StringValue.deserializeBinaryFromReader);
       msg.setDescription(value);
+      break;
+    case 6:
+      var value = /** @type {string} */ (reader.readString());
+      msg.addFeedIdList(value);
       break;
     default:
       reader.skipField();
@@ -1794,6 +1862,13 @@ proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.serializeBinaryToWriter = 
       5,
       f,
       google_protobuf_wrappers_pb.StringValue.serializeBinaryToWriter
+    );
+  }
+  f = message.getFeedIdListList();
+  if (f.length > 0) {
+    writer.writeRepeatedString(
+      6,
+      f
     );
   }
 };
@@ -1905,6 +1980,43 @@ proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.prototype.clearDescription
  */
 proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.prototype.hasDescription = function() {
   return jspb.Message.getField(this, 5) != null;
+};
+
+
+/**
+ * repeated string feed_id_list = 6;
+ * @return {!Array<string>}
+ */
+proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.prototype.getFeedIdListList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 6));
+};
+
+
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest} returns this
+ */
+proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.prototype.setFeedIdListList = function(value) {
+  return jspb.Message.setField(this, 6, value || []);
+};
+
+
+/**
+ * @param {string} value
+ * @param {number=} opt_index
+ * @return {!proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest} returns this
+ */
+proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.prototype.addFeedIdList = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 6, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest} returns this
+ */
+proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.prototype.clearFeedIdListList = function() {
+  return this.setFeedIdListList([]);
 };
 
 

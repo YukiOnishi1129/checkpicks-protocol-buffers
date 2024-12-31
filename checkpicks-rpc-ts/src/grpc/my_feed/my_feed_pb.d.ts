@@ -150,6 +150,10 @@ export class CreateMyFeedFolderRequest extends jspb.Message {
     clearDescription(): void;
     getDescription(): google_protobuf_wrappers_pb.StringValue | undefined;
     setDescription(value?: google_protobuf_wrappers_pb.StringValue): CreateMyFeedFolderRequest;
+    clearFeedIdListList(): void;
+    getFeedIdListList(): Array<string>;
+    setFeedIdListList(value: Array<string>): CreateMyFeedFolderRequest;
+    addFeedIdList(value: string, index?: number): string;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): CreateMyFeedFolderRequest.AsObject;
@@ -166,6 +170,7 @@ export namespace CreateMyFeedFolderRequest {
         userId: string,
         title: string,
         description?: google_protobuf_wrappers_pb.StringValue.AsObject,
+        feedIdListList: Array<string>,
     }
 }
 
@@ -206,6 +211,10 @@ export class UpdateMyFeedFolderRequest extends jspb.Message {
     clearDescription(): void;
     getDescription(): google_protobuf_wrappers_pb.StringValue | undefined;
     setDescription(value?: google_protobuf_wrappers_pb.StringValue): UpdateMyFeedFolderRequest;
+    clearFeedIdListList(): void;
+    getFeedIdListList(): Array<string>;
+    setFeedIdListList(value: Array<string>): UpdateMyFeedFolderRequest;
+    addFeedIdList(value: string, index?: number): string;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): UpdateMyFeedFolderRequest.AsObject;
@@ -224,6 +233,7 @@ export namespace UpdateMyFeedFolderRequest {
         myFeedFolderId: string,
         title: string,
         description?: google_protobuf_wrappers_pb.StringValue.AsObject,
+        feedIdListList: Array<string>,
     }
 }
 
