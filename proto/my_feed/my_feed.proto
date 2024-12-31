@@ -4,6 +4,7 @@ option go_package = "github.com/YukiOnishi1129/checkpicks-protocol-buffers/check
 
 package checkpicks.my_feed.v1;
 
+import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
@@ -12,6 +13,12 @@ import "content/content.proto";
 
 service MyFeedService {
   rpc GetMyFeedFolders(GetMyFeedFoldersRequest) returns (GetMyFeedFoldersResponse);
+  rpc CreateMyFeedFolder(CreateMyFeedFolderRequest) returns (CreateMyFeedFolderResponse);
+  rpc UpdateMyFeedFolder(UpdateMyFeedFolderRequest) returns (UpdateMyFeedFolderResponse);
+  rpc DeleteMyFeedFolder(DeleteMyFeedFolderRequest) returns (google.protobuf.Empty);
+
+//   rpc UpsertMyFeedList(UpsertMyFeedListRequest) returns (UpsertMyFeedListResponse);
+//   rpc DeleteMyFeedList(DeleteMyFeedListRequest) returns (google.protobuf.Empty);
 }
 
 message GetMyFeedFoldersResponse {
@@ -24,6 +31,48 @@ message GetMyFeedFoldersRequest {
     google.protobuf.StringValue keyword = 2;
     string cursor = 3;
     int64 limit = 4;
+}
+
+message CreateMyFeedFolderResponse {
+    MyFeedFolder my_feed_folder = 1;
+}
+
+message CreateMyFeedFolderRequest {
+    string user_id = 1;
+    string title = 2;
+    google.protobuf.StringValue description = 3;
+}
+
+message UpdateMyFeedFolderResponse {
+    MyFeedFolder my_feed_folder = 1;
+}
+
+message UpdateMyFeedFolderRequest {
+    string user_id = 1;
+    string my_feed_folder_id = 2;
+    string title = 3;
+    google.protobuf.StringValue description = 4;
+}
+
+message UpsertMyFeedListResponse {
+    repeated MyFeed my_feed_list = 1;
+}
+
+message DeleteMyFeedFolderRequest {
+    string user_id = 1;
+    string my_feed_folder_id = 2;
+}
+
+message UpsertMyFeedListRequest {
+    string user_id = 1;
+    string my_feed_folder_id = 2;
+    repeated string feed_id_list = 3;
+}
+
+message DeleteMyFeedListRequest {
+    string user_id = 1;
+    string my_feed_folder_id = 2;
+    string feed_id = 3;
 }
 
 message MyFeedFolderEdge {
@@ -39,4 +88,13 @@ message MyFeedFolder {
     google.protobuf.StringValue description = 5;
     google.protobuf.Timestamp created_at = 6;
     google.protobuf.Timestamp updated_at = 7;
+}
+
+message MyFeed {
+    string id = 1;
+    string user_id = 2;
+    string my_feed_folder_id = 3;
+    string feed_id = 4;
+    google.protobuf.Timestamp created_at = 5;
+    google.protobuf.Timestamp updated_at = 6;
 }

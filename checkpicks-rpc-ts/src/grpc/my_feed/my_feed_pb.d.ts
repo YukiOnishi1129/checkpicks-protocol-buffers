@@ -5,6 +5,7 @@
 /* eslint-disable */
 
 import * as jspb from "google-protobuf";
+import * as google_protobuf_empty_pb from "google-protobuf/google/protobuf/empty_pb";
 import * as google_protobuf_timestamp_pb from "google-protobuf/google/protobuf/timestamp_pb";
 import * as google_protobuf_wrappers_pb from "google-protobuf/google/protobuf/wrappers_pb";
 import * as common_common_pb from "../common/common_pb";
@@ -67,6 +68,212 @@ export namespace GetMyFeedFoldersRequest {
         keyword?: google_protobuf_wrappers_pb.StringValue.AsObject,
         cursor: string,
         limit: number,
+    }
+}
+
+export class CreateMyFeedFolderResponse extends jspb.Message { 
+
+    hasMyFeedFolder(): boolean;
+    clearMyFeedFolder(): void;
+    getMyFeedFolder(): MyFeedFolder | undefined;
+    setMyFeedFolder(value?: MyFeedFolder): CreateMyFeedFolderResponse;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): CreateMyFeedFolderResponse.AsObject;
+    static toObject(includeInstance: boolean, msg: CreateMyFeedFolderResponse): CreateMyFeedFolderResponse.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: CreateMyFeedFolderResponse, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): CreateMyFeedFolderResponse;
+    static deserializeBinaryFromReader(message: CreateMyFeedFolderResponse, reader: jspb.BinaryReader): CreateMyFeedFolderResponse;
+}
+
+export namespace CreateMyFeedFolderResponse {
+    export type AsObject = {
+        myFeedFolder?: MyFeedFolder.AsObject,
+    }
+}
+
+export class CreateMyFeedFolderRequest extends jspb.Message { 
+    getUserId(): string;
+    setUserId(value: string): CreateMyFeedFolderRequest;
+    getTitle(): string;
+    setTitle(value: string): CreateMyFeedFolderRequest;
+
+    hasDescription(): boolean;
+    clearDescription(): void;
+    getDescription(): google_protobuf_wrappers_pb.StringValue | undefined;
+    setDescription(value?: google_protobuf_wrappers_pb.StringValue): CreateMyFeedFolderRequest;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): CreateMyFeedFolderRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: CreateMyFeedFolderRequest): CreateMyFeedFolderRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: CreateMyFeedFolderRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): CreateMyFeedFolderRequest;
+    static deserializeBinaryFromReader(message: CreateMyFeedFolderRequest, reader: jspb.BinaryReader): CreateMyFeedFolderRequest;
+}
+
+export namespace CreateMyFeedFolderRequest {
+    export type AsObject = {
+        userId: string,
+        title: string,
+        description?: google_protobuf_wrappers_pb.StringValue.AsObject,
+    }
+}
+
+export class UpdateMyFeedFolderResponse extends jspb.Message { 
+
+    hasMyFeedFolder(): boolean;
+    clearMyFeedFolder(): void;
+    getMyFeedFolder(): MyFeedFolder | undefined;
+    setMyFeedFolder(value?: MyFeedFolder): UpdateMyFeedFolderResponse;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): UpdateMyFeedFolderResponse.AsObject;
+    static toObject(includeInstance: boolean, msg: UpdateMyFeedFolderResponse): UpdateMyFeedFolderResponse.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: UpdateMyFeedFolderResponse, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): UpdateMyFeedFolderResponse;
+    static deserializeBinaryFromReader(message: UpdateMyFeedFolderResponse, reader: jspb.BinaryReader): UpdateMyFeedFolderResponse;
+}
+
+export namespace UpdateMyFeedFolderResponse {
+    export type AsObject = {
+        myFeedFolder?: MyFeedFolder.AsObject,
+    }
+}
+
+export class UpdateMyFeedFolderRequest extends jspb.Message { 
+    getUserId(): string;
+    setUserId(value: string): UpdateMyFeedFolderRequest;
+    getMyFeedFolderId(): string;
+    setMyFeedFolderId(value: string): UpdateMyFeedFolderRequest;
+    getTitle(): string;
+    setTitle(value: string): UpdateMyFeedFolderRequest;
+
+    hasDescription(): boolean;
+    clearDescription(): void;
+    getDescription(): google_protobuf_wrappers_pb.StringValue | undefined;
+    setDescription(value?: google_protobuf_wrappers_pb.StringValue): UpdateMyFeedFolderRequest;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): UpdateMyFeedFolderRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: UpdateMyFeedFolderRequest): UpdateMyFeedFolderRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: UpdateMyFeedFolderRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): UpdateMyFeedFolderRequest;
+    static deserializeBinaryFromReader(message: UpdateMyFeedFolderRequest, reader: jspb.BinaryReader): UpdateMyFeedFolderRequest;
+}
+
+export namespace UpdateMyFeedFolderRequest {
+    export type AsObject = {
+        userId: string,
+        myFeedFolderId: string,
+        title: string,
+        description?: google_protobuf_wrappers_pb.StringValue.AsObject,
+    }
+}
+
+export class UpsertMyFeedListResponse extends jspb.Message { 
+    clearMyFeedListList(): void;
+    getMyFeedListList(): Array<MyFeed>;
+    setMyFeedListList(value: Array<MyFeed>): UpsertMyFeedListResponse;
+    addMyFeedList(value?: MyFeed, index?: number): MyFeed;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): UpsertMyFeedListResponse.AsObject;
+    static toObject(includeInstance: boolean, msg: UpsertMyFeedListResponse): UpsertMyFeedListResponse.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: UpsertMyFeedListResponse, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): UpsertMyFeedListResponse;
+    static deserializeBinaryFromReader(message: UpsertMyFeedListResponse, reader: jspb.BinaryReader): UpsertMyFeedListResponse;
+}
+
+export namespace UpsertMyFeedListResponse {
+    export type AsObject = {
+        myFeedListList: Array<MyFeed.AsObject>,
+    }
+}
+
+export class DeleteMyFeedFolderRequest extends jspb.Message { 
+    getUserId(): string;
+    setUserId(value: string): DeleteMyFeedFolderRequest;
+    getMyFeedFolderId(): string;
+    setMyFeedFolderId(value: string): DeleteMyFeedFolderRequest;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): DeleteMyFeedFolderRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: DeleteMyFeedFolderRequest): DeleteMyFeedFolderRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: DeleteMyFeedFolderRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): DeleteMyFeedFolderRequest;
+    static deserializeBinaryFromReader(message: DeleteMyFeedFolderRequest, reader: jspb.BinaryReader): DeleteMyFeedFolderRequest;
+}
+
+export namespace DeleteMyFeedFolderRequest {
+    export type AsObject = {
+        userId: string,
+        myFeedFolderId: string,
+    }
+}
+
+export class UpsertMyFeedListRequest extends jspb.Message { 
+    getUserId(): string;
+    setUserId(value: string): UpsertMyFeedListRequest;
+    getMyFeedFolderId(): string;
+    setMyFeedFolderId(value: string): UpsertMyFeedListRequest;
+    clearFeedIdListList(): void;
+    getFeedIdListList(): Array<string>;
+    setFeedIdListList(value: Array<string>): UpsertMyFeedListRequest;
+    addFeedIdList(value: string, index?: number): string;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): UpsertMyFeedListRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: UpsertMyFeedListRequest): UpsertMyFeedListRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: UpsertMyFeedListRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): UpsertMyFeedListRequest;
+    static deserializeBinaryFromReader(message: UpsertMyFeedListRequest, reader: jspb.BinaryReader): UpsertMyFeedListRequest;
+}
+
+export namespace UpsertMyFeedListRequest {
+    export type AsObject = {
+        userId: string,
+        myFeedFolderId: string,
+        feedIdListList: Array<string>,
+    }
+}
+
+export class DeleteMyFeedListRequest extends jspb.Message { 
+    getUserId(): string;
+    setUserId(value: string): DeleteMyFeedListRequest;
+    getMyFeedFolderId(): string;
+    setMyFeedFolderId(value: string): DeleteMyFeedListRequest;
+    getFeedId(): string;
+    setFeedId(value: string): DeleteMyFeedListRequest;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): DeleteMyFeedListRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: DeleteMyFeedListRequest): DeleteMyFeedListRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: DeleteMyFeedListRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): DeleteMyFeedListRequest;
+    static deserializeBinaryFromReader(message: DeleteMyFeedListRequest, reader: jspb.BinaryReader): DeleteMyFeedListRequest;
+}
+
+export namespace DeleteMyFeedListRequest {
+    export type AsObject = {
+        userId: string,
+        myFeedFolderId: string,
+        feedId: string,
     }
 }
 
@@ -140,6 +347,47 @@ export namespace MyFeedFolder {
         title: string,
         feedsList: Array<content_content_pb.Feed.AsObject>,
         description?: google_protobuf_wrappers_pb.StringValue.AsObject,
+        createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
+        updatedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
+    }
+}
+
+export class MyFeed extends jspb.Message { 
+    getId(): string;
+    setId(value: string): MyFeed;
+    getUserId(): string;
+    setUserId(value: string): MyFeed;
+    getMyFeedFolderId(): string;
+    setMyFeedFolderId(value: string): MyFeed;
+    getFeedId(): string;
+    setFeedId(value: string): MyFeed;
+
+    hasCreatedAt(): boolean;
+    clearCreatedAt(): void;
+    getCreatedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+    setCreatedAt(value?: google_protobuf_timestamp_pb.Timestamp): MyFeed;
+
+    hasUpdatedAt(): boolean;
+    clearUpdatedAt(): void;
+    getUpdatedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+    setUpdatedAt(value?: google_protobuf_timestamp_pb.Timestamp): MyFeed;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): MyFeed.AsObject;
+    static toObject(includeInstance: boolean, msg: MyFeed): MyFeed.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: MyFeed, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): MyFeed;
+    static deserializeBinaryFromReader(message: MyFeed, reader: jspb.BinaryReader): MyFeed;
+}
+
+export namespace MyFeed {
+    export type AsObject = {
+        id: string,
+        userId: string,
+        myFeedFolderId: string,
+        feedId: string,
         createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
         updatedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
     }
