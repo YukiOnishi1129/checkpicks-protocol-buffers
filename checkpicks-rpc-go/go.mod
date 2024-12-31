@@ -1,4 +1,4 @@
-module github.com/YukiOnishi1129/checkpicks-protocol-buffers/checkpicks-rpc-go/v1.2.0
+module github.com/YukiOnishi1129/checkpicks-protocol-buffers/checkpicks-rpc-go/v1.2.1
 
 go 1.23.4
 
