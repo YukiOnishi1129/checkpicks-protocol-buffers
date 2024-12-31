@@ -3,7 +3,6 @@ module github.com/YukiOnishi1129/checkpicks-protocol-buffers/checkpicks-rpc-go
 go 1.23.4
 
 require (
-	github.com/YukiOnishi1129/checkpicks-protocol-buffers/checkpicks-rpc-go v1.1.0
 	google.golang.org/grpc v1.69.0
 	google.golang.org/protobuf v1.35.2
 )
