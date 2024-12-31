@@ -1699,7 +1699,7 @@ proto.checkpicks.my_feed.v1.UpdateMyFeedFolderResponse.prototype.hasMyFeedFolder
  * @private {!Array<number>}
  * @const
  */
-proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.repeatedFields_ = [6];
+proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.repeatedFields_ = [5];
 
 
 
@@ -1732,12 +1732,11 @@ proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.prototype.toObject = funct
  */
 proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    userId: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    myFeedFolderId: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    title: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    userId: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    myFeedFolderId: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    title: jspb.Message.getFieldWithDefault(msg, 3, ""),
     description: (f = msg.getDescription()) && google_protobuf_wrappers_pb.StringValue.toObject(includeInstance, f),
-    feedIdListList: (f = jspb.Message.getRepeatedField(msg, 6)) == null ? undefined : f
+    feedIdListList: (f = jspb.Message.getRepeatedField(msg, 5)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -1776,26 +1775,22 @@ proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.deserializeBinaryFromReade
     switch (field) {
     case 1:
       var value = /** @type {string} */ (reader.readString());
-      msg.setId(value);
+      msg.setUserId(value);
       break;
     case 2:
       var value = /** @type {string} */ (reader.readString());
-      msg.setUserId(value);
+      msg.setMyFeedFolderId(value);
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
-      msg.setMyFeedFolderId(value);
-      break;
-    case 4:
-      var value = /** @type {string} */ (reader.readString());
       msg.setTitle(value);
       break;
-    case 5:
+    case 4:
       var value = new google_protobuf_wrappers_pb.StringValue;
       reader.readMessage(value,google_protobuf_wrappers_pb.StringValue.deserializeBinaryFromReader);
       msg.setDescription(value);
       break;
-    case 6:
+    case 5:
       var value = /** @type {string} */ (reader.readString());
       msg.addFeedIdList(value);
       break;
@@ -1828,38 +1823,31 @@ proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.prototype.serializeBinary 
  */
 proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getId();
+  f = message.getUserId();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = message.getUserId();
+  f = message.getMyFeedFolderId();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = message.getMyFeedFolderId();
+  f = message.getTitle();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = message.getTitle();
-  if (f.length > 0) {
-    writer.writeString(
-      4,
-      f
-    );
-  }
   f = message.getDescription();
   if (f != null) {
     writer.writeMessage(
-      5,
+      4,
       f,
       google_protobuf_wrappers_pb.StringValue.serializeBinaryToWriter
     );
@@ -1867,7 +1855,7 @@ proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.serializeBinaryToWriter = 
   f = message.getFeedIdListList();
   if (f.length > 0) {
     writer.writeRepeatedString(
-      6,
+      5,
       f
     );
   }
@@ -1875,10 +1863,10 @@ proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.serializeBinaryToWriter = 
 
 
 /**
- * optional string id = 1;
+ * optional string user_id = 1;
  * @return {string}
  */
-proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.prototype.getId = function() {
+proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.prototype.getUserId = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
@@ -1887,16 +1875,16 @@ proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.prototype.getId = function
  * @param {string} value
  * @return {!proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest} returns this
  */
-proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.prototype.setId = function(value) {
+proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.prototype.setUserId = function(value) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
 /**
- * optional string user_id = 2;
+ * optional string my_feed_folder_id = 2;
  * @return {string}
  */
-proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.prototype.getUserId = function() {
+proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.prototype.getMyFeedFolderId = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
@@ -1905,16 +1893,16 @@ proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.prototype.getUserId = func
  * @param {string} value
  * @return {!proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest} returns this
  */
-proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.prototype.setUserId = function(value) {
+proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.prototype.setMyFeedFolderId = function(value) {
   return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
 /**
- * optional string my_feed_folder_id = 3;
+ * optional string title = 3;
  * @return {string}
  */
-proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.prototype.getMyFeedFolderId = function() {
+proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.prototype.getTitle = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
@@ -1923,36 +1911,18 @@ proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.prototype.getMyFeedFolderI
  * @param {string} value
  * @return {!proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest} returns this
  */
-proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.prototype.setMyFeedFolderId = function(value) {
+proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.prototype.setTitle = function(value) {
   return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
 /**
- * optional string title = 4;
- * @return {string}
- */
-proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.prototype.getTitle = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest} returns this
- */
-proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.prototype.setTitle = function(value) {
-  return jspb.Message.setProto3StringField(this, 4, value);
-};
-
-
-/**
- * optional google.protobuf.StringValue description = 5;
+ * optional google.protobuf.StringValue description = 4;
  * @return {?proto.google.protobuf.StringValue}
  */
 proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.prototype.getDescription = function() {
   return /** @type{?proto.google.protobuf.StringValue} */ (
-    jspb.Message.getWrapperField(this, google_protobuf_wrappers_pb.StringValue, 5));
+    jspb.Message.getWrapperField(this, google_protobuf_wrappers_pb.StringValue, 4));
 };
 
 
@@ -1961,7 +1931,7 @@ proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.prototype.getDescription =
  * @return {!proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest} returns this
 */
 proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.prototype.setDescription = function(value) {
-  return jspb.Message.setWrapperField(this, 5, value);
+  return jspb.Message.setWrapperField(this, 4, value);
 };
 
 
@@ -1979,16 +1949,16 @@ proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.prototype.clearDescription
  * @return {boolean}
  */
 proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.prototype.hasDescription = function() {
-  return jspb.Message.getField(this, 5) != null;
+  return jspb.Message.getField(this, 4) != null;
 };
 
 
 /**
- * repeated string feed_id_list = 6;
+ * repeated string feed_id_list = 5;
  * @return {!Array<string>}
  */
 proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.prototype.getFeedIdListList = function() {
-  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 6));
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 5));
 };
 
 
@@ -1997,7 +1967,7 @@ proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.prototype.getFeedIdListLis
  * @return {!proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest} returns this
  */
 proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.prototype.setFeedIdListList = function(value) {
-  return jspb.Message.setField(this, 6, value || []);
+  return jspb.Message.setField(this, 5, value || []);
 };
 
 
@@ -2007,7 +1977,7 @@ proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.prototype.setFeedIdListLis
  * @return {!proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest} returns this
  */
 proto.checkpicks.my_feed.v1.UpdateMyFeedFolderRequest.prototype.addFeedIdList = function(value, opt_index) {
-  return jspb.Message.addToRepeatedField(this, 6, value, opt_index);
+  return jspb.Message.addToRepeatedField(this, 5, value, opt_index);
 };
 
 
@@ -2212,9 +2182,8 @@ proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest.prototype.toObject = funct
  */
 proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    userId: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    myFeedFolderId: jspb.Message.getFieldWithDefault(msg, 3, "")
+    userId: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    myFeedFolderId: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -2253,13 +2222,9 @@ proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest.deserializeBinaryFromReade
     switch (field) {
     case 1:
       var value = /** @type {string} */ (reader.readString());
-      msg.setId(value);
-      break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
       msg.setUserId(value);
       break;
-    case 3:
+    case 2:
       var value = /** @type {string} */ (reader.readString());
       msg.setMyFeedFolderId(value);
       break;
@@ -2292,24 +2257,17 @@ proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest.prototype.serializeBinary 
  */
 proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getId();
+  f = message.getUserId();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = message.getUserId();
-  if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
-  }
   f = message.getMyFeedFolderId();
   if (f.length > 0) {
     writer.writeString(
-      3,
+      2,
       f
     );
   }
@@ -2317,10 +2275,10 @@ proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest.serializeBinaryToWriter = 
 
 
 /**
- * optional string id = 1;
+ * optional string user_id = 1;
  * @return {string}
  */
-proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest.prototype.getId = function() {
+proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest.prototype.getUserId = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
@@ -2329,16 +2287,16 @@ proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest.prototype.getId = function
  * @param {string} value
  * @return {!proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest} returns this
  */
-proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest.prototype.setId = function(value) {
+proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest.prototype.setUserId = function(value) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
 /**
- * optional string user_id = 2;
+ * optional string my_feed_folder_id = 2;
  * @return {string}
  */
-proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest.prototype.getUserId = function() {
+proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest.prototype.getMyFeedFolderId = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
@@ -2347,26 +2305,8 @@ proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest.prototype.getUserId = func
  * @param {string} value
  * @return {!proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest} returns this
  */
-proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest.prototype.setUserId = function(value) {
-  return jspb.Message.setProto3StringField(this, 2, value);
-};
-
-
-/**
- * optional string my_feed_folder_id = 3;
- * @return {string}
- */
-proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest.prototype.getMyFeedFolderId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest} returns this
- */
 proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest.prototype.setMyFeedFolderId = function(value) {
-  return jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 

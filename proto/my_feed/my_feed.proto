@@ -59,12 +59,11 @@ message UpdateMyFeedFolderResponse {
 }
 
 message UpdateMyFeedFolderRequest {
-    string id = 1;
-    string user_id = 2;
-    string my_feed_folder_id = 3;
-    string title = 4;
-    google.protobuf.StringValue description = 5;
-    repeated string feed_id_list = 6;
+    string user_id = 1;
+    string my_feed_folder_id = 2;
+    string title = 3;
+    google.protobuf.StringValue description = 4;
+    repeated string feed_id_list = 5;
 }
 
 message UpsertMyFeedListResponse {
@@ -72,9 +71,8 @@ message UpsertMyFeedListResponse {
 }
 
 message DeleteMyFeedFolderRequest {
-    string id = 1;
-    string user_id = 2;
-    string my_feed_folder_id = 3;
+    string user_id = 1;
+    string my_feed_folder_id = 2;
 }
 
 message UpsertMyFeedListRequest {
