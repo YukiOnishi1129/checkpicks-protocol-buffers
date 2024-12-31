@@ -21,6 +21,7 @@ const _ = grpc.SupportPackageIsVersion9
 
 const (
 	MyFeedService_GetMyFeedFolders_FullMethodName   = "/checkpicks.my_feed.v1.MyFeedService/GetMyFeedFolders"
+	MyFeedService_GetMyFeedFolder_FullMethodName    = "/checkpicks.my_feed.v1.MyFeedService/GetMyFeedFolder"
 	MyFeedService_CreateMyFeedFolder_FullMethodName = "/checkpicks.my_feed.v1.MyFeedService/CreateMyFeedFolder"
 	MyFeedService_UpdateMyFeedFolder_FullMethodName = "/checkpicks.my_feed.v1.MyFeedService/UpdateMyFeedFolder"
 	MyFeedService_DeleteMyFeedFolder_FullMethodName = "/checkpicks.my_feed.v1.MyFeedService/DeleteMyFeedFolder"
@@ -31,6 +32,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type MyFeedServiceClient interface {
 	GetMyFeedFolders(ctx context.Context, in *GetMyFeedFoldersRequest, opts ...grpc.CallOption) (*GetMyFeedFoldersResponse, error)
+	GetMyFeedFolder(ctx context.Context, in *GetMyFeedFolderRequest, opts ...grpc.CallOption) (*GetMyFeedFolderResponse, error)
 	CreateMyFeedFolder(ctx context.Context, in *CreateMyFeedFolderRequest, opts ...grpc.CallOption) (*CreateMyFeedFolderResponse, error)
 	UpdateMyFeedFolder(ctx context.Context, in *UpdateMyFeedFolderRequest, opts ...grpc.CallOption) (*UpdateMyFeedFolderResponse, error)
 	DeleteMyFeedFolder(ctx context.Context, in *DeleteMyFeedFolderRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
@@ -48,6 +50,16 @@ func (c *myFeedServiceClient) GetMyFeedFolders(ctx context.Context, in *GetMyFee
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetMyFeedFoldersResponse)
 	err := c.cc.Invoke(ctx, MyFeedService_GetMyFeedFolders_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *myFeedServiceClient) GetMyFeedFolder(ctx context.Context, in *GetMyFeedFolderRequest, opts ...grpc.CallOption) (*GetMyFeedFolderResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMyFeedFolderResponse)
+	err := c.cc.Invoke(ctx, MyFeedService_GetMyFeedFolder_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -89,6 +101,7 @@ func (c *myFeedServiceClient) DeleteMyFeedFolder(ctx context.Context, in *Delete
 // for forward compatibility.
 type MyFeedServiceServer interface {
 	GetMyFeedFolders(context.Context, *GetMyFeedFoldersRequest) (*GetMyFeedFoldersResponse, error)
+	GetMyFeedFolder(context.Context, *GetMyFeedFolderRequest) (*GetMyFeedFolderResponse, error)
 	CreateMyFeedFolder(context.Context, *CreateMyFeedFolderRequest) (*CreateMyFeedFolderResponse, error)
 	UpdateMyFeedFolder(context.Context, *UpdateMyFeedFolderRequest) (*UpdateMyFeedFolderResponse, error)
 	DeleteMyFeedFolder(context.Context, *DeleteMyFeedFolderRequest) (*emptypb.Empty, error)
@@ -103,6 +116,9 @@ type UnimplementedMyFeedServiceServer struct{}
 
 func (UnimplementedMyFeedServiceServer) GetMyFeedFolders(context.Context, *GetMyFeedFoldersRequest) (*GetMyFeedFoldersResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetMyFeedFolders not implemented")
+}
+func (UnimplementedMyFeedServiceServer) GetMyFeedFolder(context.Context, *GetMyFeedFolderRequest) (*GetMyFeedFolderResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetMyFeedFolder not implemented")
 }
 func (UnimplementedMyFeedServiceServer) CreateMyFeedFolder(context.Context, *CreateMyFeedFolderRequest) (*CreateMyFeedFolderResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateMyFeedFolder not implemented")
@@ -147,6 +163,24 @@ func _MyFeedService_GetMyFeedFolders_Handler(srv interface{}, ctx context.Contex
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(MyFeedServiceServer).GetMyFeedFolders(ctx, req.(*GetMyFeedFoldersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MyFeedService_GetMyFeedFolder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMyFeedFolderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MyFeedServiceServer).GetMyFeedFolder(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MyFeedService_GetMyFeedFolder_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MyFeedServiceServer).GetMyFeedFolder(ctx, req.(*GetMyFeedFolderRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -215,6 +249,10 @@ var MyFeedService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetMyFeedFolders",
 			Handler:    _MyFeedService_GetMyFeedFolders_Handler,
+		},
+		{
+			MethodName: "GetMyFeedFolder",
+			Handler:    _MyFeedService_GetMyFeedFolder_Handler,
 		},
 		{
 			MethodName: "CreateMyFeedFolder",

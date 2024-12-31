@@ -42,6 +42,28 @@ function deserialize_checkpicks_my_feed_v1_DeleteMyFeedFolderRequest(buffer_arg)
   return my_feed_my_feed_pb.DeleteMyFeedFolderRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_checkpicks_my_feed_v1_GetMyFeedFolderRequest(arg) {
+  if (!(arg instanceof my_feed_my_feed_pb.GetMyFeedFolderRequest)) {
+    throw new Error('Expected argument of type checkpicks.my_feed.v1.GetMyFeedFolderRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_checkpicks_my_feed_v1_GetMyFeedFolderRequest(buffer_arg) {
+  return my_feed_my_feed_pb.GetMyFeedFolderRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_checkpicks_my_feed_v1_GetMyFeedFolderResponse(arg) {
+  if (!(arg instanceof my_feed_my_feed_pb.GetMyFeedFolderResponse)) {
+    throw new Error('Expected argument of type checkpicks.my_feed.v1.GetMyFeedFolderResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_checkpicks_my_feed_v1_GetMyFeedFolderResponse(buffer_arg) {
+  return my_feed_my_feed_pb.GetMyFeedFolderResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_checkpicks_my_feed_v1_GetMyFeedFoldersRequest(arg) {
   if (!(arg instanceof my_feed_my_feed_pb.GetMyFeedFoldersRequest)) {
     throw new Error('Expected argument of type checkpicks.my_feed.v1.GetMyFeedFoldersRequest');
@@ -109,6 +131,17 @@ var MyFeedServiceService = exports.MyFeedServiceService = {
     requestDeserialize: deserialize_checkpicks_my_feed_v1_GetMyFeedFoldersRequest,
     responseSerialize: serialize_checkpicks_my_feed_v1_GetMyFeedFoldersResponse,
     responseDeserialize: deserialize_checkpicks_my_feed_v1_GetMyFeedFoldersResponse,
+  },
+  getMyFeedFolder: {
+    path: '/checkpicks.my_feed.v1.MyFeedService/GetMyFeedFolder',
+    requestStream: false,
+    responseStream: false,
+    requestType: my_feed_my_feed_pb.GetMyFeedFolderRequest,
+    responseType: my_feed_my_feed_pb.GetMyFeedFolderResponse,
+    requestSerialize: serialize_checkpicks_my_feed_v1_GetMyFeedFolderRequest,
+    requestDeserialize: deserialize_checkpicks_my_feed_v1_GetMyFeedFolderRequest,
+    responseSerialize: serialize_checkpicks_my_feed_v1_GetMyFeedFolderResponse,
+    responseDeserialize: deserialize_checkpicks_my_feed_v1_GetMyFeedFolderResponse,
   },
   createMyFeedFolder: {
     path: '/checkpicks.my_feed.v1.MyFeedService/CreateMyFeedFolder',
