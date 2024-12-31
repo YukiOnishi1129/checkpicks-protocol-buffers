@@ -23,6 +23,7 @@ const (
 	ContentService_CreateUploadArticle_FullMethodName = "/checkpicks.content.v1.ContentService/CreateUploadArticle"
 	ContentService_GetArticleOGP_FullMethodName       = "/checkpicks.content.v1.ContentService/GetArticleOGP"
 	ContentService_GetFeeds_FullMethodName            = "/checkpicks.content.v1.ContentService/GetFeeds"
+	ContentService_GetAllFeeds_FullMethodName         = "/checkpicks.content.v1.ContentService/GetAllFeeds"
 	ContentService_GetFeed_FullMethodName             = "/checkpicks.content.v1.ContentService/GetFeed"
 )
 
@@ -34,6 +35,7 @@ type ContentServiceClient interface {
 	CreateUploadArticle(ctx context.Context, in *CreateUploadArticleRequest, opts ...grpc.CallOption) (*CreateArticleResponse, error)
 	GetArticleOGP(ctx context.Context, in *GetArticleOGPRequest, opts ...grpc.CallOption) (*GetArticleOGPResponse, error)
 	GetFeeds(ctx context.Context, in *GetFeedsRequest, opts ...grpc.CallOption) (*GetFeedsResponse, error)
+	GetAllFeeds(ctx context.Context, in *GetAllFeedsRequest, opts ...grpc.CallOption) (*GetFeedsResponse, error)
 	GetFeed(ctx context.Context, in *GetFeedRequest, opts ...grpc.CallOption) (*GetFeedResponse, error)
 }
 
@@ -85,6 +87,16 @@ func (c *contentServiceClient) GetFeeds(ctx context.Context, in *GetFeedsRequest
 	return out, nil
 }
 
+func (c *contentServiceClient) GetAllFeeds(ctx context.Context, in *GetAllFeedsRequest, opts ...grpc.CallOption) (*GetFeedsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFeedsResponse)
+	err := c.cc.Invoke(ctx, ContentService_GetAllFeeds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *contentServiceClient) GetFeed(ctx context.Context, in *GetFeedRequest, opts ...grpc.CallOption) (*GetFeedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetFeedResponse)
@@ -103,6 +115,7 @@ type ContentServiceServer interface {
 	CreateUploadArticle(context.Context, *CreateUploadArticleRequest) (*CreateArticleResponse, error)
 	GetArticleOGP(context.Context, *GetArticleOGPRequest) (*GetArticleOGPResponse, error)
 	GetFeeds(context.Context, *GetFeedsRequest) (*GetFeedsResponse, error)
+	GetAllFeeds(context.Context, *GetAllFeedsRequest) (*GetFeedsResponse, error)
 	GetFeed(context.Context, *GetFeedRequest) (*GetFeedResponse, error)
 }
 
@@ -124,6 +137,9 @@ func (UnimplementedContentServiceServer) GetArticleOGP(context.Context, *GetArti
 }
 func (UnimplementedContentServiceServer) GetFeeds(context.Context, *GetFeedsRequest) (*GetFeedsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetFeeds not implemented")
+}
+func (UnimplementedContentServiceServer) GetAllFeeds(context.Context, *GetAllFeedsRequest) (*GetFeedsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAllFeeds not implemented")
 }
 func (UnimplementedContentServiceServer) GetFeed(context.Context, *GetFeedRequest) (*GetFeedResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetFeed not implemented")
@@ -220,6 +236,24 @@ func _ContentService_GetFeeds_Handler(srv interface{}, ctx context.Context, dec 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ContentService_GetAllFeeds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllFeedsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentServiceServer).GetAllFeeds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentService_GetAllFeeds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentServiceServer).GetAllFeeds(ctx, req.(*GetAllFeedsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _ContentService_GetFeed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetFeedRequest)
 	if err := dec(in); err != nil {
@@ -260,6 +294,10 @@ var ContentService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetFeeds",
 			Handler:    _ContentService_GetFeeds_Handler,
+		},
+		{
+			MethodName: "GetAllFeeds",
+			Handler:    _ContentService_GetAllFeeds_Handler,
 		},
 		{
 			MethodName: "GetFeed",

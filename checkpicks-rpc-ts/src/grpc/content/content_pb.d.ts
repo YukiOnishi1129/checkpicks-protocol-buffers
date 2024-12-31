@@ -55,6 +55,52 @@ export namespace GetArticlesRequest {
     }
 }
 
+export class GetAllFeedsRequest extends jspb.Message { 
+
+    hasUserId(): boolean;
+    clearUserId(): void;
+    getUserId(): google_protobuf_wrappers_pb.StringValue | undefined;
+    setUserId(value?: google_protobuf_wrappers_pb.StringValue): GetAllFeedsRequest;
+
+    hasPlatformSiteType(): boolean;
+    clearPlatformSiteType(): void;
+    getPlatformSiteType(): google_protobuf_wrappers_pb.Int64Value | undefined;
+    setPlatformSiteType(value?: google_protobuf_wrappers_pb.Int64Value): GetAllFeedsRequest;
+
+    hasPlatformId(): boolean;
+    clearPlatformId(): void;
+    getPlatformId(): google_protobuf_wrappers_pb.StringValue | undefined;
+    setPlatformId(value?: google_protobuf_wrappers_pb.StringValue): GetAllFeedsRequest;
+
+    hasKeyword(): boolean;
+    clearKeyword(): void;
+    getKeyword(): google_protobuf_wrappers_pb.StringValue | undefined;
+    setKeyword(value?: google_protobuf_wrappers_pb.StringValue): GetAllFeedsRequest;
+    clearFeedIdsList(): void;
+    getFeedIdsList(): Array<google_protobuf_wrappers_pb.StringValue>;
+    setFeedIdsList(value: Array<google_protobuf_wrappers_pb.StringValue>): GetAllFeedsRequest;
+    addFeedIds(value?: google_protobuf_wrappers_pb.StringValue, index?: number): google_protobuf_wrappers_pb.StringValue;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): GetAllFeedsRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: GetAllFeedsRequest): GetAllFeedsRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: GetAllFeedsRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): GetAllFeedsRequest;
+    static deserializeBinaryFromReader(message: GetAllFeedsRequest, reader: jspb.BinaryReader): GetAllFeedsRequest;
+}
+
+export namespace GetAllFeedsRequest {
+    export type AsObject = {
+        userId?: google_protobuf_wrappers_pb.StringValue.AsObject,
+        platformSiteType?: google_protobuf_wrappers_pb.Int64Value.AsObject,
+        platformId?: google_protobuf_wrappers_pb.StringValue.AsObject,
+        keyword?: google_protobuf_wrappers_pb.StringValue.AsObject,
+        feedIdsList: Array<google_protobuf_wrappers_pb.StringValue.AsObject>,
+    }
+}
+
 export class GetArticlesResponse extends jspb.Message { 
     clearArticlesedgeList(): void;
     getArticlesedgeList(): Array<ArticleEdge>;

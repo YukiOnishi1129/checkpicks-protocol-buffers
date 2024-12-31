@@ -15,6 +15,7 @@ interface IContentServiceService extends grpc.ServiceDefinition<grpc.UntypedServ
     createUploadArticle: IContentServiceService_ICreateUploadArticle;
     getArticleOGP: IContentServiceService_IGetArticleOGP;
     getFeeds: IContentServiceService_IGetFeeds;
+    getAllFeeds: IContentServiceService_IGetAllFeeds;
     getFeed: IContentServiceService_IGetFeed;
 }
 
@@ -54,6 +55,15 @@ interface IContentServiceService_IGetFeeds extends grpc.MethodDefinition<content
     responseSerialize: grpc.serialize<content_content_pb.GetFeedsResponse>;
     responseDeserialize: grpc.deserialize<content_content_pb.GetFeedsResponse>;
 }
+interface IContentServiceService_IGetAllFeeds extends grpc.MethodDefinition<content_content_pb.GetAllFeedsRequest, content_content_pb.GetFeedsResponse> {
+    path: "/checkpicks.content.v1.ContentService/GetAllFeeds";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<content_content_pb.GetAllFeedsRequest>;
+    requestDeserialize: grpc.deserialize<content_content_pb.GetAllFeedsRequest>;
+    responseSerialize: grpc.serialize<content_content_pb.GetFeedsResponse>;
+    responseDeserialize: grpc.deserialize<content_content_pb.GetFeedsResponse>;
+}
 interface IContentServiceService_IGetFeed extends grpc.MethodDefinition<content_content_pb.GetFeedRequest, content_content_pb.GetFeedResponse> {
     path: "/checkpicks.content.v1.ContentService/GetFeed";
     requestStream: false;
@@ -71,6 +81,7 @@ export interface IContentServiceServer extends grpc.UntypedServiceImplementation
     createUploadArticle: grpc.handleUnaryCall<content_content_pb.CreateUploadArticleRequest, content_content_pb.CreateArticleResponse>;
     getArticleOGP: grpc.handleUnaryCall<content_content_pb.GetArticleOGPRequest, content_content_pb.GetArticleOGPResponse>;
     getFeeds: grpc.handleUnaryCall<content_content_pb.GetFeedsRequest, content_content_pb.GetFeedsResponse>;
+    getAllFeeds: grpc.handleUnaryCall<content_content_pb.GetAllFeedsRequest, content_content_pb.GetFeedsResponse>;
     getFeed: grpc.handleUnaryCall<content_content_pb.GetFeedRequest, content_content_pb.GetFeedResponse>;
 }
 
@@ -87,6 +98,9 @@ export interface IContentServiceClient {
     getFeeds(request: content_content_pb.GetFeedsRequest, callback: (error: grpc.ServiceError | null, response: content_content_pb.GetFeedsResponse) => void): grpc.ClientUnaryCall;
     getFeeds(request: content_content_pb.GetFeedsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: content_content_pb.GetFeedsResponse) => void): grpc.ClientUnaryCall;
     getFeeds(request: content_content_pb.GetFeedsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: content_content_pb.GetFeedsResponse) => void): grpc.ClientUnaryCall;
+    getAllFeeds(request: content_content_pb.GetAllFeedsRequest, callback: (error: grpc.ServiceError | null, response: content_content_pb.GetFeedsResponse) => void): grpc.ClientUnaryCall;
+    getAllFeeds(request: content_content_pb.GetAllFeedsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: content_content_pb.GetFeedsResponse) => void): grpc.ClientUnaryCall;
+    getAllFeeds(request: content_content_pb.GetAllFeedsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: content_content_pb.GetFeedsResponse) => void): grpc.ClientUnaryCall;
     getFeed(request: content_content_pb.GetFeedRequest, callback: (error: grpc.ServiceError | null, response: content_content_pb.GetFeedResponse) => void): grpc.ClientUnaryCall;
     getFeed(request: content_content_pb.GetFeedRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: content_content_pb.GetFeedResponse) => void): grpc.ClientUnaryCall;
     getFeed(request: content_content_pb.GetFeedRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: content_content_pb.GetFeedResponse) => void): grpc.ClientUnaryCall;
@@ -106,6 +120,9 @@ export class ContentServiceClient extends grpc.Client implements IContentService
     public getFeeds(request: content_content_pb.GetFeedsRequest, callback: (error: grpc.ServiceError | null, response: content_content_pb.GetFeedsResponse) => void): grpc.ClientUnaryCall;
     public getFeeds(request: content_content_pb.GetFeedsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: content_content_pb.GetFeedsResponse) => void): grpc.ClientUnaryCall;
     public getFeeds(request: content_content_pb.GetFeedsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: content_content_pb.GetFeedsResponse) => void): grpc.ClientUnaryCall;
+    public getAllFeeds(request: content_content_pb.GetAllFeedsRequest, callback: (error: grpc.ServiceError | null, response: content_content_pb.GetFeedsResponse) => void): grpc.ClientUnaryCall;
+    public getAllFeeds(request: content_content_pb.GetAllFeedsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: content_content_pb.GetFeedsResponse) => void): grpc.ClientUnaryCall;
+    public getAllFeeds(request: content_content_pb.GetAllFeedsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: content_content_pb.GetFeedsResponse) => void): grpc.ClientUnaryCall;
     public getFeed(request: content_content_pb.GetFeedRequest, callback: (error: grpc.ServiceError | null, response: content_content_pb.GetFeedResponse) => void): grpc.ClientUnaryCall;
     public getFeed(request: content_content_pb.GetFeedRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: content_content_pb.GetFeedResponse) => void): grpc.ClientUnaryCall;
     public getFeed(request: content_content_pb.GetFeedRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: content_content_pb.GetFeedResponse) => void): grpc.ClientUnaryCall;
