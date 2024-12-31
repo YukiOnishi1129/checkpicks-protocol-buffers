@@ -193,6 +193,8 @@ export namespace UpdateMyFeedFolderResponse {
 }
 
 export class UpdateMyFeedFolderRequest extends jspb.Message { 
+    getId(): string;
+    setId(value: string): UpdateMyFeedFolderRequest;
     getUserId(): string;
     setUserId(value: string): UpdateMyFeedFolderRequest;
     getMyFeedFolderId(): string;
@@ -217,6 +219,7 @@ export class UpdateMyFeedFolderRequest extends jspb.Message {
 
 export namespace UpdateMyFeedFolderRequest {
     export type AsObject = {
+        id: string,
         userId: string,
         myFeedFolderId: string,
         title: string,

@@ -58,10 +58,11 @@ message UpdateMyFeedFolderResponse {
 }
 
 message UpdateMyFeedFolderRequest {
-    string user_id = 1;
-    string my_feed_folder_id = 2;
-    string title = 3;
-    google.protobuf.StringValue description = 4;
+    string id = 1;
+    string user_id = 2;
+    string my_feed_folder_id = 3;
+    string title = 4;
+    google.protobuf.StringValue description = 5;
 }
 
 message UpsertMyFeedListResponse {
