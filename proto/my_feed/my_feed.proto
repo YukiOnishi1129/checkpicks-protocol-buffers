@@ -72,8 +72,9 @@ message UpsertMyFeedListResponse {
 }
 
 message DeleteMyFeedFolderRequest {
-    string user_id = 1;
-    string my_feed_folder_id = 2;
+    string id = 1;
+    string user_id = 2;
+    string my_feed_folder_id = 3;
 }
 
 message UpsertMyFeedListRequest {

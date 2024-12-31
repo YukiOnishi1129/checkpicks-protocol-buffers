@@ -2212,8 +2212,9 @@ proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest.prototype.toObject = funct
  */
 proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    userId: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    myFeedFolderId: jspb.Message.getFieldWithDefault(msg, 2, "")
+    id: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    userId: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    myFeedFolderId: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
 
   if (includeInstance) {
@@ -2252,9 +2253,13 @@ proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest.deserializeBinaryFromReade
     switch (field) {
     case 1:
       var value = /** @type {string} */ (reader.readString());
-      msg.setUserId(value);
+      msg.setId(value);
       break;
     case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setUserId(value);
+      break;
+    case 3:
       var value = /** @type {string} */ (reader.readString());
       msg.setMyFeedFolderId(value);
       break;
@@ -2287,17 +2292,24 @@ proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest.prototype.serializeBinary 
  */
 proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getUserId();
+  f = message.getId();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = message.getMyFeedFolderId();
+  f = message.getUserId();
   if (f.length > 0) {
     writer.writeString(
       2,
+      f
+    );
+  }
+  f = message.getMyFeedFolderId();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
       f
     );
   }
@@ -2305,10 +2317,10 @@ proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest.serializeBinaryToWriter = 
 
 
 /**
- * optional string user_id = 1;
+ * optional string id = 1;
  * @return {string}
  */
-proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest.prototype.getUserId = function() {
+proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest.prototype.getId = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
@@ -2317,16 +2329,16 @@ proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest.prototype.getUserId = func
  * @param {string} value
  * @return {!proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest} returns this
  */
-proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest.prototype.setUserId = function(value) {
+proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest.prototype.setId = function(value) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
 /**
- * optional string my_feed_folder_id = 2;
+ * optional string user_id = 2;
  * @return {string}
  */
-proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest.prototype.getMyFeedFolderId = function() {
+proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest.prototype.getUserId = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
@@ -2335,8 +2347,26 @@ proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest.prototype.getMyFeedFolderI
  * @param {string} value
  * @return {!proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest} returns this
  */
-proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest.prototype.setMyFeedFolderId = function(value) {
+proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest.prototype.setUserId = function(value) {
   return jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+/**
+ * optional string my_feed_folder_id = 3;
+ * @return {string}
+ */
+proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest.prototype.getMyFeedFolderId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest} returns this
+ */
+proto.checkpicks.my_feed.v1.DeleteMyFeedFolderRequest.prototype.setMyFeedFolderId = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
