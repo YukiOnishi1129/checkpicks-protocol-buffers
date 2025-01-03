@@ -29,6 +29,11 @@ export class GetArticlesRequest extends jspb.Message {
     getFeedIdsList(): Array<google_protobuf_wrappers_pb.StringValue>;
     setFeedIdsList(value: Array<google_protobuf_wrappers_pb.StringValue>): GetArticlesRequest;
     addFeedIds(value?: google_protobuf_wrappers_pb.StringValue, index?: number): google_protobuf_wrappers_pb.StringValue;
+
+    hasKeyword(): boolean;
+    clearKeyword(): void;
+    getKeyword(): google_protobuf_wrappers_pb.StringValue | undefined;
+    setKeyword(value?: google_protobuf_wrappers_pb.StringValue): GetArticlesRequest;
     getCursor(): string;
     setCursor(value: string): GetArticlesRequest;
     getLimit(): number;
@@ -50,6 +55,7 @@ export namespace GetArticlesRequest {
         languageStatus?: google_protobuf_wrappers_pb.Int64Value.AsObject,
         tag?: google_protobuf_wrappers_pb.StringValue.AsObject,
         feedIdsList: Array<google_protobuf_wrappers_pb.StringValue.AsObject>,
+        keyword?: google_protobuf_wrappers_pb.StringValue.AsObject,
         cursor: string,
         limit: number,
     }
