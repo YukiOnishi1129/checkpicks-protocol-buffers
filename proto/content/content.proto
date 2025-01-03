@@ -17,7 +17,6 @@ service ContentService {
   rpc GetArticleOGP(GetArticleOGPRequest) returns (GetArticleOGPResponse);
 
   rpc GetFeeds(GetFeedsRequest) returns (GetFeedsResponse);
-  rpc GetAllFeeds(GetAllFeedsRequest) returns (GetFeedsResponse);
   rpc GetFeed(GetFeedRequest) returns (GetFeedResponse);
 }
 
@@ -30,14 +29,6 @@ message GetArticlesRequest {
   google.protobuf.StringValue keyword = 5;
   string cursor = 6;
   int64 limit = 7;
-}
-
-message GetAllFeedsRequest {
-  google.protobuf.StringValue user_id = 1;
-  google.protobuf.Int64Value platform_site_type = 2;
-  google.protobuf.StringValue platform_id = 3;
-  google.protobuf.StringValue keyword = 4;
-  repeated google.protobuf.StringValue feed_ids = 5;
 }
 
 message GetArticlesResponse {
@@ -79,9 +70,10 @@ message GetFeedsRequest {
   google.protobuf.Int64Value platform_site_type = 2;
   google.protobuf.StringValue platform_id = 3;
   google.protobuf.StringValue keyword = 4;
-  google.protobuf.BoolValue is_all_fetch = 5;
-  string cursor = 6;
-  int64 limit = 7;
+  repeated google.protobuf.StringValue feed_ids = 5;
+  google.protobuf.BoolValue is_all_fetch = 6;
+  string cursor = 7;
+  int64 limit = 8;
 }
 
 message GetFeedResponse {

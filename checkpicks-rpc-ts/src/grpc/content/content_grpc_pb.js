@@ -29,17 +29,6 @@ function deserialize_checkpicks_content_v1_CreateUploadArticleRequest(buffer_arg
   return content_content_pb.CreateUploadArticleRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_checkpicks_content_v1_GetAllFeedsRequest(arg) {
-  if (!(arg instanceof content_content_pb.GetAllFeedsRequest)) {
-    throw new Error('Expected argument of type checkpicks.content.v1.GetAllFeedsRequest');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_checkpicks_content_v1_GetAllFeedsRequest(buffer_arg) {
-  return content_content_pb.GetAllFeedsRequest.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
 function serialize_checkpicks_content_v1_GetArticleOGPRequest(arg) {
   if (!(arg instanceof content_content_pb.GetArticleOGPRequest)) {
     throw new Error('Expected argument of type checkpicks.content.v1.GetArticleOGPRequest');
@@ -171,17 +160,6 @@ var ContentServiceService = exports.ContentServiceService = {
     responseType: content_content_pb.GetFeedsResponse,
     requestSerialize: serialize_checkpicks_content_v1_GetFeedsRequest,
     requestDeserialize: deserialize_checkpicks_content_v1_GetFeedsRequest,
-    responseSerialize: serialize_checkpicks_content_v1_GetFeedsResponse,
-    responseDeserialize: deserialize_checkpicks_content_v1_GetFeedsResponse,
-  },
-  getAllFeeds: {
-    path: '/checkpicks.content.v1.ContentService/GetAllFeeds',
-    requestStream: false,
-    responseStream: false,
-    requestType: content_content_pb.GetAllFeedsRequest,
-    responseType: content_content_pb.GetFeedsResponse,
-    requestSerialize: serialize_checkpicks_content_v1_GetAllFeedsRequest,
-    requestDeserialize: deserialize_checkpicks_content_v1_GetAllFeedsRequest,
     responseSerialize: serialize_checkpicks_content_v1_GetFeedsResponse,
     responseDeserialize: deserialize_checkpicks_content_v1_GetFeedsResponse,
   },
