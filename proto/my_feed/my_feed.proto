@@ -30,8 +30,9 @@ message GetMyFeedFoldersResponse {
 message GetMyFeedFoldersRequest {
     string user_id = 1;
     google.protobuf.StringValue keyword = 2;
-    string cursor = 3;
-    int64 limit = 4;
+    google.protobuf.BoolValue is_all_fetch = 3;
+    string cursor = 4;
+    int64 limit = 5;
 }
 
 message GetMyFeedFolderResponse {

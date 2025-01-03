@@ -606,8 +606,9 @@ proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest.toObject = function(includeI
   var f, obj = {
     userId: jspb.Message.getFieldWithDefault(msg, 1, ""),
     keyword: (f = msg.getKeyword()) && google_protobuf_wrappers_pb.StringValue.toObject(includeInstance, f),
-    cursor: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    limit: jspb.Message.getFieldWithDefault(msg, 4, 0)
+    isAllFetch: (f = msg.getIsAllFetch()) && google_protobuf_wrappers_pb.BoolValue.toObject(includeInstance, f),
+    cursor: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    limit: jspb.Message.getFieldWithDefault(msg, 5, 0)
   };
 
   if (includeInstance) {
@@ -654,10 +655,15 @@ proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest.deserializeBinaryFromReader 
       msg.setKeyword(value);
       break;
     case 3:
+      var value = new google_protobuf_wrappers_pb.BoolValue;
+      reader.readMessage(value,google_protobuf_wrappers_pb.BoolValue.deserializeBinaryFromReader);
+      msg.setIsAllFetch(value);
+      break;
+    case 4:
       var value = /** @type {string} */ (reader.readString());
       msg.setCursor(value);
       break;
-    case 4:
+    case 5:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setLimit(value);
       break;
@@ -705,17 +711,25 @@ proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest.serializeBinaryToWriter = fu
       google_protobuf_wrappers_pb.StringValue.serializeBinaryToWriter
     );
   }
+  f = message.getIsAllFetch();
+  if (f != null) {
+    writer.writeMessage(
+      3,
+      f,
+      google_protobuf_wrappers_pb.BoolValue.serializeBinaryToWriter
+    );
+  }
   f = message.getCursor();
   if (f.length > 0) {
     writer.writeString(
-      3,
+      4,
       f
     );
   }
   f = message.getLimit();
   if (f !== 0) {
     writer.writeInt64(
-      4,
+      5,
       f
     );
   }
@@ -778,11 +792,48 @@ proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest.prototype.hasKeyword = funct
 
 
 /**
- * optional string cursor = 3;
+ * optional google.protobuf.BoolValue is_all_fetch = 3;
+ * @return {?proto.google.protobuf.BoolValue}
+ */
+proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest.prototype.getIsAllFetch = function() {
+  return /** @type{?proto.google.protobuf.BoolValue} */ (
+    jspb.Message.getWrapperField(this, google_protobuf_wrappers_pb.BoolValue, 3));
+};
+
+
+/**
+ * @param {?proto.google.protobuf.BoolValue|undefined} value
+ * @return {!proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest} returns this
+*/
+proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest.prototype.setIsAllFetch = function(value) {
+  return jspb.Message.setWrapperField(this, 3, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest} returns this
+ */
+proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest.prototype.clearIsAllFetch = function() {
+  return this.setIsAllFetch(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest.prototype.hasIsAllFetch = function() {
+  return jspb.Message.getField(this, 3) != null;
+};
+
+
+/**
+ * optional string cursor = 4;
  * @return {string}
  */
 proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest.prototype.getCursor = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
@@ -791,16 +842,16 @@ proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest.prototype.getCursor = functi
  * @return {!proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest} returns this
  */
 proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest.prototype.setCursor = function(value) {
-  return jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
 /**
- * optional int64 limit = 4;
+ * optional int64 limit = 5;
  * @return {number}
  */
 proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest.prototype.getLimit = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
 
@@ -809,7 +860,7 @@ proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest.prototype.getLimit = functio
  * @return {!proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest} returns this
  */
 proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest.prototype.setLimit = function(value) {
-  return jspb.Message.setProto3IntField(this, 4, value);
+  return jspb.Message.setProto3IntField(this, 5, value);
 };
 
 

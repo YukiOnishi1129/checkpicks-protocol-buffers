@@ -47,6 +47,11 @@ export class GetMyFeedFoldersRequest extends jspb.Message {
     clearKeyword(): void;
     getKeyword(): google_protobuf_wrappers_pb.StringValue | undefined;
     setKeyword(value?: google_protobuf_wrappers_pb.StringValue): GetMyFeedFoldersRequest;
+
+    hasIsAllFetch(): boolean;
+    clearIsAllFetch(): void;
+    getIsAllFetch(): google_protobuf_wrappers_pb.BoolValue | undefined;
+    setIsAllFetch(value?: google_protobuf_wrappers_pb.BoolValue): GetMyFeedFoldersRequest;
     getCursor(): string;
     setCursor(value: string): GetMyFeedFoldersRequest;
     getLimit(): number;
@@ -66,6 +71,7 @@ export namespace GetMyFeedFoldersRequest {
     export type AsObject = {
         userId: string,
         keyword?: google_protobuf_wrappers_pb.StringValue.AsObject,
+        isAllFetch?: google_protobuf_wrappers_pb.BoolValue.AsObject,
         cursor: string,
         limit: number,
     }
