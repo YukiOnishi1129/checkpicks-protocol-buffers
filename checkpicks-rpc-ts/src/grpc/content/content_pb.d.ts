@@ -282,6 +282,11 @@ export class GetFeedsRequest extends jspb.Message {
     clearKeyword(): void;
     getKeyword(): google_protobuf_wrappers_pb.StringValue | undefined;
     setKeyword(value?: google_protobuf_wrappers_pb.StringValue): GetFeedsRequest;
+
+    hasIsAllFetch(): boolean;
+    clearIsAllFetch(): void;
+    getIsAllFetch(): google_protobuf_wrappers_pb.BoolValue | undefined;
+    setIsAllFetch(value?: google_protobuf_wrappers_pb.BoolValue): GetFeedsRequest;
     getCursor(): string;
     setCursor(value: string): GetFeedsRequest;
     getLimit(): number;
@@ -303,6 +308,7 @@ export namespace GetFeedsRequest {
         platformSiteType?: google_protobuf_wrappers_pb.Int64Value.AsObject,
         platformId?: google_protobuf_wrappers_pb.StringValue.AsObject,
         keyword?: google_protobuf_wrappers_pb.StringValue.AsObject,
+        isAllFetch?: google_protobuf_wrappers_pb.BoolValue.AsObject,
         cursor: string,
         limit: number,
     }

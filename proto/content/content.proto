@@ -78,8 +78,9 @@ message GetFeedsRequest {
   google.protobuf.Int64Value platform_site_type = 2;
   google.protobuf.StringValue platform_id = 3;
   google.protobuf.StringValue keyword = 4;
-  string cursor = 5;
-  int64 limit = 6;
+  google.protobuf.BoolValue is_all_fetch = 5;
+  string cursor = 6;
+  int64 limit = 7;
 }
 
 message GetFeedResponse {
