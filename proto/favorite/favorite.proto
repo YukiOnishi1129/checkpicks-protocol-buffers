@@ -28,7 +28,7 @@ service FavoriteService {
 
 message GetFavoriteArticleFoldersRequest {
     string user_id = 1;
-    google.protobuf.StringValue keyword = 2;
+    repeated google.protobuf.StringValue keywords = 2;
     google.protobuf.StringValue cursor = 3;
     google.protobuf.Int64Value limit = 4;
     google.protobuf.Int64Value favorite_article_limit = 5;
@@ -44,7 +44,7 @@ message GetFavoriteArticleFoldersResponse {
 
 message GetFavoriteAllFolderArticlesRequest {
     string user_id = 1;
-    google.protobuf.StringValue keyword = 2;
+    repeated google.protobuf.StringValue keywords = 2;
     google.protobuf.StringValue cursor = 3;
     google.protobuf.Int64Value limit = 4;
 }
@@ -102,7 +102,7 @@ message GetFavoriteArticlesResponse {
 
 message GetFavoriteArticlesRequest {
     string user_id = 1;
-    google.protobuf.StringValue keyword = 2;
+    repeated google.protobuf.StringValue keywords = 2;
     google.protobuf.StringValue cursor = 3;
     google.protobuf.Int64Value limit = 4;
     google.protobuf.StringValue favorite_article_folder_id = 5;

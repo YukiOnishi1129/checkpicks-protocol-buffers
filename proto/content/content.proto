@@ -26,7 +26,7 @@ message GetArticlesRequest {
   google.protobuf.Int64Value language_status = 2;
   google.protobuf.StringValue tag = 3;
   repeated google.protobuf.StringValue feed_ids = 4;
-  google.protobuf.StringValue keyword = 5;
+  repeated google.protobuf.StringValue keywords = 5;
   string cursor = 6;
   int64 limit = 7;
 }
@@ -69,7 +69,7 @@ message GetFeedsRequest {
   string user_id = 1;
   google.protobuf.Int64Value platform_site_type = 2;
   google.protobuf.StringValue platform_id = 3;
-  google.protobuf.StringValue keyword = 4;
+  repeated google.protobuf.StringValue keywords = 4;
   repeated google.protobuf.StringValue feed_ids = 5;
   google.protobuf.BoolValue is_all_fetch = 6;
   string cursor = 7;

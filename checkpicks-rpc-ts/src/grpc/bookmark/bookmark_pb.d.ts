@@ -41,11 +41,10 @@ export namespace GetBookmarksResponse {
 export class GetBookmarksRequest extends jspb.Message { 
     getUserId(): string;
     setUserId(value: string): GetBookmarksRequest;
-
-    hasKeyword(): boolean;
-    clearKeyword(): void;
-    getKeyword(): google_protobuf_wrappers_pb.StringValue | undefined;
-    setKeyword(value?: google_protobuf_wrappers_pb.StringValue): GetBookmarksRequest;
+    clearKeywordsList(): void;
+    getKeywordsList(): Array<google_protobuf_wrappers_pb.StringValue>;
+    setKeywordsList(value: Array<google_protobuf_wrappers_pb.StringValue>): GetBookmarksRequest;
+    addKeywords(value?: google_protobuf_wrappers_pb.StringValue, index?: number): google_protobuf_wrappers_pb.StringValue;
     getCursor(): string;
     setCursor(value: string): GetBookmarksRequest;
     getLimit(): number;
@@ -64,7 +63,7 @@ export class GetBookmarksRequest extends jspb.Message {
 export namespace GetBookmarksRequest {
     export type AsObject = {
         userId: string,
-        keyword?: google_protobuf_wrappers_pb.StringValue.AsObject,
+        keywordsList: Array<google_protobuf_wrappers_pb.StringValue.AsObject>,
         cursor: string,
         limit: number,
     }
