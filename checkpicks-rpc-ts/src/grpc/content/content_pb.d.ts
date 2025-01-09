@@ -29,11 +29,10 @@ export class GetArticlesRequest extends jspb.Message {
     getFeedIdsList(): Array<google_protobuf_wrappers_pb.StringValue>;
     setFeedIdsList(value: Array<google_protobuf_wrappers_pb.StringValue>): GetArticlesRequest;
     addFeedIds(value?: google_protobuf_wrappers_pb.StringValue, index?: number): google_protobuf_wrappers_pb.StringValue;
-
-    hasKeyword(): boolean;
-    clearKeyword(): void;
-    getKeyword(): google_protobuf_wrappers_pb.StringValue | undefined;
-    setKeyword(value?: google_protobuf_wrappers_pb.StringValue): GetArticlesRequest;
+    clearKeywordsList(): void;
+    getKeywordsList(): Array<google_protobuf_wrappers_pb.StringValue>;
+    setKeywordsList(value: Array<google_protobuf_wrappers_pb.StringValue>): GetArticlesRequest;
+    addKeywords(value?: google_protobuf_wrappers_pb.StringValue, index?: number): google_protobuf_wrappers_pb.StringValue;
     getCursor(): string;
     setCursor(value: string): GetArticlesRequest;
     getLimit(): number;
@@ -55,7 +54,7 @@ export namespace GetArticlesRequest {
         languageStatus?: google_protobuf_wrappers_pb.Int64Value.AsObject,
         tag?: google_protobuf_wrappers_pb.StringValue.AsObject,
         feedIdsList: Array<google_protobuf_wrappers_pb.StringValue.AsObject>,
-        keyword?: google_protobuf_wrappers_pb.StringValue.AsObject,
+        keywordsList: Array<google_protobuf_wrappers_pb.StringValue.AsObject>,
         cursor: string,
         limit: number,
     }
@@ -237,11 +236,10 @@ export class GetFeedsRequest extends jspb.Message {
     clearPlatformId(): void;
     getPlatformId(): google_protobuf_wrappers_pb.StringValue | undefined;
     setPlatformId(value?: google_protobuf_wrappers_pb.StringValue): GetFeedsRequest;
-
-    hasKeyword(): boolean;
-    clearKeyword(): void;
-    getKeyword(): google_protobuf_wrappers_pb.StringValue | undefined;
-    setKeyword(value?: google_protobuf_wrappers_pb.StringValue): GetFeedsRequest;
+    clearKeywordsList(): void;
+    getKeywordsList(): Array<google_protobuf_wrappers_pb.StringValue>;
+    setKeywordsList(value: Array<google_protobuf_wrappers_pb.StringValue>): GetFeedsRequest;
+    addKeywords(value?: google_protobuf_wrappers_pb.StringValue, index?: number): google_protobuf_wrappers_pb.StringValue;
     clearFeedIdsList(): void;
     getFeedIdsList(): Array<google_protobuf_wrappers_pb.StringValue>;
     setFeedIdsList(value: Array<google_protobuf_wrappers_pb.StringValue>): GetFeedsRequest;
@@ -271,7 +269,7 @@ export namespace GetFeedsRequest {
         userId: string,
         platformSiteType?: google_protobuf_wrappers_pb.Int64Value.AsObject,
         platformId?: google_protobuf_wrappers_pb.StringValue.AsObject,
-        keyword?: google_protobuf_wrappers_pb.StringValue.AsObject,
+        keywordsList: Array<google_protobuf_wrappers_pb.StringValue.AsObject>,
         feedIdsList: Array<google_protobuf_wrappers_pb.StringValue.AsObject>,
         isAllFetch?: google_protobuf_wrappers_pb.BoolValue.AsObject,
         cursor: string,

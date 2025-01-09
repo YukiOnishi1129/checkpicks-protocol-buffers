@@ -64,7 +64,7 @@ goog.exportSymbol('proto.checkpicks.favorite.v1.UpdateFavoriteArticleFolderRespo
  * @constructor
  */
 proto.checkpicks.favorite.v1.GetFavoriteArticleFoldersRequest = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.checkpicks.favorite.v1.GetFavoriteArticleFoldersRequest.repeatedFields_, null);
 };
 goog.inherits(proto.checkpicks.favorite.v1.GetFavoriteArticleFoldersRequest, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -106,7 +106,7 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.checkpicks.favorite.v1.GetFavoriteAllFolderArticlesRequest = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.checkpicks.favorite.v1.GetFavoriteAllFolderArticlesRequest.repeatedFields_, null);
 };
 goog.inherits(proto.checkpicks.favorite.v1.GetFavoriteAllFolderArticlesRequest, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -337,7 +337,7 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.checkpicks.favorite.v1.GetFavoriteArticlesRequest = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.checkpicks.favorite.v1.GetFavoriteArticlesRequest.repeatedFields_, null);
 };
 goog.inherits(proto.checkpicks.favorite.v1.GetFavoriteArticlesRequest, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -558,6 +558,13 @@ if (goog.DEBUG && !COMPILED) {
   proto.checkpicks.favorite.v1.FavoriteArticleFolder.displayName = 'proto.checkpicks.favorite.v1.FavoriteArticleFolder';
 }
 
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.checkpicks.favorite.v1.GetFavoriteArticleFoldersRequest.repeatedFields_ = [2];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -590,7 +597,8 @@ proto.checkpicks.favorite.v1.GetFavoriteArticleFoldersRequest.prototype.toObject
 proto.checkpicks.favorite.v1.GetFavoriteArticleFoldersRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     userId: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    keyword: (f = msg.getKeyword()) && google_protobuf_wrappers_pb.StringValue.toObject(includeInstance, f),
+    keywordsList: jspb.Message.toObjectList(msg.getKeywordsList(),
+    google_protobuf_wrappers_pb.StringValue.toObject, includeInstance),
     cursor: (f = msg.getCursor()) && google_protobuf_wrappers_pb.StringValue.toObject(includeInstance, f),
     limit: (f = msg.getLimit()) && google_protobuf_wrappers_pb.Int64Value.toObject(includeInstance, f),
     favoriteArticleLimit: (f = msg.getFavoriteArticleLimit()) && google_protobuf_wrappers_pb.Int64Value.toObject(includeInstance, f),
@@ -640,7 +648,7 @@ proto.checkpicks.favorite.v1.GetFavoriteArticleFoldersRequest.deserializeBinaryF
     case 2:
       var value = new google_protobuf_wrappers_pb.StringValue;
       reader.readMessage(value,google_protobuf_wrappers_pb.StringValue.deserializeBinaryFromReader);
-      msg.setKeyword(value);
+      msg.addKeywords(value);
       break;
     case 3:
       var value = new google_protobuf_wrappers_pb.StringValue;
@@ -708,9 +716,9 @@ proto.checkpicks.favorite.v1.GetFavoriteArticleFoldersRequest.serializeBinaryToW
       f
     );
   }
-  f = message.getKeyword();
-  if (f != null) {
-    writer.writeMessage(
+  f = message.getKeywordsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
       2,
       f,
       google_protobuf_wrappers_pb.StringValue.serializeBinaryToWriter
@@ -786,39 +794,40 @@ proto.checkpicks.favorite.v1.GetFavoriteArticleFoldersRequest.prototype.setUserI
 
 
 /**
- * optional google.protobuf.StringValue keyword = 2;
- * @return {?proto.google.protobuf.StringValue}
+ * repeated google.protobuf.StringValue keywords = 2;
+ * @return {!Array<!proto.google.protobuf.StringValue>}
  */
-proto.checkpicks.favorite.v1.GetFavoriteArticleFoldersRequest.prototype.getKeyword = function() {
-  return /** @type{?proto.google.protobuf.StringValue} */ (
-    jspb.Message.getWrapperField(this, google_protobuf_wrappers_pb.StringValue, 2));
+proto.checkpicks.favorite.v1.GetFavoriteArticleFoldersRequest.prototype.getKeywordsList = function() {
+  return /** @type{!Array<!proto.google.protobuf.StringValue>} */ (
+    jspb.Message.getRepeatedWrapperField(this, google_protobuf_wrappers_pb.StringValue, 2));
 };
 
 
 /**
- * @param {?proto.google.protobuf.StringValue|undefined} value
+ * @param {!Array<!proto.google.protobuf.StringValue>} value
  * @return {!proto.checkpicks.favorite.v1.GetFavoriteArticleFoldersRequest} returns this
 */
-proto.checkpicks.favorite.v1.GetFavoriteArticleFoldersRequest.prototype.setKeyword = function(value) {
-  return jspb.Message.setWrapperField(this, 2, value);
+proto.checkpicks.favorite.v1.GetFavoriteArticleFoldersRequest.prototype.setKeywordsList = function(value) {
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
 /**
- * Clears the message field making it undefined.
+ * @param {!proto.google.protobuf.StringValue=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.google.protobuf.StringValue}
+ */
+proto.checkpicks.favorite.v1.GetFavoriteArticleFoldersRequest.prototype.addKeywords = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.google.protobuf.StringValue, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
  * @return {!proto.checkpicks.favorite.v1.GetFavoriteArticleFoldersRequest} returns this
  */
-proto.checkpicks.favorite.v1.GetFavoriteArticleFoldersRequest.prototype.clearKeyword = function() {
-  return this.setKeyword(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.checkpicks.favorite.v1.GetFavoriteArticleFoldersRequest.prototype.hasKeyword = function() {
-  return jspb.Message.getField(this, 2) != null;
+proto.checkpicks.favorite.v1.GetFavoriteArticleFoldersRequest.prototype.clearKeywordsList = function() {
+  return this.setKeywordsList([]);
 };
 
 
@@ -1256,6 +1265,13 @@ proto.checkpicks.favorite.v1.GetFavoriteArticleFoldersResponse.prototype.hasPage
 
 
 
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.checkpicks.favorite.v1.GetFavoriteAllFolderArticlesRequest.repeatedFields_ = [2];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -1288,7 +1304,8 @@ proto.checkpicks.favorite.v1.GetFavoriteAllFolderArticlesRequest.prototype.toObj
 proto.checkpicks.favorite.v1.GetFavoriteAllFolderArticlesRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     userId: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    keyword: (f = msg.getKeyword()) && google_protobuf_wrappers_pb.StringValue.toObject(includeInstance, f),
+    keywordsList: jspb.Message.toObjectList(msg.getKeywordsList(),
+    google_protobuf_wrappers_pb.StringValue.toObject, includeInstance),
     cursor: (f = msg.getCursor()) && google_protobuf_wrappers_pb.StringValue.toObject(includeInstance, f),
     limit: (f = msg.getLimit()) && google_protobuf_wrappers_pb.Int64Value.toObject(includeInstance, f)
   };
@@ -1334,7 +1351,7 @@ proto.checkpicks.favorite.v1.GetFavoriteAllFolderArticlesRequest.deserializeBina
     case 2:
       var value = new google_protobuf_wrappers_pb.StringValue;
       reader.readMessage(value,google_protobuf_wrappers_pb.StringValue.deserializeBinaryFromReader);
-      msg.setKeyword(value);
+      msg.addKeywords(value);
       break;
     case 3:
       var value = new google_protobuf_wrappers_pb.StringValue;
@@ -1382,9 +1399,9 @@ proto.checkpicks.favorite.v1.GetFavoriteAllFolderArticlesRequest.serializeBinary
       f
     );
   }
-  f = message.getKeyword();
-  if (f != null) {
-    writer.writeMessage(
+  f = message.getKeywordsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
       2,
       f,
       google_protobuf_wrappers_pb.StringValue.serializeBinaryToWriter
@@ -1428,39 +1445,40 @@ proto.checkpicks.favorite.v1.GetFavoriteAllFolderArticlesRequest.prototype.setUs
 
 
 /**
- * optional google.protobuf.StringValue keyword = 2;
- * @return {?proto.google.protobuf.StringValue}
+ * repeated google.protobuf.StringValue keywords = 2;
+ * @return {!Array<!proto.google.protobuf.StringValue>}
  */
-proto.checkpicks.favorite.v1.GetFavoriteAllFolderArticlesRequest.prototype.getKeyword = function() {
-  return /** @type{?proto.google.protobuf.StringValue} */ (
-    jspb.Message.getWrapperField(this, google_protobuf_wrappers_pb.StringValue, 2));
+proto.checkpicks.favorite.v1.GetFavoriteAllFolderArticlesRequest.prototype.getKeywordsList = function() {
+  return /** @type{!Array<!proto.google.protobuf.StringValue>} */ (
+    jspb.Message.getRepeatedWrapperField(this, google_protobuf_wrappers_pb.StringValue, 2));
 };
 
 
 /**
- * @param {?proto.google.protobuf.StringValue|undefined} value
+ * @param {!Array<!proto.google.protobuf.StringValue>} value
  * @return {!proto.checkpicks.favorite.v1.GetFavoriteAllFolderArticlesRequest} returns this
 */
-proto.checkpicks.favorite.v1.GetFavoriteAllFolderArticlesRequest.prototype.setKeyword = function(value) {
-  return jspb.Message.setWrapperField(this, 2, value);
+proto.checkpicks.favorite.v1.GetFavoriteAllFolderArticlesRequest.prototype.setKeywordsList = function(value) {
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
 /**
- * Clears the message field making it undefined.
+ * @param {!proto.google.protobuf.StringValue=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.google.protobuf.StringValue}
+ */
+proto.checkpicks.favorite.v1.GetFavoriteAllFolderArticlesRequest.prototype.addKeywords = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.google.protobuf.StringValue, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
  * @return {!proto.checkpicks.favorite.v1.GetFavoriteAllFolderArticlesRequest} returns this
  */
-proto.checkpicks.favorite.v1.GetFavoriteAllFolderArticlesRequest.prototype.clearKeyword = function() {
-  return this.setKeyword(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.checkpicks.favorite.v1.GetFavoriteAllFolderArticlesRequest.prototype.hasKeyword = function() {
-  return jspb.Message.getField(this, 2) != null;
+proto.checkpicks.favorite.v1.GetFavoriteAllFolderArticlesRequest.prototype.clearKeywordsList = function() {
+  return this.setKeywordsList([]);
 };
 
 
@@ -3397,6 +3415,13 @@ proto.checkpicks.favorite.v1.GetFavoriteArticlesResponse.prototype.hasPageInfo =
 
 
 
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.checkpicks.favorite.v1.GetFavoriteArticlesRequest.repeatedFields_ = [2];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -3429,7 +3454,8 @@ proto.checkpicks.favorite.v1.GetFavoriteArticlesRequest.prototype.toObject = fun
 proto.checkpicks.favorite.v1.GetFavoriteArticlesRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     userId: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    keyword: (f = msg.getKeyword()) && google_protobuf_wrappers_pb.StringValue.toObject(includeInstance, f),
+    keywordsList: jspb.Message.toObjectList(msg.getKeywordsList(),
+    google_protobuf_wrappers_pb.StringValue.toObject, includeInstance),
     cursor: (f = msg.getCursor()) && google_protobuf_wrappers_pb.StringValue.toObject(includeInstance, f),
     limit: (f = msg.getLimit()) && google_protobuf_wrappers_pb.Int64Value.toObject(includeInstance, f),
     favoriteArticleFolderId: (f = msg.getFavoriteArticleFolderId()) && google_protobuf_wrappers_pb.StringValue.toObject(includeInstance, f)
@@ -3476,7 +3502,7 @@ proto.checkpicks.favorite.v1.GetFavoriteArticlesRequest.deserializeBinaryFromRea
     case 2:
       var value = new google_protobuf_wrappers_pb.StringValue;
       reader.readMessage(value,google_protobuf_wrappers_pb.StringValue.deserializeBinaryFromReader);
-      msg.setKeyword(value);
+      msg.addKeywords(value);
       break;
     case 3:
       var value = new google_protobuf_wrappers_pb.StringValue;
@@ -3529,9 +3555,9 @@ proto.checkpicks.favorite.v1.GetFavoriteArticlesRequest.serializeBinaryToWriter 
       f
     );
   }
-  f = message.getKeyword();
-  if (f != null) {
-    writer.writeMessage(
+  f = message.getKeywordsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
       2,
       f,
       google_protobuf_wrappers_pb.StringValue.serializeBinaryToWriter
@@ -3583,39 +3609,40 @@ proto.checkpicks.favorite.v1.GetFavoriteArticlesRequest.prototype.setUserId = fu
 
 
 /**
- * optional google.protobuf.StringValue keyword = 2;
- * @return {?proto.google.protobuf.StringValue}
+ * repeated google.protobuf.StringValue keywords = 2;
+ * @return {!Array<!proto.google.protobuf.StringValue>}
  */
-proto.checkpicks.favorite.v1.GetFavoriteArticlesRequest.prototype.getKeyword = function() {
-  return /** @type{?proto.google.protobuf.StringValue} */ (
-    jspb.Message.getWrapperField(this, google_protobuf_wrappers_pb.StringValue, 2));
+proto.checkpicks.favorite.v1.GetFavoriteArticlesRequest.prototype.getKeywordsList = function() {
+  return /** @type{!Array<!proto.google.protobuf.StringValue>} */ (
+    jspb.Message.getRepeatedWrapperField(this, google_protobuf_wrappers_pb.StringValue, 2));
 };
 
 
 /**
- * @param {?proto.google.protobuf.StringValue|undefined} value
+ * @param {!Array<!proto.google.protobuf.StringValue>} value
  * @return {!proto.checkpicks.favorite.v1.GetFavoriteArticlesRequest} returns this
 */
-proto.checkpicks.favorite.v1.GetFavoriteArticlesRequest.prototype.setKeyword = function(value) {
-  return jspb.Message.setWrapperField(this, 2, value);
+proto.checkpicks.favorite.v1.GetFavoriteArticlesRequest.prototype.setKeywordsList = function(value) {
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
 /**
- * Clears the message field making it undefined.
+ * @param {!proto.google.protobuf.StringValue=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.google.protobuf.StringValue}
+ */
+proto.checkpicks.favorite.v1.GetFavoriteArticlesRequest.prototype.addKeywords = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.google.protobuf.StringValue, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
  * @return {!proto.checkpicks.favorite.v1.GetFavoriteArticlesRequest} returns this
  */
-proto.checkpicks.favorite.v1.GetFavoriteArticlesRequest.prototype.clearKeyword = function() {
-  return this.setKeyword(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.checkpicks.favorite.v1.GetFavoriteArticlesRequest.prototype.hasKeyword = function() {
-  return jspb.Message.getField(this, 2) != null;
+proto.checkpicks.favorite.v1.GetFavoriteArticlesRequest.prototype.clearKeywordsList = function() {
+  return this.setKeywordsList([]);
 };
 
 

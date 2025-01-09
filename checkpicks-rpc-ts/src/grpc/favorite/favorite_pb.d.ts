@@ -13,11 +13,10 @@ import * as common_common_pb from "../common/common_pb";
 export class GetFavoriteArticleFoldersRequest extends jspb.Message { 
     getUserId(): string;
     setUserId(value: string): GetFavoriteArticleFoldersRequest;
-
-    hasKeyword(): boolean;
-    clearKeyword(): void;
-    getKeyword(): google_protobuf_wrappers_pb.StringValue | undefined;
-    setKeyword(value?: google_protobuf_wrappers_pb.StringValue): GetFavoriteArticleFoldersRequest;
+    clearKeywordsList(): void;
+    getKeywordsList(): Array<google_protobuf_wrappers_pb.StringValue>;
+    setKeywordsList(value: Array<google_protobuf_wrappers_pb.StringValue>): GetFavoriteArticleFoldersRequest;
+    addKeywords(value?: google_protobuf_wrappers_pb.StringValue, index?: number): google_protobuf_wrappers_pb.StringValue;
 
     hasCursor(): boolean;
     clearCursor(): void;
@@ -62,7 +61,7 @@ export class GetFavoriteArticleFoldersRequest extends jspb.Message {
 export namespace GetFavoriteArticleFoldersRequest {
     export type AsObject = {
         userId: string,
-        keyword?: google_protobuf_wrappers_pb.StringValue.AsObject,
+        keywordsList: Array<google_protobuf_wrappers_pb.StringValue.AsObject>,
         cursor?: google_protobuf_wrappers_pb.StringValue.AsObject,
         limit?: google_protobuf_wrappers_pb.Int64Value.AsObject,
         favoriteArticleLimit?: google_protobuf_wrappers_pb.Int64Value.AsObject,
@@ -103,11 +102,10 @@ export namespace GetFavoriteArticleFoldersResponse {
 export class GetFavoriteAllFolderArticlesRequest extends jspb.Message { 
     getUserId(): string;
     setUserId(value: string): GetFavoriteAllFolderArticlesRequest;
-
-    hasKeyword(): boolean;
-    clearKeyword(): void;
-    getKeyword(): google_protobuf_wrappers_pb.StringValue | undefined;
-    setKeyword(value?: google_protobuf_wrappers_pb.StringValue): GetFavoriteAllFolderArticlesRequest;
+    clearKeywordsList(): void;
+    getKeywordsList(): Array<google_protobuf_wrappers_pb.StringValue>;
+    setKeywordsList(value: Array<google_protobuf_wrappers_pb.StringValue>): GetFavoriteAllFolderArticlesRequest;
+    addKeywords(value?: google_protobuf_wrappers_pb.StringValue, index?: number): google_protobuf_wrappers_pb.StringValue;
 
     hasCursor(): boolean;
     clearCursor(): void;
@@ -132,7 +130,7 @@ export class GetFavoriteAllFolderArticlesRequest extends jspb.Message {
 export namespace GetFavoriteAllFolderArticlesRequest {
     export type AsObject = {
         userId: string,
-        keyword?: google_protobuf_wrappers_pb.StringValue.AsObject,
+        keywordsList: Array<google_protobuf_wrappers_pb.StringValue.AsObject>,
         cursor?: google_protobuf_wrappers_pb.StringValue.AsObject,
         limit?: google_protobuf_wrappers_pb.Int64Value.AsObject,
     }
@@ -402,11 +400,10 @@ export namespace GetFavoriteArticlesResponse {
 export class GetFavoriteArticlesRequest extends jspb.Message { 
     getUserId(): string;
     setUserId(value: string): GetFavoriteArticlesRequest;
-
-    hasKeyword(): boolean;
-    clearKeyword(): void;
-    getKeyword(): google_protobuf_wrappers_pb.StringValue | undefined;
-    setKeyword(value?: google_protobuf_wrappers_pb.StringValue): GetFavoriteArticlesRequest;
+    clearKeywordsList(): void;
+    getKeywordsList(): Array<google_protobuf_wrappers_pb.StringValue>;
+    setKeywordsList(value: Array<google_protobuf_wrappers_pb.StringValue>): GetFavoriteArticlesRequest;
+    addKeywords(value?: google_protobuf_wrappers_pb.StringValue, index?: number): google_protobuf_wrappers_pb.StringValue;
 
     hasCursor(): boolean;
     clearCursor(): void;
@@ -436,7 +433,7 @@ export class GetFavoriteArticlesRequest extends jspb.Message {
 export namespace GetFavoriteArticlesRequest {
     export type AsObject = {
         userId: string,
-        keyword?: google_protobuf_wrappers_pb.StringValue.AsObject,
+        keywordsList: Array<google_protobuf_wrappers_pb.StringValue.AsObject>,
         cursor?: google_protobuf_wrappers_pb.StringValue.AsObject,
         limit?: google_protobuf_wrappers_pb.Int64Value.AsObject,
         favoriteArticleFolderId?: google_protobuf_wrappers_pb.StringValue.AsObject,

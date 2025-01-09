@@ -71,7 +71,7 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.checkpicks.bookmark.v1.GetBookmarksRequest = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.checkpicks.bookmark.v1.GetBookmarksRequest.repeatedFields_, null);
 };
 goog.inherits(proto.checkpicks.bookmark.v1.GetBookmarksRequest, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -461,6 +461,13 @@ proto.checkpicks.bookmark.v1.GetBookmarksResponse.prototype.hasPageInfo = functi
 
 
 
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.checkpicks.bookmark.v1.GetBookmarksRequest.repeatedFields_ = [2];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -493,7 +500,8 @@ proto.checkpicks.bookmark.v1.GetBookmarksRequest.prototype.toObject = function(o
 proto.checkpicks.bookmark.v1.GetBookmarksRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     userId: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    keyword: (f = msg.getKeyword()) && google_protobuf_wrappers_pb.StringValue.toObject(includeInstance, f),
+    keywordsList: jspb.Message.toObjectList(msg.getKeywordsList(),
+    google_protobuf_wrappers_pb.StringValue.toObject, includeInstance),
     cursor: jspb.Message.getFieldWithDefault(msg, 3, ""),
     limit: jspb.Message.getFieldWithDefault(msg, 4, 0)
   };
@@ -539,7 +547,7 @@ proto.checkpicks.bookmark.v1.GetBookmarksRequest.deserializeBinaryFromReader = f
     case 2:
       var value = new google_protobuf_wrappers_pb.StringValue;
       reader.readMessage(value,google_protobuf_wrappers_pb.StringValue.deserializeBinaryFromReader);
-      msg.setKeyword(value);
+      msg.addKeywords(value);
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
@@ -585,9 +593,9 @@ proto.checkpicks.bookmark.v1.GetBookmarksRequest.serializeBinaryToWriter = funct
       f
     );
   }
-  f = message.getKeyword();
-  if (f != null) {
-    writer.writeMessage(
+  f = message.getKeywordsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
       2,
       f,
       google_protobuf_wrappers_pb.StringValue.serializeBinaryToWriter
@@ -629,39 +637,40 @@ proto.checkpicks.bookmark.v1.GetBookmarksRequest.prototype.setUserId = function(
 
 
 /**
- * optional google.protobuf.StringValue keyword = 2;
- * @return {?proto.google.protobuf.StringValue}
+ * repeated google.protobuf.StringValue keywords = 2;
+ * @return {!Array<!proto.google.protobuf.StringValue>}
  */
-proto.checkpicks.bookmark.v1.GetBookmarksRequest.prototype.getKeyword = function() {
-  return /** @type{?proto.google.protobuf.StringValue} */ (
-    jspb.Message.getWrapperField(this, google_protobuf_wrappers_pb.StringValue, 2));
+proto.checkpicks.bookmark.v1.GetBookmarksRequest.prototype.getKeywordsList = function() {
+  return /** @type{!Array<!proto.google.protobuf.StringValue>} */ (
+    jspb.Message.getRepeatedWrapperField(this, google_protobuf_wrappers_pb.StringValue, 2));
 };
 
 
 /**
- * @param {?proto.google.protobuf.StringValue|undefined} value
+ * @param {!Array<!proto.google.protobuf.StringValue>} value
  * @return {!proto.checkpicks.bookmark.v1.GetBookmarksRequest} returns this
 */
-proto.checkpicks.bookmark.v1.GetBookmarksRequest.prototype.setKeyword = function(value) {
-  return jspb.Message.setWrapperField(this, 2, value);
+proto.checkpicks.bookmark.v1.GetBookmarksRequest.prototype.setKeywordsList = function(value) {
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
 /**
- * Clears the message field making it undefined.
+ * @param {!proto.google.protobuf.StringValue=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.google.protobuf.StringValue}
+ */
+proto.checkpicks.bookmark.v1.GetBookmarksRequest.prototype.addKeywords = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.google.protobuf.StringValue, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
  * @return {!proto.checkpicks.bookmark.v1.GetBookmarksRequest} returns this
  */
-proto.checkpicks.bookmark.v1.GetBookmarksRequest.prototype.clearKeyword = function() {
-  return this.setKeyword(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.checkpicks.bookmark.v1.GetBookmarksRequest.prototype.hasKeyword = function() {
-  return jspb.Message.getField(this, 2) != null;
+proto.checkpicks.bookmark.v1.GetBookmarksRequest.prototype.clearKeywordsList = function() {
+  return this.setKeywordsList([]);
 };
 
 

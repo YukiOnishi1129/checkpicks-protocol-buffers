@@ -78,7 +78,7 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest.repeatedFields_, null);
 };
 goog.inherits(proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -573,6 +573,13 @@ proto.checkpicks.my_feed.v1.GetMyFeedFoldersResponse.prototype.hasPageInfo = fun
 
 
 
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest.repeatedFields_ = [2];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -605,7 +612,8 @@ proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest.prototype.toObject = functio
 proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     userId: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    keyword: (f = msg.getKeyword()) && google_protobuf_wrappers_pb.StringValue.toObject(includeInstance, f),
+    keywordsList: jspb.Message.toObjectList(msg.getKeywordsList(),
+    google_protobuf_wrappers_pb.StringValue.toObject, includeInstance),
     isAllFetch: (f = msg.getIsAllFetch()) && google_protobuf_wrappers_pb.BoolValue.toObject(includeInstance, f),
     cursor: jspb.Message.getFieldWithDefault(msg, 4, ""),
     limit: jspb.Message.getFieldWithDefault(msg, 5, 0)
@@ -652,7 +660,7 @@ proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest.deserializeBinaryFromReader 
     case 2:
       var value = new google_protobuf_wrappers_pb.StringValue;
       reader.readMessage(value,google_protobuf_wrappers_pb.StringValue.deserializeBinaryFromReader);
-      msg.setKeyword(value);
+      msg.addKeywords(value);
       break;
     case 3:
       var value = new google_protobuf_wrappers_pb.BoolValue;
@@ -703,9 +711,9 @@ proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest.serializeBinaryToWriter = fu
       f
     );
   }
-  f = message.getKeyword();
-  if (f != null) {
-    writer.writeMessage(
+  f = message.getKeywordsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
       2,
       f,
       google_protobuf_wrappers_pb.StringValue.serializeBinaryToWriter
@@ -755,39 +763,40 @@ proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest.prototype.setUserId = functi
 
 
 /**
- * optional google.protobuf.StringValue keyword = 2;
- * @return {?proto.google.protobuf.StringValue}
+ * repeated google.protobuf.StringValue keywords = 2;
+ * @return {!Array<!proto.google.protobuf.StringValue>}
  */
-proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest.prototype.getKeyword = function() {
-  return /** @type{?proto.google.protobuf.StringValue} */ (
-    jspb.Message.getWrapperField(this, google_protobuf_wrappers_pb.StringValue, 2));
+proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest.prototype.getKeywordsList = function() {
+  return /** @type{!Array<!proto.google.protobuf.StringValue>} */ (
+    jspb.Message.getRepeatedWrapperField(this, google_protobuf_wrappers_pb.StringValue, 2));
 };
 
 
 /**
- * @param {?proto.google.protobuf.StringValue|undefined} value
+ * @param {!Array<!proto.google.protobuf.StringValue>} value
  * @return {!proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest} returns this
 */
-proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest.prototype.setKeyword = function(value) {
-  return jspb.Message.setWrapperField(this, 2, value);
+proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest.prototype.setKeywordsList = function(value) {
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
 /**
- * Clears the message field making it undefined.
+ * @param {!proto.google.protobuf.StringValue=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.google.protobuf.StringValue}
+ */
+proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest.prototype.addKeywords = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.google.protobuf.StringValue, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
  * @return {!proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest} returns this
  */
-proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest.prototype.clearKeyword = function() {
-  return this.setKeyword(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest.prototype.hasKeyword = function() {
-  return jspb.Message.getField(this, 2) != null;
+proto.checkpicks.my_feed.v1.GetMyFeedFoldersRequest.prototype.clearKeywordsList = function() {
+  return this.setKeywordsList([]);
 };
 
 
