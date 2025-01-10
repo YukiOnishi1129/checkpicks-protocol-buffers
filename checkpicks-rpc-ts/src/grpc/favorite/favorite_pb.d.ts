@@ -590,6 +590,80 @@ export namespace CreateFavoriteArticleForUploadArticleRequest {
     }
 }
 
+export class CreateMultiFavoriteArticlesForUploadArticleResponse extends jspb.Message { 
+
+    hasFavoriteArticle(): boolean;
+    clearFavoriteArticle(): void;
+    getFavoriteArticle(): FavoriteArticle | undefined;
+    setFavoriteArticle(value?: FavoriteArticle): CreateMultiFavoriteArticlesForUploadArticleResponse;
+    clearFavoriteArticleFolderIdsList(): void;
+    getFavoriteArticleFolderIdsList(): Array<string>;
+    setFavoriteArticleFolderIdsList(value: Array<string>): CreateMultiFavoriteArticlesForUploadArticleResponse;
+    addFavoriteArticleFolderIds(value: string, index?: number): string;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): CreateMultiFavoriteArticlesForUploadArticleResponse.AsObject;
+    static toObject(includeInstance: boolean, msg: CreateMultiFavoriteArticlesForUploadArticleResponse): CreateMultiFavoriteArticlesForUploadArticleResponse.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: CreateMultiFavoriteArticlesForUploadArticleResponse, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): CreateMultiFavoriteArticlesForUploadArticleResponse;
+    static deserializeBinaryFromReader(message: CreateMultiFavoriteArticlesForUploadArticleResponse, reader: jspb.BinaryReader): CreateMultiFavoriteArticlesForUploadArticleResponse;
+}
+
+export namespace CreateMultiFavoriteArticlesForUploadArticleResponse {
+    export type AsObject = {
+        favoriteArticle?: FavoriteArticle.AsObject,
+        favoriteArticleFolderIdsList: Array<string>,
+    }
+}
+
+export class CreateMultiFavoriteArticlesForUploadArticleRequest extends jspb.Message { 
+    getUserId(): string;
+    setUserId(value: string): CreateMultiFavoriteArticlesForUploadArticleRequest;
+    clearFavoriteArticleFoldersList(): void;
+    getFavoriteArticleFoldersList(): Array<FavoriteArticleFolder>;
+    setFavoriteArticleFoldersList(value: Array<FavoriteArticleFolder>): CreateMultiFavoriteArticlesForUploadArticleRequest;
+    addFavoriteArticleFolders(value?: FavoriteArticleFolder, index?: number): FavoriteArticleFolder;
+    getTitle(): string;
+    setTitle(value: string): CreateMultiFavoriteArticlesForUploadArticleRequest;
+    getDescription(): string;
+    setDescription(value: string): CreateMultiFavoriteArticlesForUploadArticleRequest;
+    getThumbnailUrl(): string;
+    setThumbnailUrl(value: string): CreateMultiFavoriteArticlesForUploadArticleRequest;
+    getArticleUrl(): string;
+    setArticleUrl(value: string): CreateMultiFavoriteArticlesForUploadArticleRequest;
+    getPlatformName(): string;
+    setPlatformName(value: string): CreateMultiFavoriteArticlesForUploadArticleRequest;
+    getPlatformUrl(): string;
+    setPlatformUrl(value: string): CreateMultiFavoriteArticlesForUploadArticleRequest;
+    getPlatformFaviconUrl(): string;
+    setPlatformFaviconUrl(value: string): CreateMultiFavoriteArticlesForUploadArticleRequest;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): CreateMultiFavoriteArticlesForUploadArticleRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: CreateMultiFavoriteArticlesForUploadArticleRequest): CreateMultiFavoriteArticlesForUploadArticleRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: CreateMultiFavoriteArticlesForUploadArticleRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): CreateMultiFavoriteArticlesForUploadArticleRequest;
+    static deserializeBinaryFromReader(message: CreateMultiFavoriteArticlesForUploadArticleRequest, reader: jspb.BinaryReader): CreateMultiFavoriteArticlesForUploadArticleRequest;
+}
+
+export namespace CreateMultiFavoriteArticlesForUploadArticleRequest {
+    export type AsObject = {
+        userId: string,
+        favoriteArticleFoldersList: Array<FavoriteArticleFolder.AsObject>,
+        title: string,
+        description: string,
+        thumbnailUrl: string,
+        articleUrl: string,
+        platformName: string,
+        platformUrl: string,
+        platformFaviconUrl: string,
+    }
+}
+
 export class DeleteFavoriteArticleRequest extends jspb.Message { 
     getId(): string;
     setId(value: string): DeleteFavoriteArticleRequest;

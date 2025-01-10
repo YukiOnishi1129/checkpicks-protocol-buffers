@@ -63,6 +63,17 @@ function deserialize_checkpicks_favorite_v1_CreateFavoriteArticleResponse(buffer
   return favorite_favorite_pb.CreateFavoriteArticleResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_checkpicks_favorite_v1_CreateMultiFavoriteArticlesForUploadArticleRequest(arg) {
+  if (!(arg instanceof favorite_favorite_pb.CreateMultiFavoriteArticlesForUploadArticleRequest)) {
+    throw new Error('Expected argument of type checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_checkpicks_favorite_v1_CreateMultiFavoriteArticlesForUploadArticleRequest(buffer_arg) {
+  return favorite_favorite_pb.CreateMultiFavoriteArticlesForUploadArticleRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_checkpicks_favorite_v1_DeleteFavoriteArticleByArticleIdRequest(arg) {
   if (!(arg instanceof favorite_favorite_pb.DeleteFavoriteArticleByArticleIdRequest)) {
     throw new Error('Expected argument of type checkpicks.favorite.v1.DeleteFavoriteArticleByArticleIdRequest');
@@ -339,6 +350,17 @@ var FavoriteServiceService = exports.FavoriteServiceService = {
     requestDeserialize: deserialize_checkpicks_favorite_v1_CreateFavoriteArticleForUploadArticleRequest,
     responseSerialize: serialize_checkpicks_favorite_v1_CreateFavoriteArticleResponse,
     responseDeserialize: deserialize_checkpicks_favorite_v1_CreateFavoriteArticleResponse,
+  },
+  createMultiFavoriteArticlesForUploadArticle: {
+    path: '/checkpicks.favorite.v1.FavoriteService/CreateMultiFavoriteArticlesForUploadArticle',
+    requestStream: false,
+    responseStream: false,
+    requestType: favorite_favorite_pb.CreateMultiFavoriteArticlesForUploadArticleRequest,
+    responseType: google_protobuf_empty_pb.Empty,
+    requestSerialize: serialize_checkpicks_favorite_v1_CreateMultiFavoriteArticlesForUploadArticleRequest,
+    requestDeserialize: deserialize_checkpicks_favorite_v1_CreateMultiFavoriteArticlesForUploadArticleRequest,
+    responseSerialize: serialize_google_protobuf_Empty,
+    responseDeserialize: deserialize_google_protobuf_Empty,
   },
   deleteFavoriteArticle: {
     path: '/checkpicks.favorite.v1.FavoriteService/DeleteFavoriteArticle',
