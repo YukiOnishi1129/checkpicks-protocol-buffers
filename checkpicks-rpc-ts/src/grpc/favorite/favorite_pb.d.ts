@@ -621,10 +621,10 @@ export namespace CreateMultiFavoriteArticlesForUploadArticleResponse {
 export class CreateMultiFavoriteArticlesForUploadArticleRequest extends jspb.Message { 
     getUserId(): string;
     setUserId(value: string): CreateMultiFavoriteArticlesForUploadArticleRequest;
-    clearFavoriteArticleFoldersList(): void;
-    getFavoriteArticleFoldersList(): Array<FavoriteArticleFolder>;
-    setFavoriteArticleFoldersList(value: Array<FavoriteArticleFolder>): CreateMultiFavoriteArticlesForUploadArticleRequest;
-    addFavoriteArticleFolders(value?: FavoriteArticleFolder, index?: number): FavoriteArticleFolder;
+    clearFavoriteArticleFolderIdsList(): void;
+    getFavoriteArticleFolderIdsList(): Array<string>;
+    setFavoriteArticleFolderIdsList(value: Array<string>): CreateMultiFavoriteArticlesForUploadArticleRequest;
+    addFavoriteArticleFolderIds(value: string, index?: number): string;
     getTitle(): string;
     setTitle(value: string): CreateMultiFavoriteArticlesForUploadArticleRequest;
     getDescription(): string;
@@ -653,7 +653,7 @@ export class CreateMultiFavoriteArticlesForUploadArticleRequest extends jspb.Mes
 export namespace CreateMultiFavoriteArticlesForUploadArticleRequest {
     export type AsObject = {
         userId: string,
-        favoriteArticleFoldersList: Array<FavoriteArticleFolder.AsObject>,
+        favoriteArticleFolderIdsList: Array<string>,
         title: string,
         description: string,
         thumbnailUrl: string,

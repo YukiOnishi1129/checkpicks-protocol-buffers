@@ -5284,8 +5284,7 @@ proto.checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleRequest.
 proto.checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     userId: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    favoriteArticleFoldersList: jspb.Message.toObjectList(msg.getFavoriteArticleFoldersList(),
-    proto.checkpicks.favorite.v1.FavoriteArticleFolder.toObject, includeInstance),
+    favoriteArticleFolderIdsList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f,
     title: jspb.Message.getFieldWithDefault(msg, 3, ""),
     description: jspb.Message.getFieldWithDefault(msg, 4, ""),
     thumbnailUrl: jspb.Message.getFieldWithDefault(msg, 5, ""),
@@ -5334,9 +5333,8 @@ proto.checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleRequest.
       msg.setUserId(value);
       break;
     case 2:
-      var value = new proto.checkpicks.favorite.v1.FavoriteArticleFolder;
-      reader.readMessage(value,proto.checkpicks.favorite.v1.FavoriteArticleFolder.deserializeBinaryFromReader);
-      msg.addFavoriteArticleFolders(value);
+      var value = /** @type {string} */ (reader.readString());
+      msg.addFavoriteArticleFolderIds(value);
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
@@ -5402,12 +5400,11 @@ proto.checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleRequest.
       f
     );
   }
-  f = message.getFavoriteArticleFoldersList();
+  f = message.getFavoriteArticleFolderIdsList();
   if (f.length > 0) {
-    writer.writeRepeatedMessage(
+    writer.writeRepeatedString(
       2,
-      f,
-      proto.checkpicks.favorite.v1.FavoriteArticleFolder.serializeBinaryToWriter
+      f
     );
   }
   f = message.getTitle();
@@ -5481,31 +5478,30 @@ proto.checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleRequest.
 
 
 /**
- * repeated FavoriteArticleFolder favorite_article_folders = 2;
- * @return {!Array<!proto.checkpicks.favorite.v1.FavoriteArticleFolder>}
+ * repeated string favorite_article_folder_ids = 2;
+ * @return {!Array<string>}
  */
-proto.checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleRequest.prototype.getFavoriteArticleFoldersList = function() {
-  return /** @type{!Array<!proto.checkpicks.favorite.v1.FavoriteArticleFolder>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.checkpicks.favorite.v1.FavoriteArticleFolder, 2));
+proto.checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleRequest.prototype.getFavoriteArticleFolderIdsList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 2));
 };
 
 
 /**
- * @param {!Array<!proto.checkpicks.favorite.v1.FavoriteArticleFolder>} value
+ * @param {!Array<string>} value
  * @return {!proto.checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleRequest} returns this
-*/
-proto.checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleRequest.prototype.setFavoriteArticleFoldersList = function(value) {
-  return jspb.Message.setRepeatedWrapperField(this, 2, value);
+ */
+proto.checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleRequest.prototype.setFavoriteArticleFolderIdsList = function(value) {
+  return jspb.Message.setField(this, 2, value || []);
 };
 
 
 /**
- * @param {!proto.checkpicks.favorite.v1.FavoriteArticleFolder=} opt_value
+ * @param {string} value
  * @param {number=} opt_index
- * @return {!proto.checkpicks.favorite.v1.FavoriteArticleFolder}
+ * @return {!proto.checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleRequest} returns this
  */
-proto.checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleRequest.prototype.addFavoriteArticleFolders = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.checkpicks.favorite.v1.FavoriteArticleFolder, opt_index);
+proto.checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleRequest.prototype.addFavoriteArticleFolderIds = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 2, value, opt_index);
 };
 
 
@@ -5513,8 +5509,8 @@ proto.checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleRequest.
  * Clears the list making it empty but non-null.
  * @return {!proto.checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleRequest} returns this
  */
-proto.checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleRequest.prototype.clearFavoriteArticleFoldersList = function() {
-  return this.setFavoriteArticleFoldersList([]);
+proto.checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleRequest.prototype.clearFavoriteArticleFolderIdsList = function() {
+  return this.setFavoriteArticleFolderIdsList([]);
 };
 
 
