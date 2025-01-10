@@ -596,10 +596,10 @@ export class CreateMultiFavoriteArticlesForUploadArticleResponse extends jspb.Me
     clearFavoriteArticle(): void;
     getFavoriteArticle(): FavoriteArticle | undefined;
     setFavoriteArticle(value?: FavoriteArticle): CreateMultiFavoriteArticlesForUploadArticleResponse;
-    clearFavoriteArticleFolderIdsList(): void;
-    getFavoriteArticleFolderIdsList(): Array<string>;
-    setFavoriteArticleFolderIdsList(value: Array<string>): CreateMultiFavoriteArticlesForUploadArticleResponse;
-    addFavoriteArticleFolderIds(value: string, index?: number): string;
+    clearFavoriteArticleFoldersList(): void;
+    getFavoriteArticleFoldersList(): Array<FavoriteArticleFolder>;
+    setFavoriteArticleFoldersList(value: Array<FavoriteArticleFolder>): CreateMultiFavoriteArticlesForUploadArticleResponse;
+    addFavoriteArticleFolders(value?: FavoriteArticleFolder, index?: number): FavoriteArticleFolder;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): CreateMultiFavoriteArticlesForUploadArticleResponse.AsObject;
@@ -614,7 +614,7 @@ export class CreateMultiFavoriteArticlesForUploadArticleResponse extends jspb.Me
 export namespace CreateMultiFavoriteArticlesForUploadArticleResponse {
     export type AsObject = {
         favoriteArticle?: FavoriteArticle.AsObject,
-        favoriteArticleFolderIdsList: Array<string>,
+        favoriteArticleFoldersList: Array<FavoriteArticleFolder.AsObject>,
     }
 }
 

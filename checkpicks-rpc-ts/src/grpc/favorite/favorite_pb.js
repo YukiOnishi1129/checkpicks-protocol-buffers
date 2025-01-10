@@ -5077,7 +5077,8 @@ proto.checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleResponse
 proto.checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
     favoriteArticle: (f = msg.getFavoriteArticle()) && proto.checkpicks.favorite.v1.FavoriteArticle.toObject(includeInstance, f),
-    favoriteArticleFolderIdsList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f
+    favoriteArticleFoldersList: jspb.Message.toObjectList(msg.getFavoriteArticleFoldersList(),
+    proto.checkpicks.favorite.v1.FavoriteArticleFolder.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -5120,8 +5121,9 @@ proto.checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleResponse
       msg.setFavoriteArticle(value);
       break;
     case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.addFavoriteArticleFolderIds(value);
+      var value = new proto.checkpicks.favorite.v1.FavoriteArticleFolder;
+      reader.readMessage(value,proto.checkpicks.favorite.v1.FavoriteArticleFolder.deserializeBinaryFromReader);
+      msg.addFavoriteArticleFolders(value);
       break;
     default:
       reader.skipField();
@@ -5160,11 +5162,12 @@ proto.checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleResponse
       proto.checkpicks.favorite.v1.FavoriteArticle.serializeBinaryToWriter
     );
   }
-  f = message.getFavoriteArticleFolderIdsList();
+  f = message.getFavoriteArticleFoldersList();
   if (f.length > 0) {
-    writer.writeRepeatedString(
+    writer.writeRepeatedMessage(
       2,
-      f
+      f,
+      proto.checkpicks.favorite.v1.FavoriteArticleFolder.serializeBinaryToWriter
     );
   }
 };
@@ -5208,30 +5211,31 @@ proto.checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleResponse
 
 
 /**
- * repeated string favorite_article_folder_ids = 2;
- * @return {!Array<string>}
+ * repeated FavoriteArticleFolder favorite_article_folders = 2;
+ * @return {!Array<!proto.checkpicks.favorite.v1.FavoriteArticleFolder>}
  */
-proto.checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleResponse.prototype.getFavoriteArticleFolderIdsList = function() {
-  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 2));
+proto.checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleResponse.prototype.getFavoriteArticleFoldersList = function() {
+  return /** @type{!Array<!proto.checkpicks.favorite.v1.FavoriteArticleFolder>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.checkpicks.favorite.v1.FavoriteArticleFolder, 2));
 };
 
 
 /**
- * @param {!Array<string>} value
+ * @param {!Array<!proto.checkpicks.favorite.v1.FavoriteArticleFolder>} value
  * @return {!proto.checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleResponse} returns this
- */
-proto.checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleResponse.prototype.setFavoriteArticleFolderIdsList = function(value) {
-  return jspb.Message.setField(this, 2, value || []);
+*/
+proto.checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleResponse.prototype.setFavoriteArticleFoldersList = function(value) {
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
 /**
- * @param {string} value
+ * @param {!proto.checkpicks.favorite.v1.FavoriteArticleFolder=} opt_value
  * @param {number=} opt_index
- * @return {!proto.checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleResponse} returns this
+ * @return {!proto.checkpicks.favorite.v1.FavoriteArticleFolder}
  */
-proto.checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleResponse.prototype.addFavoriteArticleFolderIds = function(value, opt_index) {
-  return jspb.Message.addToRepeatedField(this, 2, value, opt_index);
+proto.checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleResponse.prototype.addFavoriteArticleFolders = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.checkpicks.favorite.v1.FavoriteArticleFolder, opt_index);
 };
 
 
@@ -5239,8 +5243,8 @@ proto.checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleResponse
  * Clears the list making it empty but non-null.
  * @return {!proto.checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleResponse} returns this
  */
-proto.checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleResponse.prototype.clearFavoriteArticleFolderIdsList = function() {
-  return this.setFavoriteArticleFolderIdsList([]);
+proto.checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleResponse.prototype.clearFavoriteArticleFoldersList = function() {
+  return this.setFavoriteArticleFoldersList([]);
 };
 
 

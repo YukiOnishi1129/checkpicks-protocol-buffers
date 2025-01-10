@@ -147,7 +147,7 @@ message CreateFavoriteArticleForUploadArticleRequest {
 
 message CreateMultiFavoriteArticlesForUploadArticleResponse {
     FavoriteArticle favorite_article = 1;
-    repeated string favorite_article_folder_ids = 2;
+    repeated FavoriteArticleFolder favorite_article_folders = 2;
 }
 
 message CreateMultiFavoriteArticlesForUploadArticleRequest {
