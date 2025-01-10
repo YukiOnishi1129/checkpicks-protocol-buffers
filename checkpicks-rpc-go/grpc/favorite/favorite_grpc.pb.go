@@ -49,7 +49,7 @@ type FavoriteServiceClient interface {
 	GetFavoriteAllFolderArticles(ctx context.Context, in *GetFavoriteAllFolderArticlesRequest, opts ...grpc.CallOption) (*GetFavoriteAllFolderArticlesResponse, error)
 	CreateFavoriteArticle(ctx context.Context, in *CreateFavoriteArticleRequest, opts ...grpc.CallOption) (*CreateFavoriteArticleResponse, error)
 	CreateFavoriteArticleForUploadArticle(ctx context.Context, in *CreateFavoriteArticleForUploadArticleRequest, opts ...grpc.CallOption) (*CreateFavoriteArticleResponse, error)
-	CreateMultiFavoriteArticlesForUploadArticle(ctx context.Context, in *CreateMultiFavoriteArticlesForUploadArticleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	CreateMultiFavoriteArticlesForUploadArticle(ctx context.Context, in *CreateMultiFavoriteArticlesForUploadArticleRequest, opts ...grpc.CallOption) (*CreateMultiFavoriteArticlesForUploadArticleResponse, error)
 	DeleteFavoriteArticle(ctx context.Context, in *DeleteFavoriteArticleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	DeleteFavoriteArticlesByArticleId(ctx context.Context, in *DeleteFavoriteArticleByArticleIdRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 }
@@ -162,9 +162,9 @@ func (c *favoriteServiceClient) CreateFavoriteArticleForUploadArticle(ctx contex
 	return out, nil
 }
 
-func (c *favoriteServiceClient) CreateMultiFavoriteArticlesForUploadArticle(ctx context.Context, in *CreateMultiFavoriteArticlesForUploadArticleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *favoriteServiceClient) CreateMultiFavoriteArticlesForUploadArticle(ctx context.Context, in *CreateMultiFavoriteArticlesForUploadArticleRequest, opts ...grpc.CallOption) (*CreateMultiFavoriteArticlesForUploadArticleResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(emptypb.Empty)
+	out := new(CreateMultiFavoriteArticlesForUploadArticleResponse)
 	err := c.cc.Invoke(ctx, FavoriteService_CreateMultiFavoriteArticlesForUploadArticle_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -206,7 +206,7 @@ type FavoriteServiceServer interface {
 	GetFavoriteAllFolderArticles(context.Context, *GetFavoriteAllFolderArticlesRequest) (*GetFavoriteAllFolderArticlesResponse, error)
 	CreateFavoriteArticle(context.Context, *CreateFavoriteArticleRequest) (*CreateFavoriteArticleResponse, error)
 	CreateFavoriteArticleForUploadArticle(context.Context, *CreateFavoriteArticleForUploadArticleRequest) (*CreateFavoriteArticleResponse, error)
-	CreateMultiFavoriteArticlesForUploadArticle(context.Context, *CreateMultiFavoriteArticlesForUploadArticleRequest) (*emptypb.Empty, error)
+	CreateMultiFavoriteArticlesForUploadArticle(context.Context, *CreateMultiFavoriteArticlesForUploadArticleRequest) (*CreateMultiFavoriteArticlesForUploadArticleResponse, error)
 	DeleteFavoriteArticle(context.Context, *DeleteFavoriteArticleRequest) (*emptypb.Empty, error)
 	DeleteFavoriteArticlesByArticleId(context.Context, *DeleteFavoriteArticleByArticleIdRequest) (*emptypb.Empty, error)
 }
@@ -248,7 +248,7 @@ func (UnimplementedFavoriteServiceServer) CreateFavoriteArticle(context.Context,
 func (UnimplementedFavoriteServiceServer) CreateFavoriteArticleForUploadArticle(context.Context, *CreateFavoriteArticleForUploadArticleRequest) (*CreateFavoriteArticleResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateFavoriteArticleForUploadArticle not implemented")
 }
-func (UnimplementedFavoriteServiceServer) CreateMultiFavoriteArticlesForUploadArticle(context.Context, *CreateMultiFavoriteArticlesForUploadArticleRequest) (*emptypb.Empty, error) {
+func (UnimplementedFavoriteServiceServer) CreateMultiFavoriteArticlesForUploadArticle(context.Context, *CreateMultiFavoriteArticlesForUploadArticleRequest) (*CreateMultiFavoriteArticlesForUploadArticleResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateMultiFavoriteArticlesForUploadArticle not implemented")
 }
 func (UnimplementedFavoriteServiceServer) DeleteFavoriteArticle(context.Context, *DeleteFavoriteArticleRequest) (*emptypb.Empty, error) {

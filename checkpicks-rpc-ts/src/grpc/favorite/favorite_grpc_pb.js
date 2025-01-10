@@ -74,6 +74,17 @@ function deserialize_checkpicks_favorite_v1_CreateMultiFavoriteArticlesForUpload
   return favorite_favorite_pb.CreateMultiFavoriteArticlesForUploadArticleRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_checkpicks_favorite_v1_CreateMultiFavoriteArticlesForUploadArticleResponse(arg) {
+  if (!(arg instanceof favorite_favorite_pb.CreateMultiFavoriteArticlesForUploadArticleResponse)) {
+    throw new Error('Expected argument of type checkpicks.favorite.v1.CreateMultiFavoriteArticlesForUploadArticleResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_checkpicks_favorite_v1_CreateMultiFavoriteArticlesForUploadArticleResponse(buffer_arg) {
+  return favorite_favorite_pb.CreateMultiFavoriteArticlesForUploadArticleResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_checkpicks_favorite_v1_DeleteFavoriteArticleByArticleIdRequest(arg) {
   if (!(arg instanceof favorite_favorite_pb.DeleteFavoriteArticleByArticleIdRequest)) {
     throw new Error('Expected argument of type checkpicks.favorite.v1.DeleteFavoriteArticleByArticleIdRequest');
@@ -356,11 +367,11 @@ var FavoriteServiceService = exports.FavoriteServiceService = {
     requestStream: false,
     responseStream: false,
     requestType: favorite_favorite_pb.CreateMultiFavoriteArticlesForUploadArticleRequest,
-    responseType: google_protobuf_empty_pb.Empty,
+    responseType: favorite_favorite_pb.CreateMultiFavoriteArticlesForUploadArticleResponse,
     requestSerialize: serialize_checkpicks_favorite_v1_CreateMultiFavoriteArticlesForUploadArticleRequest,
     requestDeserialize: deserialize_checkpicks_favorite_v1_CreateMultiFavoriteArticlesForUploadArticleRequest,
-    responseSerialize: serialize_google_protobuf_Empty,
-    responseDeserialize: deserialize_google_protobuf_Empty,
+    responseSerialize: serialize_checkpicks_favorite_v1_CreateMultiFavoriteArticlesForUploadArticleResponse,
+    responseDeserialize: deserialize_checkpicks_favorite_v1_CreateMultiFavoriteArticlesForUploadArticleResponse,
   },
   deleteFavoriteArticle: {
     path: '/checkpicks.favorite.v1.FavoriteService/DeleteFavoriteArticle',

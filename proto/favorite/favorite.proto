@@ -22,7 +22,7 @@ service FavoriteService {
     rpc GetFavoriteAllFolderArticles(GetFavoriteAllFolderArticlesRequest) returns (GetFavoriteAllFolderArticlesResponse);
     rpc CreateFavoriteArticle(CreateFavoriteArticleRequest) returns (CreateFavoriteArticleResponse);
     rpc CreateFavoriteArticleForUploadArticle(CreateFavoriteArticleForUploadArticleRequest) returns (CreateFavoriteArticleResponse);
-    rpc CreateMultiFavoriteArticlesForUploadArticle(CreateMultiFavoriteArticlesForUploadArticleRequest) returns (google.protobuf.Empty);
+    rpc CreateMultiFavoriteArticlesForUploadArticle(CreateMultiFavoriteArticlesForUploadArticleRequest) returns (CreateMultiFavoriteArticlesForUploadArticleResponse);
     rpc DeleteFavoriteArticle(DeleteFavoriteArticleRequest) returns (google.protobuf.Empty);
     rpc DeleteFavoriteArticlesByArticleId(DeleteFavoriteArticleByArticleIdRequest) returns (google.protobuf.Empty);
 }
