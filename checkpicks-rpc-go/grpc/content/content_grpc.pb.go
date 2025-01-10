@@ -19,11 +19,12 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	ContentService_GetArticles_FullMethodName         = "/checkpicks.content.v1.ContentService/GetArticles"
-	ContentService_CreateUploadArticle_FullMethodName = "/checkpicks.content.v1.ContentService/CreateUploadArticle"
-	ContentService_GetArticleOGP_FullMethodName       = "/checkpicks.content.v1.ContentService/GetArticleOGP"
-	ContentService_GetFeeds_FullMethodName            = "/checkpicks.content.v1.ContentService/GetFeeds"
-	ContentService_GetFeed_FullMethodName             = "/checkpicks.content.v1.ContentService/GetFeed"
+	ContentService_GetArticles_FullMethodName             = "/checkpicks.content.v1.ContentService/GetArticles"
+	ContentService_ListArticleByArticleURL_FullMethodName = "/checkpicks.content.v1.ContentService/ListArticleByArticleURL"
+	ContentService_CreateUploadArticle_FullMethodName     = "/checkpicks.content.v1.ContentService/CreateUploadArticle"
+	ContentService_GetArticleOGP_FullMethodName           = "/checkpicks.content.v1.ContentService/GetArticleOGP"
+	ContentService_GetFeeds_FullMethodName                = "/checkpicks.content.v1.ContentService/GetFeeds"
+	ContentService_GetFeed_FullMethodName                 = "/checkpicks.content.v1.ContentService/GetFeed"
 )
 
 // ContentServiceClient is the client API for ContentService service.
@@ -31,6 +32,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ContentServiceClient interface {
 	GetArticles(ctx context.Context, in *GetArticlesRequest, opts ...grpc.CallOption) (*GetArticlesResponse, error)
+	ListArticleByArticleURL(ctx context.Context, in *ListArticleByArticleURLRequest, opts ...grpc.CallOption) (*ListArticleByArticleURLResponse, error)
 	CreateUploadArticle(ctx context.Context, in *CreateUploadArticleRequest, opts ...grpc.CallOption) (*CreateArticleResponse, error)
 	GetArticleOGP(ctx context.Context, in *GetArticleOGPRequest, opts ...grpc.CallOption) (*GetArticleOGPResponse, error)
 	GetFeeds(ctx context.Context, in *GetFeedsRequest, opts ...grpc.CallOption) (*GetFeedsResponse, error)
@@ -49,6 +51,16 @@ func (c *contentServiceClient) GetArticles(ctx context.Context, in *GetArticlesR
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetArticlesResponse)
 	err := c.cc.Invoke(ctx, ContentService_GetArticles_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentServiceClient) ListArticleByArticleURL(ctx context.Context, in *ListArticleByArticleURLRequest, opts ...grpc.CallOption) (*ListArticleByArticleURLResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ListArticleByArticleURLResponse)
+	err := c.cc.Invoke(ctx, ContentService_ListArticleByArticleURL_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -100,6 +112,7 @@ func (c *contentServiceClient) GetFeed(ctx context.Context, in *GetFeedRequest, 
 // for forward compatibility.
 type ContentServiceServer interface {
 	GetArticles(context.Context, *GetArticlesRequest) (*GetArticlesResponse, error)
+	ListArticleByArticleURL(context.Context, *ListArticleByArticleURLRequest) (*ListArticleByArticleURLResponse, error)
 	CreateUploadArticle(context.Context, *CreateUploadArticleRequest) (*CreateArticleResponse, error)
 	GetArticleOGP(context.Context, *GetArticleOGPRequest) (*GetArticleOGPResponse, error)
 	GetFeeds(context.Context, *GetFeedsRequest) (*GetFeedsResponse, error)
@@ -115,6 +128,9 @@ type UnimplementedContentServiceServer struct{}
 
 func (UnimplementedContentServiceServer) GetArticles(context.Context, *GetArticlesRequest) (*GetArticlesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetArticles not implemented")
+}
+func (UnimplementedContentServiceServer) ListArticleByArticleURL(context.Context, *ListArticleByArticleURLRequest) (*ListArticleByArticleURLResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListArticleByArticleURL not implemented")
 }
 func (UnimplementedContentServiceServer) CreateUploadArticle(context.Context, *CreateUploadArticleRequest) (*CreateArticleResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateUploadArticle not implemented")
@@ -162,6 +178,24 @@ func _ContentService_GetArticles_Handler(srv interface{}, ctx context.Context, d
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ContentServiceServer).GetArticles(ctx, req.(*GetArticlesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentService_ListArticleByArticleURL_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListArticleByArticleURLRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentServiceServer).ListArticleByArticleURL(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentService_ListArticleByArticleURL_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentServiceServer).ListArticleByArticleURL(ctx, req.(*ListArticleByArticleURLRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -248,6 +282,10 @@ var ContentService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetArticles",
 			Handler:    _ContentService_GetArticles_Handler,
+		},
+		{
+			MethodName: "ListArticleByArticleURL",
+			Handler:    _ContentService_ListArticleByArticleURL_Handler,
 		},
 		{
 			MethodName: "CreateUploadArticle",

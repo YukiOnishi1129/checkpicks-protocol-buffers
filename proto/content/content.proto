@@ -12,6 +12,7 @@ import "common/common.proto";
 
 service ContentService {
   rpc GetArticles(GetArticlesRequest) returns (GetArticlesResponse);
+  rpc ListArticleByArticleURL(ListArticleByArticleURLRequest) returns (ListArticleByArticleURLResponse);
   rpc CreateUploadArticle(CreateUploadArticleRequest) returns (CreateArticleResponse);
 
   rpc GetArticleOGP(GetArticleOGPRequest) returns (GetArticleOGPResponse);
@@ -33,6 +34,17 @@ message GetArticlesRequest {
 
 message GetArticlesResponse {
   repeated ArticleEdge articlesEdge = 1;
+  checkpicks.common.v1.PageInfo page_info = 2;
+}
+
+message ListArticleByArticleURLRequest {
+  string article_url = 1;
+  string cursor = 2;
+  int64 limit = 3;
+}
+
+message ListArticleByArticleURLResponse {
+  repeated TemporaryArticleEdge articlesEdge = 1;
   checkpicks.common.v1.PageInfo page_info = 2;
 }
 
@@ -58,7 +70,6 @@ message GetArticleOGPResponse{
 message GetArticleOGPRequest{
   string article_url = 1;
 }
-
 
 message GetFeedsResponse {
   repeated FeedEdge feed_edge = 1;
@@ -123,6 +134,27 @@ message Platform {
   google.protobuf.Timestamp created_at = 7;
   google.protobuf.Timestamp updated_at = 8;
   google.protobuf.Timestamp deleted_at = 9;
+}
+
+message TemporaryArticle {
+  string id = 1;
+  string title = 2;
+  string description = 3;
+  string article_url = 4;
+  google.protobuf.Timestamp published_at = 5;
+  google.protobuf.StringValue author_name = 6;
+  google.protobuf.StringValue tags = 7;
+  string thumbnail_url = 8;
+  bool is_eng = 9;
+  bool is_private = 10;
+  google.protobuf.Timestamp created_at = 11;
+  google.protobuf.Timestamp updated_at = 12;
+}
+
+message TemporaryArticleEdge {
+  TemporaryArticle article = 1;
+  Platform platform = 2;
+  string cursor = 3;
 }
 
 message Article {

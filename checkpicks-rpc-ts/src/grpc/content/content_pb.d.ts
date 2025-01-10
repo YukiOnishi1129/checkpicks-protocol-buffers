@@ -88,6 +88,60 @@ export namespace GetArticlesResponse {
     }
 }
 
+export class ListArticleByArticleURLRequest extends jspb.Message { 
+    getArticleUrl(): string;
+    setArticleUrl(value: string): ListArticleByArticleURLRequest;
+    getCursor(): string;
+    setCursor(value: string): ListArticleByArticleURLRequest;
+    getLimit(): number;
+    setLimit(value: number): ListArticleByArticleURLRequest;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): ListArticleByArticleURLRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: ListArticleByArticleURLRequest): ListArticleByArticleURLRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: ListArticleByArticleURLRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): ListArticleByArticleURLRequest;
+    static deserializeBinaryFromReader(message: ListArticleByArticleURLRequest, reader: jspb.BinaryReader): ListArticleByArticleURLRequest;
+}
+
+export namespace ListArticleByArticleURLRequest {
+    export type AsObject = {
+        articleUrl: string,
+        cursor: string,
+        limit: number,
+    }
+}
+
+export class ListArticleByArticleURLResponse extends jspb.Message { 
+    clearArticlesedgeList(): void;
+    getArticlesedgeList(): Array<TemporaryArticleEdge>;
+    setArticlesedgeList(value: Array<TemporaryArticleEdge>): ListArticleByArticleURLResponse;
+    addArticlesedge(value?: TemporaryArticleEdge, index?: number): TemporaryArticleEdge;
+
+    hasPageInfo(): boolean;
+    clearPageInfo(): void;
+    getPageInfo(): common_common_pb.PageInfo | undefined;
+    setPageInfo(value?: common_common_pb.PageInfo): ListArticleByArticleURLResponse;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): ListArticleByArticleURLResponse.AsObject;
+    static toObject(includeInstance: boolean, msg: ListArticleByArticleURLResponse): ListArticleByArticleURLResponse.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: ListArticleByArticleURLResponse, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): ListArticleByArticleURLResponse;
+    static deserializeBinaryFromReader(message: ListArticleByArticleURLResponse, reader: jspb.BinaryReader): ListArticleByArticleURLResponse;
+}
+
+export namespace ListArticleByArticleURLResponse {
+    export type AsObject = {
+        articlesedgeList: Array<TemporaryArticleEdge.AsObject>,
+        pageInfo?: common_common_pb.PageInfo.AsObject,
+    }
+}
+
 export class CreateArticleResponse extends jspb.Message { 
 
     hasArticle(): boolean;
@@ -496,6 +550,106 @@ export namespace Platform {
         createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
         updatedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
         deletedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
+    }
+}
+
+export class TemporaryArticle extends jspb.Message { 
+    getId(): string;
+    setId(value: string): TemporaryArticle;
+    getTitle(): string;
+    setTitle(value: string): TemporaryArticle;
+    getDescription(): string;
+    setDescription(value: string): TemporaryArticle;
+    getArticleUrl(): string;
+    setArticleUrl(value: string): TemporaryArticle;
+
+    hasPublishedAt(): boolean;
+    clearPublishedAt(): void;
+    getPublishedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+    setPublishedAt(value?: google_protobuf_timestamp_pb.Timestamp): TemporaryArticle;
+
+    hasAuthorName(): boolean;
+    clearAuthorName(): void;
+    getAuthorName(): google_protobuf_wrappers_pb.StringValue | undefined;
+    setAuthorName(value?: google_protobuf_wrappers_pb.StringValue): TemporaryArticle;
+
+    hasTags(): boolean;
+    clearTags(): void;
+    getTags(): google_protobuf_wrappers_pb.StringValue | undefined;
+    setTags(value?: google_protobuf_wrappers_pb.StringValue): TemporaryArticle;
+    getThumbnailUrl(): string;
+    setThumbnailUrl(value: string): TemporaryArticle;
+    getIsEng(): boolean;
+    setIsEng(value: boolean): TemporaryArticle;
+    getIsPrivate(): boolean;
+    setIsPrivate(value: boolean): TemporaryArticle;
+
+    hasCreatedAt(): boolean;
+    clearCreatedAt(): void;
+    getCreatedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+    setCreatedAt(value?: google_protobuf_timestamp_pb.Timestamp): TemporaryArticle;
+
+    hasUpdatedAt(): boolean;
+    clearUpdatedAt(): void;
+    getUpdatedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+    setUpdatedAt(value?: google_protobuf_timestamp_pb.Timestamp): TemporaryArticle;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): TemporaryArticle.AsObject;
+    static toObject(includeInstance: boolean, msg: TemporaryArticle): TemporaryArticle.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: TemporaryArticle, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): TemporaryArticle;
+    static deserializeBinaryFromReader(message: TemporaryArticle, reader: jspb.BinaryReader): TemporaryArticle;
+}
+
+export namespace TemporaryArticle {
+    export type AsObject = {
+        id: string,
+        title: string,
+        description: string,
+        articleUrl: string,
+        publishedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
+        authorName?: google_protobuf_wrappers_pb.StringValue.AsObject,
+        tags?: google_protobuf_wrappers_pb.StringValue.AsObject,
+        thumbnailUrl: string,
+        isEng: boolean,
+        isPrivate: boolean,
+        createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
+        updatedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
+    }
+}
+
+export class TemporaryArticleEdge extends jspb.Message { 
+
+    hasArticle(): boolean;
+    clearArticle(): void;
+    getArticle(): TemporaryArticle | undefined;
+    setArticle(value?: TemporaryArticle): TemporaryArticleEdge;
+
+    hasPlatform(): boolean;
+    clearPlatform(): void;
+    getPlatform(): Platform | undefined;
+    setPlatform(value?: Platform): TemporaryArticleEdge;
+    getCursor(): string;
+    setCursor(value: string): TemporaryArticleEdge;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): TemporaryArticleEdge.AsObject;
+    static toObject(includeInstance: boolean, msg: TemporaryArticleEdge): TemporaryArticleEdge.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: TemporaryArticleEdge, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): TemporaryArticleEdge;
+    static deserializeBinaryFromReader(message: TemporaryArticleEdge, reader: jspb.BinaryReader): TemporaryArticleEdge;
+}
+
+export namespace TemporaryArticleEdge {
+    export type AsObject = {
+        article?: TemporaryArticle.AsObject,
+        platform?: Platform.AsObject,
+        cursor: string,
     }
 }
 
