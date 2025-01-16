@@ -5,6 +5,7 @@
 /* eslint-disable */
 
 import * as jspb from "google-protobuf";
+import * as google_protobuf_empty_pb from "google-protobuf/google/protobuf/empty_pb";
 import * as google_protobuf_timestamp_pb from "google-protobuf/google/protobuf/timestamp_pb";
 import * as google_protobuf_wrappers_pb from "google-protobuf/google/protobuf/wrappers_pb";
 import * as common_common_pb from "../common/common_pb";
@@ -429,6 +430,29 @@ export namespace UpsertArticleCommentRequest {
         userId: string,
         articleId: string,
         comment: string,
+    }
+}
+
+export class DeleteArticleCommentRequest extends jspb.Message { 
+    getId(): string;
+    setId(value: string): DeleteArticleCommentRequest;
+    getUserId(): string;
+    setUserId(value: string): DeleteArticleCommentRequest;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): DeleteArticleCommentRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: DeleteArticleCommentRequest): DeleteArticleCommentRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: DeleteArticleCommentRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): DeleteArticleCommentRequest;
+    static deserializeBinaryFromReader(message: DeleteArticleCommentRequest, reader: jspb.BinaryReader): DeleteArticleCommentRequest;
+}
+
+export namespace DeleteArticleCommentRequest {
+    export type AsObject = {
+        id: string,
+        userId: string,
     }
 }
 

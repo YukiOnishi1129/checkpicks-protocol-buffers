@@ -11,6 +11,7 @@ import (
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
+	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -26,6 +27,7 @@ const (
 	ContentService_GetFeeds_FullMethodName                = "/checkpicks.content.v1.ContentService/GetFeeds"
 	ContentService_GetFeed_FullMethodName                 = "/checkpicks.content.v1.ContentService/GetFeed"
 	ContentService_UpsertArticleComment_FullMethodName    = "/checkpicks.content.v1.ContentService/UpsertArticleComment"
+	ContentService_DeleteArticleComment_FullMethodName    = "/checkpicks.content.v1.ContentService/DeleteArticleComment"
 )
 
 // ContentServiceClient is the client API for ContentService service.
@@ -39,6 +41,7 @@ type ContentServiceClient interface {
 	GetFeeds(ctx context.Context, in *GetFeedsRequest, opts ...grpc.CallOption) (*GetFeedsResponse, error)
 	GetFeed(ctx context.Context, in *GetFeedRequest, opts ...grpc.CallOption) (*GetFeedResponse, error)
 	UpsertArticleComment(ctx context.Context, in *UpsertArticleCommentRequest, opts ...grpc.CallOption) (*UpsertArticleCommentResponse, error)
+	DeleteArticleComment(ctx context.Context, in *DeleteArticleCommentRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 }
 
 type contentServiceClient struct {
@@ -119,6 +122,16 @@ func (c *contentServiceClient) UpsertArticleComment(ctx context.Context, in *Ups
 	return out, nil
 }
 
+func (c *contentServiceClient) DeleteArticleComment(ctx context.Context, in *DeleteArticleCommentRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, ContentService_DeleteArticleComment_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ContentServiceServer is the server API for ContentService service.
 // All implementations should embed UnimplementedContentServiceServer
 // for forward compatibility.
@@ -130,6 +143,7 @@ type ContentServiceServer interface {
 	GetFeeds(context.Context, *GetFeedsRequest) (*GetFeedsResponse, error)
 	GetFeed(context.Context, *GetFeedRequest) (*GetFeedResponse, error)
 	UpsertArticleComment(context.Context, *UpsertArticleCommentRequest) (*UpsertArticleCommentResponse, error)
+	DeleteArticleComment(context.Context, *DeleteArticleCommentRequest) (*emptypb.Empty, error)
 }
 
 // UnimplementedContentServiceServer should be embedded to have
@@ -159,6 +173,9 @@ func (UnimplementedContentServiceServer) GetFeed(context.Context, *GetFeedReques
 }
 func (UnimplementedContentServiceServer) UpsertArticleComment(context.Context, *UpsertArticleCommentRequest) (*UpsertArticleCommentResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpsertArticleComment not implemented")
+}
+func (UnimplementedContentServiceServer) DeleteArticleComment(context.Context, *DeleteArticleCommentRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteArticleComment not implemented")
 }
 func (UnimplementedContentServiceServer) testEmbeddedByValue() {}
 
@@ -306,6 +323,24 @@ func _ContentService_UpsertArticleComment_Handler(srv interface{}, ctx context.C
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ContentService_DeleteArticleComment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteArticleCommentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentServiceServer).DeleteArticleComment(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentService_DeleteArticleComment_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentServiceServer).DeleteArticleComment(ctx, req.(*DeleteArticleCommentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // ContentService_ServiceDesc is the grpc.ServiceDesc for ContentService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -340,6 +375,10 @@ var ContentService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpsertArticleComment",
 			Handler:    _ContentService_UpsertArticleComment_Handler,
+		},
+		{
+			MethodName: "DeleteArticleComment",
+			Handler:    _ContentService_DeleteArticleComment_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

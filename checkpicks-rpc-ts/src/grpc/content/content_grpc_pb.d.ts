@@ -6,6 +6,7 @@
 
 import * as grpc from "@grpc/grpc-js";
 import * as content_content_pb from "../content/content_pb";
+import * as google_protobuf_empty_pb from "google-protobuf/google/protobuf/empty_pb";
 import * as google_protobuf_timestamp_pb from "google-protobuf/google/protobuf/timestamp_pb";
 import * as google_protobuf_wrappers_pb from "google-protobuf/google/protobuf/wrappers_pb";
 import * as common_common_pb from "../common/common_pb";
@@ -18,6 +19,7 @@ interface IContentServiceService extends grpc.ServiceDefinition<grpc.UntypedServ
     getFeeds: IContentServiceService_IGetFeeds;
     getFeed: IContentServiceService_IGetFeed;
     upsertArticleComment: IContentServiceService_IUpsertArticleComment;
+    deleteArticleComment: IContentServiceService_IDeleteArticleComment;
 }
 
 interface IContentServiceService_IListArticle extends grpc.MethodDefinition<content_content_pb.ListArticleRequest, content_content_pb.ListArticleResponse> {
@@ -83,6 +85,15 @@ interface IContentServiceService_IUpsertArticleComment extends grpc.MethodDefini
     responseSerialize: grpc.serialize<content_content_pb.UpsertArticleCommentResponse>;
     responseDeserialize: grpc.deserialize<content_content_pb.UpsertArticleCommentResponse>;
 }
+interface IContentServiceService_IDeleteArticleComment extends grpc.MethodDefinition<content_content_pb.DeleteArticleCommentRequest, google_protobuf_empty_pb.Empty> {
+    path: "/checkpicks.content.v1.ContentService/DeleteArticleComment";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<content_content_pb.DeleteArticleCommentRequest>;
+    requestDeserialize: grpc.deserialize<content_content_pb.DeleteArticleCommentRequest>;
+    responseSerialize: grpc.serialize<google_protobuf_empty_pb.Empty>;
+    responseDeserialize: grpc.deserialize<google_protobuf_empty_pb.Empty>;
+}
 
 export const ContentServiceService: IContentServiceService;
 
@@ -94,6 +105,7 @@ export interface IContentServiceServer extends grpc.UntypedServiceImplementation
     getFeeds: grpc.handleUnaryCall<content_content_pb.GetFeedsRequest, content_content_pb.GetFeedsResponse>;
     getFeed: grpc.handleUnaryCall<content_content_pb.GetFeedRequest, content_content_pb.GetFeedResponse>;
     upsertArticleComment: grpc.handleUnaryCall<content_content_pb.UpsertArticleCommentRequest, content_content_pb.UpsertArticleCommentResponse>;
+    deleteArticleComment: grpc.handleUnaryCall<content_content_pb.DeleteArticleCommentRequest, google_protobuf_empty_pb.Empty>;
 }
 
 export interface IContentServiceClient {
@@ -118,6 +130,9 @@ export interface IContentServiceClient {
     upsertArticleComment(request: content_content_pb.UpsertArticleCommentRequest, callback: (error: grpc.ServiceError | null, response: content_content_pb.UpsertArticleCommentResponse) => void): grpc.ClientUnaryCall;
     upsertArticleComment(request: content_content_pb.UpsertArticleCommentRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: content_content_pb.UpsertArticleCommentResponse) => void): grpc.ClientUnaryCall;
     upsertArticleComment(request: content_content_pb.UpsertArticleCommentRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: content_content_pb.UpsertArticleCommentResponse) => void): grpc.ClientUnaryCall;
+    deleteArticleComment(request: content_content_pb.DeleteArticleCommentRequest, callback: (error: grpc.ServiceError | null, response: google_protobuf_empty_pb.Empty) => void): grpc.ClientUnaryCall;
+    deleteArticleComment(request: content_content_pb.DeleteArticleCommentRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: google_protobuf_empty_pb.Empty) => void): grpc.ClientUnaryCall;
+    deleteArticleComment(request: content_content_pb.DeleteArticleCommentRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: google_protobuf_empty_pb.Empty) => void): grpc.ClientUnaryCall;
 }
 
 export class ContentServiceClient extends grpc.Client implements IContentServiceClient {
@@ -143,4 +158,7 @@ export class ContentServiceClient extends grpc.Client implements IContentService
     public upsertArticleComment(request: content_content_pb.UpsertArticleCommentRequest, callback: (error: grpc.ServiceError | null, response: content_content_pb.UpsertArticleCommentResponse) => void): grpc.ClientUnaryCall;
     public upsertArticleComment(request: content_content_pb.UpsertArticleCommentRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: content_content_pb.UpsertArticleCommentResponse) => void): grpc.ClientUnaryCall;
     public upsertArticleComment(request: content_content_pb.UpsertArticleCommentRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: content_content_pb.UpsertArticleCommentResponse) => void): grpc.ClientUnaryCall;
+    public deleteArticleComment(request: content_content_pb.DeleteArticleCommentRequest, callback: (error: grpc.ServiceError | null, response: google_protobuf_empty_pb.Empty) => void): grpc.ClientUnaryCall;
+    public deleteArticleComment(request: content_content_pb.DeleteArticleCommentRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: google_protobuf_empty_pb.Empty) => void): grpc.ClientUnaryCall;
+    public deleteArticleComment(request: content_content_pb.DeleteArticleCommentRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: google_protobuf_empty_pb.Empty) => void): grpc.ClientUnaryCall;
 }

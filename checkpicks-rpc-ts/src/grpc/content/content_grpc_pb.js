@@ -3,6 +3,7 @@
 'use strict';
 var grpc = require('@grpc/grpc-js');
 var content_content_pb = require('../content/content_pb.js');
+var google_protobuf_empty_pb = require('google-protobuf/google/protobuf/empty_pb.js');
 var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/timestamp_pb.js');
 var google_protobuf_wrappers_pb = require('google-protobuf/google/protobuf/wrappers_pb.js');
 var common_common_pb = require('../common/common_pb.js');
@@ -27,6 +28,17 @@ function serialize_checkpicks_content_v1_CreateUploadArticleRequest(arg) {
 
 function deserialize_checkpicks_content_v1_CreateUploadArticleRequest(buffer_arg) {
   return content_content_pb.CreateUploadArticleRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_checkpicks_content_v1_DeleteArticleCommentRequest(arg) {
+  if (!(arg instanceof content_content_pb.DeleteArticleCommentRequest)) {
+    throw new Error('Expected argument of type checkpicks.content.v1.DeleteArticleCommentRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_checkpicks_content_v1_DeleteArticleCommentRequest(buffer_arg) {
+  return content_content_pb.DeleteArticleCommentRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_checkpicks_content_v1_GetArticleOGPRequest(arg) {
@@ -161,6 +173,17 @@ function deserialize_checkpicks_content_v1_UpsertArticleCommentResponse(buffer_a
   return content_content_pb.UpsertArticleCommentResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_google_protobuf_Empty(arg) {
+  if (!(arg instanceof google_protobuf_empty_pb.Empty)) {
+    throw new Error('Expected argument of type google.protobuf.Empty');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_google_protobuf_Empty(buffer_arg) {
+  return google_protobuf_empty_pb.Empty.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 
 var ContentServiceService = exports.ContentServiceService = {
   listArticle: {
@@ -239,6 +262,17 @@ var ContentServiceService = exports.ContentServiceService = {
     requestDeserialize: deserialize_checkpicks_content_v1_UpsertArticleCommentRequest,
     responseSerialize: serialize_checkpicks_content_v1_UpsertArticleCommentResponse,
     responseDeserialize: deserialize_checkpicks_content_v1_UpsertArticleCommentResponse,
+  },
+  deleteArticleComment: {
+    path: '/checkpicks.content.v1.ContentService/DeleteArticleComment',
+    requestStream: false,
+    responseStream: false,
+    requestType: content_content_pb.DeleteArticleCommentRequest,
+    responseType: google_protobuf_empty_pb.Empty,
+    requestSerialize: serialize_checkpicks_content_v1_DeleteArticleCommentRequest,
+    requestDeserialize: deserialize_checkpicks_content_v1_DeleteArticleCommentRequest,
+    responseSerialize: serialize_google_protobuf_Empty,
+    responseDeserialize: deserialize_google_protobuf_Empty,
   },
 };
 

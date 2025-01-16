@@ -4,6 +4,7 @@ option go_package = "github.com/YukiOnishi1129/checkpicks-protocol-buffers/check
 
 package checkpicks.content.v1;
 
+import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
@@ -21,6 +22,7 @@ service ContentService {
   rpc GetFeed(GetFeedRequest) returns (GetFeedResponse);
 
   rpc UpsertArticleComment(UpsertArticleCommentRequest) returns (UpsertArticleCommentResponse);
+  rpc DeleteArticleComment (DeleteArticleCommentRequest) returns (google.protobuf.Empty);
 }
 
 
@@ -107,6 +109,11 @@ message UpsertArticleCommentRequest {
   string user_id = 2;
   string article_id = 3;
   string comment = 4;
+}
+
+message DeleteArticleCommentRequest {
+  string id = 1;
+  string user_id = 2;
 }
 
 message Feed {
