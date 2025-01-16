@@ -51,28 +51,6 @@ function deserialize_checkpicks_content_v1_GetArticleOGPResponse(buffer_arg) {
   return content_content_pb.GetArticleOGPResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_checkpicks_content_v1_GetArticlesRequest(arg) {
-  if (!(arg instanceof content_content_pb.GetArticlesRequest)) {
-    throw new Error('Expected argument of type checkpicks.content.v1.GetArticlesRequest');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_checkpicks_content_v1_GetArticlesRequest(buffer_arg) {
-  return content_content_pb.GetArticlesRequest.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
-function serialize_checkpicks_content_v1_GetArticlesResponse(arg) {
-  if (!(arg instanceof content_content_pb.GetArticlesResponse)) {
-    throw new Error('Expected argument of type checkpicks.content.v1.GetArticlesResponse');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_checkpicks_content_v1_GetArticlesResponse(buffer_arg) {
-  return content_content_pb.GetArticlesResponse.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
 function serialize_checkpicks_content_v1_GetFeedRequest(arg) {
   if (!(arg instanceof content_content_pb.GetFeedRequest)) {
     throw new Error('Expected argument of type checkpicks.content.v1.GetFeedRequest');
@@ -139,18 +117,62 @@ function deserialize_checkpicks_content_v1_ListArticleByArticleURLResponse(buffe
   return content_content_pb.ListArticleByArticleURLResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_checkpicks_content_v1_ListArticleRequest(arg) {
+  if (!(arg instanceof content_content_pb.ListArticleRequest)) {
+    throw new Error('Expected argument of type checkpicks.content.v1.ListArticleRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_checkpicks_content_v1_ListArticleRequest(buffer_arg) {
+  return content_content_pb.ListArticleRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_checkpicks_content_v1_ListArticleResponse(arg) {
+  if (!(arg instanceof content_content_pb.ListArticleResponse)) {
+    throw new Error('Expected argument of type checkpicks.content.v1.ListArticleResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_checkpicks_content_v1_ListArticleResponse(buffer_arg) {
+  return content_content_pb.ListArticleResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_checkpicks_content_v1_UpsertArticleCommentRequest(arg) {
+  if (!(arg instanceof content_content_pb.UpsertArticleCommentRequest)) {
+    throw new Error('Expected argument of type checkpicks.content.v1.UpsertArticleCommentRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_checkpicks_content_v1_UpsertArticleCommentRequest(buffer_arg) {
+  return content_content_pb.UpsertArticleCommentRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_checkpicks_content_v1_UpsertArticleCommentResponse(arg) {
+  if (!(arg instanceof content_content_pb.UpsertArticleCommentResponse)) {
+    throw new Error('Expected argument of type checkpicks.content.v1.UpsertArticleCommentResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_checkpicks_content_v1_UpsertArticleCommentResponse(buffer_arg) {
+  return content_content_pb.UpsertArticleCommentResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 
 var ContentServiceService = exports.ContentServiceService = {
-  getArticles: {
-    path: '/checkpicks.content.v1.ContentService/GetArticles',
+  listArticle: {
+    path: '/checkpicks.content.v1.ContentService/ListArticle',
     requestStream: false,
     responseStream: false,
-    requestType: content_content_pb.GetArticlesRequest,
-    responseType: content_content_pb.GetArticlesResponse,
-    requestSerialize: serialize_checkpicks_content_v1_GetArticlesRequest,
-    requestDeserialize: deserialize_checkpicks_content_v1_GetArticlesRequest,
-    responseSerialize: serialize_checkpicks_content_v1_GetArticlesResponse,
-    responseDeserialize: deserialize_checkpicks_content_v1_GetArticlesResponse,
+    requestType: content_content_pb.ListArticleRequest,
+    responseType: content_content_pb.ListArticleResponse,
+    requestSerialize: serialize_checkpicks_content_v1_ListArticleRequest,
+    requestDeserialize: deserialize_checkpicks_content_v1_ListArticleRequest,
+    responseSerialize: serialize_checkpicks_content_v1_ListArticleResponse,
+    responseDeserialize: deserialize_checkpicks_content_v1_ListArticleResponse,
   },
   listArticleByArticleURL: {
     path: '/checkpicks.content.v1.ContentService/ListArticleByArticleURL',
@@ -206,6 +228,17 @@ var ContentServiceService = exports.ContentServiceService = {
     requestDeserialize: deserialize_checkpicks_content_v1_GetFeedRequest,
     responseSerialize: serialize_checkpicks_content_v1_GetFeedResponse,
     responseDeserialize: deserialize_checkpicks_content_v1_GetFeedResponse,
+  },
+  upsertArticleComment: {
+    path: '/checkpicks.content.v1.ContentService/UpsertArticleComment',
+    requestStream: false,
+    responseStream: false,
+    requestType: content_content_pb.UpsertArticleCommentRequest,
+    responseType: content_content_pb.UpsertArticleCommentResponse,
+    requestSerialize: serialize_checkpicks_content_v1_UpsertArticleCommentRequest,
+    requestDeserialize: deserialize_checkpicks_content_v1_UpsertArticleCommentRequest,
+    responseSerialize: serialize_checkpicks_content_v1_UpsertArticleCommentResponse,
+    responseDeserialize: deserialize_checkpicks_content_v1_UpsertArticleCommentResponse,
   },
 };
 

@@ -9,46 +9,46 @@ import * as google_protobuf_timestamp_pb from "google-protobuf/google/protobuf/t
 import * as google_protobuf_wrappers_pb from "google-protobuf/google/protobuf/wrappers_pb";
 import * as common_common_pb from "../common/common_pb";
 
-export class GetArticlesRequest extends jspb.Message { 
+export class ListArticleRequest extends jspb.Message { 
 
     hasUserId(): boolean;
     clearUserId(): void;
     getUserId(): google_protobuf_wrappers_pb.StringValue | undefined;
-    setUserId(value?: google_protobuf_wrappers_pb.StringValue): GetArticlesRequest;
+    setUserId(value?: google_protobuf_wrappers_pb.StringValue): ListArticleRequest;
 
     hasLanguageStatus(): boolean;
     clearLanguageStatus(): void;
     getLanguageStatus(): google_protobuf_wrappers_pb.Int64Value | undefined;
-    setLanguageStatus(value?: google_protobuf_wrappers_pb.Int64Value): GetArticlesRequest;
+    setLanguageStatus(value?: google_protobuf_wrappers_pb.Int64Value): ListArticleRequest;
 
     hasTag(): boolean;
     clearTag(): void;
     getTag(): google_protobuf_wrappers_pb.StringValue | undefined;
-    setTag(value?: google_protobuf_wrappers_pb.StringValue): GetArticlesRequest;
+    setTag(value?: google_protobuf_wrappers_pb.StringValue): ListArticleRequest;
     clearFeedIdsList(): void;
     getFeedIdsList(): Array<google_protobuf_wrappers_pb.StringValue>;
-    setFeedIdsList(value: Array<google_protobuf_wrappers_pb.StringValue>): GetArticlesRequest;
+    setFeedIdsList(value: Array<google_protobuf_wrappers_pb.StringValue>): ListArticleRequest;
     addFeedIds(value?: google_protobuf_wrappers_pb.StringValue, index?: number): google_protobuf_wrappers_pb.StringValue;
     clearKeywordsList(): void;
     getKeywordsList(): Array<google_protobuf_wrappers_pb.StringValue>;
-    setKeywordsList(value: Array<google_protobuf_wrappers_pb.StringValue>): GetArticlesRequest;
+    setKeywordsList(value: Array<google_protobuf_wrappers_pb.StringValue>): ListArticleRequest;
     addKeywords(value?: google_protobuf_wrappers_pb.StringValue, index?: number): google_protobuf_wrappers_pb.StringValue;
     getCursor(): string;
-    setCursor(value: string): GetArticlesRequest;
+    setCursor(value: string): ListArticleRequest;
     getLimit(): number;
-    setLimit(value: number): GetArticlesRequest;
+    setLimit(value: number): ListArticleRequest;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): GetArticlesRequest.AsObject;
-    static toObject(includeInstance: boolean, msg: GetArticlesRequest): GetArticlesRequest.AsObject;
+    toObject(includeInstance?: boolean): ListArticleRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: ListArticleRequest): ListArticleRequest.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: GetArticlesRequest, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): GetArticlesRequest;
-    static deserializeBinaryFromReader(message: GetArticlesRequest, reader: jspb.BinaryReader): GetArticlesRequest;
+    static serializeBinaryToWriter(message: ListArticleRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): ListArticleRequest;
+    static deserializeBinaryFromReader(message: ListArticleRequest, reader: jspb.BinaryReader): ListArticleRequest;
 }
 
-export namespace GetArticlesRequest {
+export namespace ListArticleRequest {
     export type AsObject = {
         userId?: google_protobuf_wrappers_pb.StringValue.AsObject,
         languageStatus?: google_protobuf_wrappers_pb.Int64Value.AsObject,
@@ -60,28 +60,28 @@ export namespace GetArticlesRequest {
     }
 }
 
-export class GetArticlesResponse extends jspb.Message { 
+export class ListArticleResponse extends jspb.Message { 
     clearArticlesedgeList(): void;
     getArticlesedgeList(): Array<ArticleEdge>;
-    setArticlesedgeList(value: Array<ArticleEdge>): GetArticlesResponse;
+    setArticlesedgeList(value: Array<ArticleEdge>): ListArticleResponse;
     addArticlesedge(value?: ArticleEdge, index?: number): ArticleEdge;
 
     hasPageInfo(): boolean;
     clearPageInfo(): void;
     getPageInfo(): common_common_pb.PageInfo | undefined;
-    setPageInfo(value?: common_common_pb.PageInfo): GetArticlesResponse;
+    setPageInfo(value?: common_common_pb.PageInfo): ListArticleResponse;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): GetArticlesResponse.AsObject;
-    static toObject(includeInstance: boolean, msg: GetArticlesResponse): GetArticlesResponse.AsObject;
+    toObject(includeInstance?: boolean): ListArticleResponse.AsObject;
+    static toObject(includeInstance: boolean, msg: ListArticleResponse): ListArticleResponse.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: GetArticlesResponse, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): GetArticlesResponse;
-    static deserializeBinaryFromReader(message: GetArticlesResponse, reader: jspb.BinaryReader): GetArticlesResponse;
+    static serializeBinaryToWriter(message: ListArticleResponse, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): ListArticleResponse;
+    static deserializeBinaryFromReader(message: ListArticleResponse, reader: jspb.BinaryReader): ListArticleResponse;
 }
 
-export namespace GetArticlesResponse {
+export namespace ListArticleResponse {
     export type AsObject = {
         articlesedgeList: Array<ArticleEdge.AsObject>,
         pageInfo?: common_common_pb.PageInfo.AsObject,
@@ -377,6 +377,61 @@ export namespace GetFeedRequest {
     }
 }
 
+export class UpsertArticleCommentResponse extends jspb.Message { 
+
+    hasComment(): boolean;
+    clearComment(): void;
+    getComment(): ArticleComment | undefined;
+    setComment(value?: ArticleComment): UpsertArticleCommentResponse;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): UpsertArticleCommentResponse.AsObject;
+    static toObject(includeInstance: boolean, msg: UpsertArticleCommentResponse): UpsertArticleCommentResponse.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: UpsertArticleCommentResponse, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): UpsertArticleCommentResponse;
+    static deserializeBinaryFromReader(message: UpsertArticleCommentResponse, reader: jspb.BinaryReader): UpsertArticleCommentResponse;
+}
+
+export namespace UpsertArticleCommentResponse {
+    export type AsObject = {
+        comment?: ArticleComment.AsObject,
+    }
+}
+
+export class UpsertArticleCommentRequest extends jspb.Message { 
+
+    hasId(): boolean;
+    clearId(): void;
+    getId(): google_protobuf_wrappers_pb.StringValue | undefined;
+    setId(value?: google_protobuf_wrappers_pb.StringValue): UpsertArticleCommentRequest;
+    getUserId(): string;
+    setUserId(value: string): UpsertArticleCommentRequest;
+    getArticleId(): string;
+    setArticleId(value: string): UpsertArticleCommentRequest;
+    getComment(): string;
+    setComment(value: string): UpsertArticleCommentRequest;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): UpsertArticleCommentRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: UpsertArticleCommentRequest): UpsertArticleCommentRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: UpsertArticleCommentRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): UpsertArticleCommentRequest;
+    static deserializeBinaryFromReader(message: UpsertArticleCommentRequest, reader: jspb.BinaryReader): UpsertArticleCommentRequest;
+}
+
+export namespace UpsertArticleCommentRequest {
+    export type AsObject = {
+        id?: google_protobuf_wrappers_pb.StringValue.AsObject,
+        userId: string,
+        articleId: string,
+        comment: string,
+    }
+}
+
 export class Feed extends jspb.Message { 
     getId(): string;
     setId(value: string): Feed;
@@ -665,6 +720,11 @@ export class Article extends jspb.Message {
     getFeedsList(): Array<Feed>;
     setFeedsList(value: Array<Feed>): Article;
     addFeeds(value?: Feed, index?: number): Feed;
+
+    hasComment(): boolean;
+    clearComment(): void;
+    getComment(): ArticleComment | undefined;
+    setComment(value?: ArticleComment): Article;
     getTitle(): string;
     setTitle(value: string): Article;
     getDescription(): string;
@@ -735,6 +795,7 @@ export namespace Article {
         id: string,
         platform?: Platform.AsObject,
         feedsList: Array<Feed.AsObject>,
+        comment?: ArticleComment.AsObject,
         title: string,
         description: string,
         articleUrl: string,
@@ -750,6 +811,47 @@ export namespace Article {
         favoriteArticleFolderIdsList: Array<string>,
         likeCount: number,
         isTrend: boolean,
+        createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
+        updatedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
+    }
+}
+
+export class ArticleComment extends jspb.Message { 
+    getId(): string;
+    setId(value: string): ArticleComment;
+    getUserId(): string;
+    setUserId(value: string): ArticleComment;
+    getArticleId(): string;
+    setArticleId(value: string): ArticleComment;
+    getComment(): string;
+    setComment(value: string): ArticleComment;
+
+    hasCreatedAt(): boolean;
+    clearCreatedAt(): void;
+    getCreatedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+    setCreatedAt(value?: google_protobuf_timestamp_pb.Timestamp): ArticleComment;
+
+    hasUpdatedAt(): boolean;
+    clearUpdatedAt(): void;
+    getUpdatedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+    setUpdatedAt(value?: google_protobuf_timestamp_pb.Timestamp): ArticleComment;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): ArticleComment.AsObject;
+    static toObject(includeInstance: boolean, msg: ArticleComment): ArticleComment.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: ArticleComment, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): ArticleComment;
+    static deserializeBinaryFromReader(message: ArticleComment, reader: jspb.BinaryReader): ArticleComment;
+}
+
+export namespace ArticleComment {
+    export type AsObject = {
+        id: string,
+        userId: string,
+        articleId: string,
+        comment: string,
         createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
         updatedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
     }
