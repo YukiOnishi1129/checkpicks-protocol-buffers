@@ -14,6 +14,7 @@ import "common/common.proto";
 service ContentService {
   rpc ListArticle(ListArticleRequest) returns (ListArticleResponse);
   rpc ListArticleByArticleURL(ListArticleByArticleURLRequest) returns (ListArticleByArticleURLResponse);
+  rpc GetArticle(GetArticleRequest) returns (GetArticleResponse);
   rpc CreateUploadArticle(CreateUploadArticleRequest) returns (CreateArticleResponse);
 
   rpc GetArticleOGP(GetArticleOGPRequest) returns (GetArticleOGPResponse);
@@ -50,6 +51,15 @@ message ListArticleByArticleURLRequest {
 message ListArticleByArticleURLResponse {
   repeated TemporaryArticleEdge articlesEdge = 1;
   checkpicks.common.v1.PageInfo page_info = 2;
+}
+
+message GetArticleResponse {
+  Article article = 1;
+}
+
+message GetArticleRequest {
+  string article_id = 1;
+  string user_id = 2;
 }
 
 message CreateArticleResponse {

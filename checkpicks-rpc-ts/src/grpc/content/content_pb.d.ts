@@ -143,6 +143,52 @@ export namespace ListArticleByArticleURLResponse {
     }
 }
 
+export class GetArticleResponse extends jspb.Message { 
+
+    hasArticle(): boolean;
+    clearArticle(): void;
+    getArticle(): Article | undefined;
+    setArticle(value?: Article): GetArticleResponse;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): GetArticleResponse.AsObject;
+    static toObject(includeInstance: boolean, msg: GetArticleResponse): GetArticleResponse.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: GetArticleResponse, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): GetArticleResponse;
+    static deserializeBinaryFromReader(message: GetArticleResponse, reader: jspb.BinaryReader): GetArticleResponse;
+}
+
+export namespace GetArticleResponse {
+    export type AsObject = {
+        article?: Article.AsObject,
+    }
+}
+
+export class GetArticleRequest extends jspb.Message { 
+    getArticleId(): string;
+    setArticleId(value: string): GetArticleRequest;
+    getUserId(): string;
+    setUserId(value: string): GetArticleRequest;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): GetArticleRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: GetArticleRequest): GetArticleRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: GetArticleRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): GetArticleRequest;
+    static deserializeBinaryFromReader(message: GetArticleRequest, reader: jspb.BinaryReader): GetArticleRequest;
+}
+
+export namespace GetArticleRequest {
+    export type AsObject = {
+        articleId: string,
+        userId: string,
+    }
+}
+
 export class CreateArticleResponse extends jspb.Message { 
 
     hasArticle(): boolean;

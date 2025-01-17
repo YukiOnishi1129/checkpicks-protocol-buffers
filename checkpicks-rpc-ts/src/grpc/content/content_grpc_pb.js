@@ -63,6 +63,28 @@ function deserialize_checkpicks_content_v1_GetArticleOGPResponse(buffer_arg) {
   return content_content_pb.GetArticleOGPResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_checkpicks_content_v1_GetArticleRequest(arg) {
+  if (!(arg instanceof content_content_pb.GetArticleRequest)) {
+    throw new Error('Expected argument of type checkpicks.content.v1.GetArticleRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_checkpicks_content_v1_GetArticleRequest(buffer_arg) {
+  return content_content_pb.GetArticleRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_checkpicks_content_v1_GetArticleResponse(arg) {
+  if (!(arg instanceof content_content_pb.GetArticleResponse)) {
+    throw new Error('Expected argument of type checkpicks.content.v1.GetArticleResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_checkpicks_content_v1_GetArticleResponse(buffer_arg) {
+  return content_content_pb.GetArticleResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_checkpicks_content_v1_GetFeedRequest(arg) {
   if (!(arg instanceof content_content_pb.GetFeedRequest)) {
     throw new Error('Expected argument of type checkpicks.content.v1.GetFeedRequest');
@@ -207,6 +229,17 @@ var ContentServiceService = exports.ContentServiceService = {
     requestDeserialize: deserialize_checkpicks_content_v1_ListArticleByArticleURLRequest,
     responseSerialize: serialize_checkpicks_content_v1_ListArticleByArticleURLResponse,
     responseDeserialize: deserialize_checkpicks_content_v1_ListArticleByArticleURLResponse,
+  },
+  getArticle: {
+    path: '/checkpicks.content.v1.ContentService/GetArticle',
+    requestStream: false,
+    responseStream: false,
+    requestType: content_content_pb.GetArticleRequest,
+    responseType: content_content_pb.GetArticleResponse,
+    requestSerialize: serialize_checkpicks_content_v1_GetArticleRequest,
+    requestDeserialize: deserialize_checkpicks_content_v1_GetArticleRequest,
+    responseSerialize: serialize_checkpicks_content_v1_GetArticleResponse,
+    responseDeserialize: deserialize_checkpicks_content_v1_GetArticleResponse,
   },
   createUploadArticle: {
     path: '/checkpicks.content.v1.ContentService/CreateUploadArticle',
