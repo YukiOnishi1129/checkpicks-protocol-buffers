@@ -9,6 +9,7 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
 import "common/common.proto";
+import "content/content.proto";
 
 
 service BookmarkService {
@@ -56,8 +57,9 @@ message CreateBookmarkRequest {
     string platform_name = 9;
     string platform_url = 10;
     string platform_favicon_url = 11;
-    bool is_eng = 12;
-    bool is_read = 13;
+    optional checkpicks.content.v1.ArticleComment comment = 13;
+    bool is_eng = 14;
+    bool is_read = 15;
 }
 
 message CreateBookmarkForUploadArticleRequest {

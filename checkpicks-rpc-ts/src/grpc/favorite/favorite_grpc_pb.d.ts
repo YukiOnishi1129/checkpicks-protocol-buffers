@@ -10,6 +10,7 @@ import * as google_protobuf_empty_pb from "google-protobuf/google/protobuf/empty
 import * as google_protobuf_timestamp_pb from "google-protobuf/google/protobuf/timestamp_pb";
 import * as google_protobuf_wrappers_pb from "google-protobuf/google/protobuf/wrappers_pb";
 import * as common_common_pb from "../common/common_pb";
+import * as content_content_pb from "../content/content_pb";
 
 interface IFavoriteServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
     getFavoriteArticleFolders: IFavoriteServiceService_IGetFavoriteArticleFolders;

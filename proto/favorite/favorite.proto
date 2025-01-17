@@ -9,6 +9,7 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
 import "common/common.proto";
+import "content/content.proto";
 
 service FavoriteService {
     rpc GetFavoriteArticleFolders(GetFavoriteArticleFoldersRequest) returns (GetFavoriteArticleFoldersResponse);
@@ -206,11 +207,12 @@ message FavoriteArticle {
     string platform_name = 13;
     string platform_url = 14;
     string platform_favicon_url = 15;
-    bool is_eng = 16;
-    bool is_private = 17;
-    bool is_read = 18;
-    google.protobuf.Timestamp created_at = 19;
-    google.protobuf.Timestamp updated_at = 20;
+    optional checkpicks.content.v1.ArticleComment comment = 16;
+    bool is_eng = 17;
+    bool is_private = 18;
+    bool is_read = 19;
+    google.protobuf.Timestamp created_at = 20;
+    google.protobuf.Timestamp updated_at = 21;
 }
 
 message FavoriteArticleFolder {

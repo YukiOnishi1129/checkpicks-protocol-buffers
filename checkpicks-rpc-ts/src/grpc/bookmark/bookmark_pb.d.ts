@@ -9,6 +9,7 @@ import * as google_protobuf_empty_pb from "google-protobuf/google/protobuf/empty
 import * as google_protobuf_timestamp_pb from "google-protobuf/google/protobuf/timestamp_pb";
 import * as google_protobuf_wrappers_pb from "google-protobuf/google/protobuf/wrappers_pb";
 import * as common_common_pb from "../common/common_pb";
+import * as content_content_pb from "../content/content_pb";
 
 export class GetBookmarksResponse extends jspb.Message { 
     clearBookmarkedgeList(): void;
@@ -167,6 +168,11 @@ export class CreateBookmarkRequest extends jspb.Message {
     setPlatformUrl(value: string): CreateBookmarkRequest;
     getPlatformFaviconUrl(): string;
     setPlatformFaviconUrl(value: string): CreateBookmarkRequest;
+
+    hasComment(): boolean;
+    clearComment(): void;
+    getComment(): content_content_pb.ArticleComment | undefined;
+    setComment(value?: content_content_pb.ArticleComment): CreateBookmarkRequest;
     getIsEng(): boolean;
     setIsEng(value: boolean): CreateBookmarkRequest;
     getIsRead(): boolean;
@@ -195,6 +201,7 @@ export namespace CreateBookmarkRequest {
         platformName: string,
         platformUrl: string,
         platformFaviconUrl: string,
+        comment?: content_content_pb.ArticleComment.AsObject,
         isEng: boolean,
         isRead: boolean,
     }

@@ -9,6 +9,7 @@ import * as google_protobuf_empty_pb from "google-protobuf/google/protobuf/empty
 import * as google_protobuf_timestamp_pb from "google-protobuf/google/protobuf/timestamp_pb";
 import * as google_protobuf_wrappers_pb from "google-protobuf/google/protobuf/wrappers_pb";
 import * as common_common_pb from "../common/common_pb";
+import * as content_content_pb from "../content/content_pb";
 
 export class GetFavoriteArticleFoldersRequest extends jspb.Message { 
     getUserId(): string;
@@ -839,6 +840,11 @@ export class FavoriteArticle extends jspb.Message {
     setPlatformUrl(value: string): FavoriteArticle;
     getPlatformFaviconUrl(): string;
     setPlatformFaviconUrl(value: string): FavoriteArticle;
+
+    hasComment(): boolean;
+    clearComment(): void;
+    getComment(): content_content_pb.ArticleComment | undefined;
+    setComment(value?: content_content_pb.ArticleComment): FavoriteArticle;
     getIsEng(): boolean;
     setIsEng(value: boolean): FavoriteArticle;
     getIsPrivate(): boolean;
@@ -883,6 +889,7 @@ export namespace FavoriteArticle {
         platformName: string,
         platformUrl: string,
         platformFaviconUrl: string,
+        comment?: content_content_pb.ArticleComment.AsObject,
         isEng: boolean,
         isPrivate: boolean,
         isRead: boolean,

@@ -1,6 +1,6 @@
 {
   "name": "@checkpicks/checkpicks-rpc-ts",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "scripts": {
     "generate:rpc": "grpc_tools_node_protoc --js_out=import_style=commonjs,binary:./src/grpc --grpc_out=grpc_js:./src/grpc --ts_out=grpc_js:./src/grpc -I ../proto ../proto/**/*.proto"
   },

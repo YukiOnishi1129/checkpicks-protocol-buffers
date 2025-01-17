@@ -29,6 +29,8 @@ var google_protobuf_wrappers_pb = require('google-protobuf/google/protobuf/wrapp
 goog.object.extend(proto, google_protobuf_wrappers_pb);
 var common_common_pb = require('../common/common_pb.js');
 goog.object.extend(proto, common_common_pb);
+var content_content_pb = require('../content/content_pb.js');
+goog.object.extend(proto, content_content_pb);
 goog.exportSymbol('proto.checkpicks.bookmark.v1.Bookmark', null, global);
 goog.exportSymbol('proto.checkpicks.bookmark.v1.BookmarkEdge', null, global);
 goog.exportSymbol('proto.checkpicks.bookmark.v1.CreateBookmarkForUploadArticleRequest', null, global);
@@ -1215,8 +1217,9 @@ proto.checkpicks.bookmark.v1.CreateBookmarkRequest.toObject = function(includeIn
     platformName: jspb.Message.getFieldWithDefault(msg, 9, ""),
     platformUrl: jspb.Message.getFieldWithDefault(msg, 10, ""),
     platformFaviconUrl: jspb.Message.getFieldWithDefault(msg, 11, ""),
-    isEng: jspb.Message.getBooleanFieldWithDefault(msg, 12, false),
-    isRead: jspb.Message.getBooleanFieldWithDefault(msg, 13, false)
+    comment: (f = msg.getComment()) && content_content_pb.ArticleComment.toObject(includeInstance, f),
+    isEng: jspb.Message.getBooleanFieldWithDefault(msg, 14, false),
+    isRead: jspb.Message.getBooleanFieldWithDefault(msg, 15, false)
   };
 
   if (includeInstance) {
@@ -1299,11 +1302,16 @@ proto.checkpicks.bookmark.v1.CreateBookmarkRequest.deserializeBinaryFromReader =
       var value = /** @type {string} */ (reader.readString());
       msg.setPlatformFaviconUrl(value);
       break;
-    case 12:
+    case 13:
+      var value = new content_content_pb.ArticleComment;
+      reader.readMessage(value,content_content_pb.ArticleComment.deserializeBinaryFromReader);
+      msg.setComment(value);
+      break;
+    case 14:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setIsEng(value);
       break;
-    case 13:
+    case 15:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setIsRead(value);
       break;
@@ -1415,17 +1423,25 @@ proto.checkpicks.bookmark.v1.CreateBookmarkRequest.serializeBinaryToWriter = fun
       f
     );
   }
+  f = message.getComment();
+  if (f != null) {
+    writer.writeMessage(
+      13,
+      f,
+      content_content_pb.ArticleComment.serializeBinaryToWriter
+    );
+  }
   f = message.getIsEng();
   if (f) {
     writer.writeBool(
-      12,
+      14,
       f
     );
   }
   f = message.getIsRead();
   if (f) {
     writer.writeBool(
-      13,
+      15,
       f
     );
   }
@@ -1669,11 +1685,48 @@ proto.checkpicks.bookmark.v1.CreateBookmarkRequest.prototype.setPlatformFaviconU
 
 
 /**
- * optional bool is_eng = 12;
+ * optional checkpicks.content.v1.ArticleComment comment = 13;
+ * @return {?proto.checkpicks.content.v1.ArticleComment}
+ */
+proto.checkpicks.bookmark.v1.CreateBookmarkRequest.prototype.getComment = function() {
+  return /** @type{?proto.checkpicks.content.v1.ArticleComment} */ (
+    jspb.Message.getWrapperField(this, content_content_pb.ArticleComment, 13));
+};
+
+
+/**
+ * @param {?proto.checkpicks.content.v1.ArticleComment|undefined} value
+ * @return {!proto.checkpicks.bookmark.v1.CreateBookmarkRequest} returns this
+*/
+proto.checkpicks.bookmark.v1.CreateBookmarkRequest.prototype.setComment = function(value) {
+  return jspb.Message.setWrapperField(this, 13, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.checkpicks.bookmark.v1.CreateBookmarkRequest} returns this
+ */
+proto.checkpicks.bookmark.v1.CreateBookmarkRequest.prototype.clearComment = function() {
+  return this.setComment(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.checkpicks.bookmark.v1.CreateBookmarkRequest.prototype.hasComment = function() {
+  return jspb.Message.getField(this, 13) != null;
+};
+
+
+/**
+ * optional bool is_eng = 14;
  * @return {boolean}
  */
 proto.checkpicks.bookmark.v1.CreateBookmarkRequest.prototype.getIsEng = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 12, false));
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 14, false));
 };
 
 
@@ -1682,16 +1735,16 @@ proto.checkpicks.bookmark.v1.CreateBookmarkRequest.prototype.getIsEng = function
  * @return {!proto.checkpicks.bookmark.v1.CreateBookmarkRequest} returns this
  */
 proto.checkpicks.bookmark.v1.CreateBookmarkRequest.prototype.setIsEng = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 12, value);
+  return jspb.Message.setProto3BooleanField(this, 14, value);
 };
 
 
 /**
- * optional bool is_read = 13;
+ * optional bool is_read = 15;
  * @return {boolean}
  */
 proto.checkpicks.bookmark.v1.CreateBookmarkRequest.prototype.getIsRead = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 13, false));
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 15, false));
 };
 
 
@@ -1700,7 +1753,7 @@ proto.checkpicks.bookmark.v1.CreateBookmarkRequest.prototype.getIsRead = functio
  * @return {!proto.checkpicks.bookmark.v1.CreateBookmarkRequest} returns this
  */
 proto.checkpicks.bookmark.v1.CreateBookmarkRequest.prototype.setIsRead = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 13, value);
+  return jspb.Message.setProto3BooleanField(this, 15, value);
 };
 
 
