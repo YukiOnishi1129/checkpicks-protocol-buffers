@@ -15,7 +15,7 @@ service ContentService {
   rpc ListArticle(ListArticleRequest) returns (ListArticleResponse);
   rpc ListArticleByArticleURL(ListArticleByArticleURLRequest) returns (ListArticleByArticleURLResponse);
   rpc GetArticle(GetArticleRequest) returns (GetArticleResponse);
-  rpc GetUserSavedArticles(GetUserSavedArticleRequest) returns (GetUserSavedArticleResponse);
+  rpc GetUserSavedArticle(GetUserSavedArticleRequest) returns (GetUserSavedArticleResponse);
   rpc CreateUploadArticle(CreateUploadArticleRequest) returns (CreateArticleResponse);
 
   rpc GetArticleOGP(GetArticleOGPRequest) returns (GetArticleOGPResponse);

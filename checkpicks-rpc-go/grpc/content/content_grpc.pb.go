@@ -23,7 +23,7 @@ const (
 	ContentService_ListArticle_FullMethodName             = "/checkpicks.content.v1.ContentService/ListArticle"
 	ContentService_ListArticleByArticleURL_FullMethodName = "/checkpicks.content.v1.ContentService/ListArticleByArticleURL"
 	ContentService_GetArticle_FullMethodName              = "/checkpicks.content.v1.ContentService/GetArticle"
-	ContentService_GetUserSavedArticles_FullMethodName    = "/checkpicks.content.v1.ContentService/GetUserSavedArticles"
+	ContentService_GetUserSavedArticle_FullMethodName     = "/checkpicks.content.v1.ContentService/GetUserSavedArticle"
 	ContentService_CreateUploadArticle_FullMethodName     = "/checkpicks.content.v1.ContentService/CreateUploadArticle"
 	ContentService_GetArticleOGP_FullMethodName           = "/checkpicks.content.v1.ContentService/GetArticleOGP"
 	ContentService_GetFeeds_FullMethodName                = "/checkpicks.content.v1.ContentService/GetFeeds"
@@ -39,7 +39,7 @@ type ContentServiceClient interface {
 	ListArticle(ctx context.Context, in *ListArticleRequest, opts ...grpc.CallOption) (*ListArticleResponse, error)
 	ListArticleByArticleURL(ctx context.Context, in *ListArticleByArticleURLRequest, opts ...grpc.CallOption) (*ListArticleByArticleURLResponse, error)
 	GetArticle(ctx context.Context, in *GetArticleRequest, opts ...grpc.CallOption) (*GetArticleResponse, error)
-	GetUserSavedArticles(ctx context.Context, in *GetUserSavedArticleRequest, opts ...grpc.CallOption) (*GetUserSavedArticleResponse, error)
+	GetUserSavedArticle(ctx context.Context, in *GetUserSavedArticleRequest, opts ...grpc.CallOption) (*GetUserSavedArticleResponse, error)
 	CreateUploadArticle(ctx context.Context, in *CreateUploadArticleRequest, opts ...grpc.CallOption) (*CreateArticleResponse, error)
 	GetArticleOGP(ctx context.Context, in *GetArticleOGPRequest, opts ...grpc.CallOption) (*GetArticleOGPResponse, error)
 	GetFeeds(ctx context.Context, in *GetFeedsRequest, opts ...grpc.CallOption) (*GetFeedsResponse, error)
@@ -86,10 +86,10 @@ func (c *contentServiceClient) GetArticle(ctx context.Context, in *GetArticleReq
 	return out, nil
 }
 
-func (c *contentServiceClient) GetUserSavedArticles(ctx context.Context, in *GetUserSavedArticleRequest, opts ...grpc.CallOption) (*GetUserSavedArticleResponse, error) {
+func (c *contentServiceClient) GetUserSavedArticle(ctx context.Context, in *GetUserSavedArticleRequest, opts ...grpc.CallOption) (*GetUserSavedArticleResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetUserSavedArticleResponse)
-	err := c.cc.Invoke(ctx, ContentService_GetUserSavedArticles_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ContentService_GetUserSavedArticle_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -163,7 +163,7 @@ type ContentServiceServer interface {
 	ListArticle(context.Context, *ListArticleRequest) (*ListArticleResponse, error)
 	ListArticleByArticleURL(context.Context, *ListArticleByArticleURLRequest) (*ListArticleByArticleURLResponse, error)
 	GetArticle(context.Context, *GetArticleRequest) (*GetArticleResponse, error)
-	GetUserSavedArticles(context.Context, *GetUserSavedArticleRequest) (*GetUserSavedArticleResponse, error)
+	GetUserSavedArticle(context.Context, *GetUserSavedArticleRequest) (*GetUserSavedArticleResponse, error)
 	CreateUploadArticle(context.Context, *CreateUploadArticleRequest) (*CreateArticleResponse, error)
 	GetArticleOGP(context.Context, *GetArticleOGPRequest) (*GetArticleOGPResponse, error)
 	GetFeeds(context.Context, *GetFeedsRequest) (*GetFeedsResponse, error)
@@ -188,8 +188,8 @@ func (UnimplementedContentServiceServer) ListArticleByArticleURL(context.Context
 func (UnimplementedContentServiceServer) GetArticle(context.Context, *GetArticleRequest) (*GetArticleResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetArticle not implemented")
 }
-func (UnimplementedContentServiceServer) GetUserSavedArticles(context.Context, *GetUserSavedArticleRequest) (*GetUserSavedArticleResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetUserSavedArticles not implemented")
+func (UnimplementedContentServiceServer) GetUserSavedArticle(context.Context, *GetUserSavedArticleRequest) (*GetUserSavedArticleResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUserSavedArticle not implemented")
 }
 func (UnimplementedContentServiceServer) CreateUploadArticle(context.Context, *CreateUploadArticleRequest) (*CreateArticleResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateUploadArticle not implemented")
@@ -283,20 +283,20 @@ func _ContentService_GetArticle_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ContentService_GetUserSavedArticles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ContentService_GetUserSavedArticle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetUserSavedArticleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ContentServiceServer).GetUserSavedArticles(ctx, in)
+		return srv.(ContentServiceServer).GetUserSavedArticle(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ContentService_GetUserSavedArticles_FullMethodName,
+		FullMethod: ContentService_GetUserSavedArticle_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentServiceServer).GetUserSavedArticles(ctx, req.(*GetUserSavedArticleRequest))
+		return srv.(ContentServiceServer).GetUserSavedArticle(ctx, req.(*GetUserSavedArticleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -429,8 +429,8 @@ var ContentService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ContentService_GetArticle_Handler,
 		},
 		{
-			MethodName: "GetUserSavedArticles",
-			Handler:    _ContentService_GetUserSavedArticles_Handler,
+			MethodName: "GetUserSavedArticle",
+			Handler:    _ContentService_GetUserSavedArticle_Handler,
 		},
 		{
 			MethodName: "CreateUploadArticle",

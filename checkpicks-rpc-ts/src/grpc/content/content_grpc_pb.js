@@ -263,8 +263,8 @@ var ContentServiceService = exports.ContentServiceService = {
     responseSerialize: serialize_checkpicks_content_v1_GetArticleResponse,
     responseDeserialize: deserialize_checkpicks_content_v1_GetArticleResponse,
   },
-  getUserSavedArticles: {
-    path: '/checkpicks.content.v1.ContentService/GetUserSavedArticles',
+  getUserSavedArticle: {
+    path: '/checkpicks.content.v1.ContentService/GetUserSavedArticle',
     requestStream: false,
     responseStream: false,
     requestType: content_content_pb.GetUserSavedArticleRequest,
