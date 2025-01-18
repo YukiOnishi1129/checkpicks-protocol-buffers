@@ -207,7 +207,7 @@ message FavoriteArticle {
     string platform_name = 13;
     string platform_url = 14;
     string platform_favicon_url = 15;
-    optional checkpicks.content.v1.ArticleComment comment = 16;
+    optional checkpicks.content.v1.ArticleComment article_comment = 16;
     bool is_eng = 17;
     bool is_private = 18;
     bool is_read = 19;

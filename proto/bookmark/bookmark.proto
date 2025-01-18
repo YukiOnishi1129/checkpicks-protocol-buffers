@@ -57,9 +57,8 @@ message CreateBookmarkRequest {
     string platform_name = 9;
     string platform_url = 10;
     string platform_favicon_url = 11;
-    optional checkpicks.content.v1.ArticleComment comment = 13;
-    bool is_eng = 14;
-    bool is_read = 15;
+    bool is_eng = 12;
+    bool is_read = 13;
 }
 
 message CreateBookmarkForUploadArticleRequest {
@@ -93,10 +92,11 @@ message Bookmark {
     string platform_favicon_url = 12;
     bool is_following = 13;
     repeated string favorite_article_folder_ids = 14;
-    bool is_eng = 15;
-    bool is_read = 16;
-    google.protobuf.Timestamp created_at = 17;
-    google.protobuf.Timestamp updated_at = 18;
+    optional checkpicks.content.v1.ArticleComment article_comment = 15;
+    bool is_eng = 16;
+    bool is_read = 17;
+    google.protobuf.Timestamp created_at = 18;
+    google.protobuf.Timestamp updated_at = 19;
 }
 
 message BookmarkEdge {

@@ -841,10 +841,10 @@ export class FavoriteArticle extends jspb.Message {
     getPlatformFaviconUrl(): string;
     setPlatformFaviconUrl(value: string): FavoriteArticle;
 
-    hasComment(): boolean;
-    clearComment(): void;
-    getComment(): content_content_pb.ArticleComment | undefined;
-    setComment(value?: content_content_pb.ArticleComment): FavoriteArticle;
+    hasArticleComment(): boolean;
+    clearArticleComment(): void;
+    getArticleComment(): content_content_pb.ArticleComment | undefined;
+    setArticleComment(value?: content_content_pb.ArticleComment): FavoriteArticle;
     getIsEng(): boolean;
     setIsEng(value: boolean): FavoriteArticle;
     getIsPrivate(): boolean;
@@ -889,7 +889,7 @@ export namespace FavoriteArticle {
         platformName: string,
         platformUrl: string,
         platformFaviconUrl: string,
-        comment?: content_content_pb.ArticleComment.AsObject,
+        articleComment?: content_content_pb.ArticleComment.AsObject,
         isEng: boolean,
         isPrivate: boolean,
         isRead: boolean,

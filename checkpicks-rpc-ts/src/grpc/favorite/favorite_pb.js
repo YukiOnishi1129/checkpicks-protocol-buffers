@@ -6646,7 +6646,7 @@ proto.checkpicks.favorite.v1.FavoriteArticle.toObject = function(includeInstance
     platformName: jspb.Message.getFieldWithDefault(msg, 13, ""),
     platformUrl: jspb.Message.getFieldWithDefault(msg, 14, ""),
     platformFaviconUrl: jspb.Message.getFieldWithDefault(msg, 15, ""),
-    comment: (f = msg.getComment()) && content_content_pb.ArticleComment.toObject(includeInstance, f),
+    articleComment: (f = msg.getArticleComment()) && content_content_pb.ArticleComment.toObject(includeInstance, f),
     isEng: jspb.Message.getBooleanFieldWithDefault(msg, 17, false),
     isPrivate: jspb.Message.getBooleanFieldWithDefault(msg, 18, false),
     isRead: jspb.Message.getBooleanFieldWithDefault(msg, 19, false),
@@ -6755,7 +6755,7 @@ proto.checkpicks.favorite.v1.FavoriteArticle.deserializeBinaryFromReader = funct
     case 16:
       var value = new content_content_pb.ArticleComment;
       reader.readMessage(value,content_content_pb.ArticleComment.deserializeBinaryFromReader);
-      msg.setComment(value);
+      msg.setArticleComment(value);
       break;
     case 17:
       var value = /** @type {boolean} */ (reader.readBool());
@@ -6917,7 +6917,7 @@ proto.checkpicks.favorite.v1.FavoriteArticle.serializeBinaryToWriter = function(
       f
     );
   }
-  f = message.getComment();
+  f = message.getArticleComment();
   if (f != null) {
     writer.writeMessage(
       16,
@@ -7312,10 +7312,10 @@ proto.checkpicks.favorite.v1.FavoriteArticle.prototype.setPlatformFaviconUrl = f
 
 
 /**
- * optional checkpicks.content.v1.ArticleComment comment = 16;
+ * optional checkpicks.content.v1.ArticleComment article_comment = 16;
  * @return {?proto.checkpicks.content.v1.ArticleComment}
  */
-proto.checkpicks.favorite.v1.FavoriteArticle.prototype.getComment = function() {
+proto.checkpicks.favorite.v1.FavoriteArticle.prototype.getArticleComment = function() {
   return /** @type{?proto.checkpicks.content.v1.ArticleComment} */ (
     jspb.Message.getWrapperField(this, content_content_pb.ArticleComment, 16));
 };
@@ -7325,7 +7325,7 @@ proto.checkpicks.favorite.v1.FavoriteArticle.prototype.getComment = function() {
  * @param {?proto.checkpicks.content.v1.ArticleComment|undefined} value
  * @return {!proto.checkpicks.favorite.v1.FavoriteArticle} returns this
 */
-proto.checkpicks.favorite.v1.FavoriteArticle.prototype.setComment = function(value) {
+proto.checkpicks.favorite.v1.FavoriteArticle.prototype.setArticleComment = function(value) {
   return jspb.Message.setWrapperField(this, 16, value);
 };
 
@@ -7334,8 +7334,8 @@ proto.checkpicks.favorite.v1.FavoriteArticle.prototype.setComment = function(val
  * Clears the message field making it undefined.
  * @return {!proto.checkpicks.favorite.v1.FavoriteArticle} returns this
  */
-proto.checkpicks.favorite.v1.FavoriteArticle.prototype.clearComment = function() {
-  return this.setComment(undefined);
+proto.checkpicks.favorite.v1.FavoriteArticle.prototype.clearArticleComment = function() {
+  return this.setArticleComment(undefined);
 };
 
 
@@ -7343,7 +7343,7 @@ proto.checkpicks.favorite.v1.FavoriteArticle.prototype.clearComment = function()
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.checkpicks.favorite.v1.FavoriteArticle.prototype.hasComment = function() {
+proto.checkpicks.favorite.v1.FavoriteArticle.prototype.hasArticleComment = function() {
   return jspb.Message.getField(this, 16) != null;
 };
 

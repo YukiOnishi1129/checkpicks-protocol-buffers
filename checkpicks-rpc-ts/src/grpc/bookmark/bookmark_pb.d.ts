@@ -168,11 +168,6 @@ export class CreateBookmarkRequest extends jspb.Message {
     setPlatformUrl(value: string): CreateBookmarkRequest;
     getPlatformFaviconUrl(): string;
     setPlatformFaviconUrl(value: string): CreateBookmarkRequest;
-
-    hasComment(): boolean;
-    clearComment(): void;
-    getComment(): content_content_pb.ArticleComment | undefined;
-    setComment(value?: content_content_pb.ArticleComment): CreateBookmarkRequest;
     getIsEng(): boolean;
     setIsEng(value: boolean): CreateBookmarkRequest;
     getIsRead(): boolean;
@@ -201,7 +196,6 @@ export namespace CreateBookmarkRequest {
         platformName: string,
         platformUrl: string,
         platformFaviconUrl: string,
-        comment?: content_content_pb.ArticleComment.AsObject,
         isEng: boolean,
         isRead: boolean,
     }
@@ -308,6 +302,11 @@ export class Bookmark extends jspb.Message {
     getFavoriteArticleFolderIdsList(): Array<string>;
     setFavoriteArticleFolderIdsList(value: Array<string>): Bookmark;
     addFavoriteArticleFolderIds(value: string, index?: number): string;
+
+    hasArticleComment(): boolean;
+    clearArticleComment(): void;
+    getArticleComment(): content_content_pb.ArticleComment | undefined;
+    setArticleComment(value?: content_content_pb.ArticleComment): Bookmark;
     getIsEng(): boolean;
     setIsEng(value: boolean): Bookmark;
     getIsRead(): boolean;
@@ -349,6 +348,7 @@ export namespace Bookmark {
         platformFaviconUrl: string,
         isFollowing: boolean,
         favoriteArticleFolderIdsList: Array<string>,
+        articleComment?: content_content_pb.ArticleComment.AsObject,
         isEng: boolean,
         isRead: boolean,
         createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
