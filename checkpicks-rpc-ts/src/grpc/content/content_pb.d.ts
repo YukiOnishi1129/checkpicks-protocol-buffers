@@ -189,6 +189,52 @@ export namespace GetArticleRequest {
     }
 }
 
+export class GetUserSavedArticleResponse extends jspb.Message { 
+
+    hasArticle(): boolean;
+    clearArticle(): void;
+    getArticle(): Article | undefined;
+    setArticle(value?: Article): GetUserSavedArticleResponse;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): GetUserSavedArticleResponse.AsObject;
+    static toObject(includeInstance: boolean, msg: GetUserSavedArticleResponse): GetUserSavedArticleResponse.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: GetUserSavedArticleResponse, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): GetUserSavedArticleResponse;
+    static deserializeBinaryFromReader(message: GetUserSavedArticleResponse, reader: jspb.BinaryReader): GetUserSavedArticleResponse;
+}
+
+export namespace GetUserSavedArticleResponse {
+    export type AsObject = {
+        article?: Article.AsObject,
+    }
+}
+
+export class GetUserSavedArticleRequest extends jspb.Message { 
+    getArticleId(): string;
+    setArticleId(value: string): GetUserSavedArticleRequest;
+    getUserId(): string;
+    setUserId(value: string): GetUserSavedArticleRequest;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): GetUserSavedArticleRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: GetUserSavedArticleRequest): GetUserSavedArticleRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: GetUserSavedArticleRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): GetUserSavedArticleRequest;
+    static deserializeBinaryFromReader(message: GetUserSavedArticleRequest, reader: jspb.BinaryReader): GetUserSavedArticleRequest;
+}
+
+export namespace GetUserSavedArticleRequest {
+    export type AsObject = {
+        articleId: string,
+        userId: string,
+    }
+}
+
 export class CreateArticleResponse extends jspb.Message { 
 
     hasArticle(): boolean;

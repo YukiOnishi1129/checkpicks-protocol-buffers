@@ -15,6 +15,7 @@ interface IContentServiceService extends grpc.ServiceDefinition<grpc.UntypedServ
     listArticle: IContentServiceService_IListArticle;
     listArticleByArticleURL: IContentServiceService_IListArticleByArticleURL;
     getArticle: IContentServiceService_IGetArticle;
+    getUserSavedArticles: IContentServiceService_IGetUserSavedArticles;
     createUploadArticle: IContentServiceService_ICreateUploadArticle;
     getArticleOGP: IContentServiceService_IGetArticleOGP;
     getFeeds: IContentServiceService_IGetFeeds;
@@ -49,6 +50,15 @@ interface IContentServiceService_IGetArticle extends grpc.MethodDefinition<conte
     requestDeserialize: grpc.deserialize<content_content_pb.GetArticleRequest>;
     responseSerialize: grpc.serialize<content_content_pb.GetArticleResponse>;
     responseDeserialize: grpc.deserialize<content_content_pb.GetArticleResponse>;
+}
+interface IContentServiceService_IGetUserSavedArticles extends grpc.MethodDefinition<content_content_pb.GetUserSavedArticleRequest, content_content_pb.GetUserSavedArticleResponse> {
+    path: "/checkpicks.content.v1.ContentService/GetUserSavedArticles";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<content_content_pb.GetUserSavedArticleRequest>;
+    requestDeserialize: grpc.deserialize<content_content_pb.GetUserSavedArticleRequest>;
+    responseSerialize: grpc.serialize<content_content_pb.GetUserSavedArticleResponse>;
+    responseDeserialize: grpc.deserialize<content_content_pb.GetUserSavedArticleResponse>;
 }
 interface IContentServiceService_ICreateUploadArticle extends grpc.MethodDefinition<content_content_pb.CreateUploadArticleRequest, content_content_pb.CreateArticleResponse> {
     path: "/checkpicks.content.v1.ContentService/CreateUploadArticle";
@@ -111,6 +121,7 @@ export interface IContentServiceServer extends grpc.UntypedServiceImplementation
     listArticle: grpc.handleUnaryCall<content_content_pb.ListArticleRequest, content_content_pb.ListArticleResponse>;
     listArticleByArticleURL: grpc.handleUnaryCall<content_content_pb.ListArticleByArticleURLRequest, content_content_pb.ListArticleByArticleURLResponse>;
     getArticle: grpc.handleUnaryCall<content_content_pb.GetArticleRequest, content_content_pb.GetArticleResponse>;
+    getUserSavedArticles: grpc.handleUnaryCall<content_content_pb.GetUserSavedArticleRequest, content_content_pb.GetUserSavedArticleResponse>;
     createUploadArticle: grpc.handleUnaryCall<content_content_pb.CreateUploadArticleRequest, content_content_pb.CreateArticleResponse>;
     getArticleOGP: grpc.handleUnaryCall<content_content_pb.GetArticleOGPRequest, content_content_pb.GetArticleOGPResponse>;
     getFeeds: grpc.handleUnaryCall<content_content_pb.GetFeedsRequest, content_content_pb.GetFeedsResponse>;
@@ -129,6 +140,9 @@ export interface IContentServiceClient {
     getArticle(request: content_content_pb.GetArticleRequest, callback: (error: grpc.ServiceError | null, response: content_content_pb.GetArticleResponse) => void): grpc.ClientUnaryCall;
     getArticle(request: content_content_pb.GetArticleRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: content_content_pb.GetArticleResponse) => void): grpc.ClientUnaryCall;
     getArticle(request: content_content_pb.GetArticleRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: content_content_pb.GetArticleResponse) => void): grpc.ClientUnaryCall;
+    getUserSavedArticles(request: content_content_pb.GetUserSavedArticleRequest, callback: (error: grpc.ServiceError | null, response: content_content_pb.GetUserSavedArticleResponse) => void): grpc.ClientUnaryCall;
+    getUserSavedArticles(request: content_content_pb.GetUserSavedArticleRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: content_content_pb.GetUserSavedArticleResponse) => void): grpc.ClientUnaryCall;
+    getUserSavedArticles(request: content_content_pb.GetUserSavedArticleRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: content_content_pb.GetUserSavedArticleResponse) => void): grpc.ClientUnaryCall;
     createUploadArticle(request: content_content_pb.CreateUploadArticleRequest, callback: (error: grpc.ServiceError | null, response: content_content_pb.CreateArticleResponse) => void): grpc.ClientUnaryCall;
     createUploadArticle(request: content_content_pb.CreateUploadArticleRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: content_content_pb.CreateArticleResponse) => void): grpc.ClientUnaryCall;
     createUploadArticle(request: content_content_pb.CreateUploadArticleRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: content_content_pb.CreateArticleResponse) => void): grpc.ClientUnaryCall;
@@ -160,6 +174,9 @@ export class ContentServiceClient extends grpc.Client implements IContentService
     public getArticle(request: content_content_pb.GetArticleRequest, callback: (error: grpc.ServiceError | null, response: content_content_pb.GetArticleResponse) => void): grpc.ClientUnaryCall;
     public getArticle(request: content_content_pb.GetArticleRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: content_content_pb.GetArticleResponse) => void): grpc.ClientUnaryCall;
     public getArticle(request: content_content_pb.GetArticleRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: content_content_pb.GetArticleResponse) => void): grpc.ClientUnaryCall;
+    public getUserSavedArticles(request: content_content_pb.GetUserSavedArticleRequest, callback: (error: grpc.ServiceError | null, response: content_content_pb.GetUserSavedArticleResponse) => void): grpc.ClientUnaryCall;
+    public getUserSavedArticles(request: content_content_pb.GetUserSavedArticleRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: content_content_pb.GetUserSavedArticleResponse) => void): grpc.ClientUnaryCall;
+    public getUserSavedArticles(request: content_content_pb.GetUserSavedArticleRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: content_content_pb.GetUserSavedArticleResponse) => void): grpc.ClientUnaryCall;
     public createUploadArticle(request: content_content_pb.CreateUploadArticleRequest, callback: (error: grpc.ServiceError | null, response: content_content_pb.CreateArticleResponse) => void): grpc.ClientUnaryCall;
     public createUploadArticle(request: content_content_pb.CreateUploadArticleRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: content_content_pb.CreateArticleResponse) => void): grpc.ClientUnaryCall;
     public createUploadArticle(request: content_content_pb.CreateUploadArticleRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: content_content_pb.CreateArticleResponse) => void): grpc.ClientUnaryCall;

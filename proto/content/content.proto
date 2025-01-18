@@ -15,6 +15,7 @@ service ContentService {
   rpc ListArticle(ListArticleRequest) returns (ListArticleResponse);
   rpc ListArticleByArticleURL(ListArticleByArticleURLRequest) returns (ListArticleByArticleURLResponse);
   rpc GetArticle(GetArticleRequest) returns (GetArticleResponse);
+  rpc GetUserSavedArticles(GetUserSavedArticleRequest) returns (GetUserSavedArticleResponse);
   rpc CreateUploadArticle(CreateUploadArticleRequest) returns (CreateArticleResponse);
 
   rpc GetArticleOGP(GetArticleOGPRequest) returns (GetArticleOGPResponse);
@@ -58,6 +59,15 @@ message GetArticleResponse {
 }
 
 message GetArticleRequest {
+  string article_id = 1;
+  string user_id = 2;
+}
+
+message GetUserSavedArticleResponse {
+  Article article = 1;
+}
+
+message GetUserSavedArticleRequest {
   string article_id = 1;
   string user_id = 2;
 }
